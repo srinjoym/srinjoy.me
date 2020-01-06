@@ -8,13 +8,13 @@ type HeroProps = {
 
 const Hero:FunctionComponent<HeroProps> = ({className}) => (
   <GradientBackground>
-    <section className="hero">
+    <section className="hero py-5">
       <div className="hero-body">
         <div className="container">
-          <h1 className="title">
+          <h1 className="title has-text-white">
             Hi! I'm Srinjoy
           </h1>
-          <h2 className="subtitle">
+          <h2 className="subtitle has-text-white">
           I'm a Software Engineer and Computer Vision Researcher
           </h2>
         </div>

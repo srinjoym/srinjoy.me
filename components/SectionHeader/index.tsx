@@ -7,7 +7,7 @@ type SectionHeaderProps = {
 }
 
 const SectionHeader:FunctionComponent<SectionHeaderProps> = ({title}) => (
-  <div className="container p-t-4 p-b-4">
+  <div className="container pt-4">
     <div className="columns">
       <h1 className="title is-left column">{title}</h1>
 
