@@ -1,5 +1,15 @@
+const withPlugins = require('next-compose-plugins')
 const withSass = require('@zeit/next-sass')
-const images = require('remark-images')
-const emoji = require('remark-emoji')
+const withOptimizedImages = require('next-optimized-images')
 
-module.exports = withSass({})
+const nextConfig = {
+  webpack: function(config) {
+    config.module.rules.push({
+      test: /\.md$/,
+      use: 'raw-loader',
+    })
+    return config
+  },
+}
+
+module.exports = withPlugins([withSass, withOptimizedImages], nextConfig)
