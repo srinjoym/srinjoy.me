@@ -1,7 +1,6 @@
 import React, {FunctionComponent} from 'react'
 
-import { Image, Text, Box } from '@chakra-ui/core'
-import { Button } from "../Utilities"
+import { Image, Text, Box, Heading } from '@chakra-ui/core'
 
 type CardProps = {
   className?: string
@@ -16,25 +15,26 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
     <Image src={imagePath} />
 
     <Box
+      pt={2}
+      px={3}
       mt="1"
       fontWeight="semibold"
       as="h4"
       lineHeight="tight"
       isTruncated
     >
-      <Text>
+      <Heading size="md">
         {title}
-      </Text>
+      </Heading>
     </Box>
-    <Box>
-      <Text>
+    <Box
+      py={2}
+      px={3}
+    >
+      <Heading size="sm">
         {subtitle}
-      </Text>
+      </Heading>
     </Box>
-
-    <Text>
-      {text}
-    </Text>
   </Box>
 )
 

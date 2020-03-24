@@ -2,11 +2,10 @@ import React from 'react'
 import SectionHeader from "../SectionHeader"
 import Card from '../Card'
 import { SimpleGrid, Box } from '@chakra-ui/core'
-import projectData from '../../data/projects'
-import Container from "../../components/Container"
+import Container from "../Container"
 
-const renderCards = () => {
-  const cards = projectData.map(data => {
+const renderCards = (data) => {
+  const cards = data.map(data => {
     return <Card
       className="column is-one-third"
       imagePath={'/img/' + data.image}
@@ -24,14 +23,15 @@ const renderCards = () => {
     </SimpleGrid>
   )
 }
-const ProjectSection = () => (
-  <Box my={4}>
-    <Container>
-      <SectionHeader title="Projects"/>
 
-      { renderCards() }
+const CardSection = ({title, data}) => (
+  <Box pt={8} py={4}>
+    <Container>
+      <SectionHeader title={title}/>
+
+      { renderCards(data) }
     </Container>
   </Box>
 )
 
-export default ProjectSection
+export default CardSection

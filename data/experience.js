@@ -1,5 +1,12 @@
 const experience = [
   {
+    'id': 'sw_microsoft',
+    'title': 'Software Engineer',
+    'subtitle': 'Microsoft Hololens',
+    'image': 'hololens_card.png',
+    'text': 'Building apps for the Microsoft Hololens.'
+  },
+  {
     'id': 'sw_intern_github',
     'title': 'Software Engineer',
     'subtitle': 'GitHub',
@@ -8,7 +15,7 @@ const experience = [
   },
   {
     'id': 'ug_researcher',
-    'title': 'Human-Robot Interaction Researcher',
+    'title': 'Machine Learning Researcher',
     'subtitle': 'University of Texas at Austin',
     'image': 'Pearl_card.png',
     'text': 'I\'ve been working under Dr. Scott Niekum and Dr. Andrea Thomaz for the past three years in Computer Vision research at UT Austin. I\'ve developed software infrastructure for custom humanoid robots using the ROS Framework. I\'m currently researching novel Gaze tracking and 6DOF Object tracking algorithms.'
@@ -34,13 +41,6 @@ const experience = [
     'image': 'Team_846_Logo_card.png',
     'text': 'Co-President of an award winning extracurricular organization with over one hundred members involved in STEM activities. Leading the team in engineering activities including robot subsystems design, electronics design and implementation and technical presentations.'
   },
-  {
-    'id': 'tech_tutor',
-    'title': 'Tech Tutor',
-    'subtitle': 'Calabazas Library',
-    'image': 'calabazas_card.jpg',
-    'text': 'Weekly one on one sessions at Calabazas library with library visitors offering technology help on a wide variety of computing devices. I help with basic things like setting up an email account, all the way upto coding questions in Java. Anyone can sign up or walk into the class on Thursdays at 4:00PM.'
-  }
 ]
 
 export default experience
