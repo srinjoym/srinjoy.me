@@ -1,0 +1,5 @@
+{
+  "env": {
+    "FLICKR_API_KEY": "@flickr-api-key"
+  }
+}
