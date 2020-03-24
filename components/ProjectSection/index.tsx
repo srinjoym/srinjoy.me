@@ -1,9 +1,9 @@
 import React from 'react'
-import Hero from "../Hero"
 import SectionHeader from "../SectionHeader"
 import Card from '../Card'
-import { Grid } from '@theme-ui/components'
+import { SimpleGrid, Box } from '@chakra-ui/core'
 import projectData from '../../data/projects'
+import Container from "../../components/Container"
 
 const renderCards = () => {
   const cards = projectData.map(data => {
@@ -17,19 +17,21 @@ const renderCards = () => {
   })
 
   return(
-    <Grid
-      gap={2}
-      columns={[ 2, null, 3 ]}>
+    <SimpleGrid
+      columns={3}
+      spacing={10}>
       {cards}
-    </Grid>
+    </SimpleGrid>
   )
 }
 const ProjectSection = () => (
-  <div className="container">
-    <SectionHeader title="Projects"/>
+  <Box my={4}>
+    <Container>
+      <SectionHeader title="Projects"/>
 
-    { renderCards() }
-  </div>
+      { renderCards() }
+    </Container>
+  </Box>
 )
 
 export default ProjectSection

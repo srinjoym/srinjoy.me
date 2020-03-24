@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react'
 
-import { Card, Image, Text, Box } from '@theme-ui/components'
+import { Image, Text, Box } from '@chakra-ui/core'
 import { Button } from "../Utilities"
 
 type CardProps = {
@@ -12,46 +12,29 @@ type CardProps = {
 }
 
 const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imagePath, text}) => (
-  // <div className={className}>
-  //   <div className="card">
-  //     <div className="card-image">
-  //       <figure className="image">
-  //         <img src={imagePath} alt="Placeholder image" />
-  //       </figure>
-  //     </div>
-  //     <div className="card-content">
-  //       <p className="is-size-4">
-  //         {title}
-  //       </p>
-  //       <p className="is-size-5">
-  //         {subtitle}
-  //       </p>
-  //       {text}
-  //     </div>
-  //   </div>
-  // </div>
+  <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
+    <Image src={imagePath} />
 
-  <Box>
-    <Card>
-      <Image src={imagePath} />
-      <Text sx={{
-        fontSize: 4,
-        fontWeight: 'bold',
-      }}>
+    <Box
+      mt="1"
+      fontWeight="semibold"
+      as="h4"
+      lineHeight="tight"
+      isTruncated
+    >
+      <Text>
         {title}
       </Text>
-
-      <Text sx={{
-        fontSize: 4,
-        fontWeight: 'semibold',
-      }}>
+    </Box>
+    <Box>
+      <Text>
         {subtitle}
       </Text>
+    </Box>
 
-      <Text>
-        {text}
-      </Text>
-    </Card>
+    <Text>
+      {text}
+    </Text>
   </Box>
 )
 

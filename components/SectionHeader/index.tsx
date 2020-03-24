@@ -1,19 +1,15 @@
 import React, {FunctionComponent} from 'react'
 
-import { Button } from "../Utilities"
+import { Heading } from '@chakra-ui/core'
 
 type SectionHeaderProps = {
   title: String
 }
 
 const SectionHeader:FunctionComponent<SectionHeaderProps> = ({title}) => (
-  <div className="container pt-4">
-    <div className="columns">
-      <h1 className="title is-left column">{title}</h1>
-
-      <a className="is-right column is-narrow" href="">See More</a>
-    </div>
-  </div>
+    <Heading size="xl" my={4}>
+      {title}
+    </Heading>
 )
 
 export default SectionHeader
