@@ -2,7 +2,7 @@ import React from 'react'
 import Hero from "../Hero"
 import SectionHeader from "../SectionHeader"
 import Card from '../Card'
-
+import { Grid } from '@theme-ui/components'
 import projectData from '../../data/projects'
 
 const renderCards = () => {
@@ -17,9 +17,11 @@ const renderCards = () => {
   })
 
   return(
-    <div className="columns is-multiline">
+    <Grid
+      gap={2}
+      columns={[ 2, null, 3 ]}>
       {cards}
-    </div>
+    </Grid>
   )
 }
 const ProjectSection = () => (
