@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown'
 import { NextPage } from 'next'
 import Container from '../../components/Container'
 
-const htmlParser = require('./node_modules/react-markdown/plugins/html-parser')
+const htmlParser = require('react-markdown/plugins/html-parser')
 
 type BlogPostProps = {
   content: string

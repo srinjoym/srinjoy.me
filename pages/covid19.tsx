@@ -2,8 +2,9 @@ import React from 'react'
 import Container from "../components/Container"
 import ReactPlayer from 'react-player'
 import { Box, Text } from '@chakra-ui/core'
-import handleViewport from 'react-in-viewport';
 import styled from "styled-components";
+
+const VisibilitySensor = require('react-visibility-sensor').default;
 
 const Timeline = styled.ul`
   position: relative;
@@ -70,9 +71,6 @@ export const Event = ({ interval, children }) =>
       {children}
     </div>
   </EventListItem>
-
-const VisibilitySensor = require('react-visibility-sensor').default;
-
 
 function Covid19({ videos }){
   return (
