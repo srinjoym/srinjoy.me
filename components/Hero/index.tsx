@@ -1,25 +1,24 @@
 import React, {FunctionComponent} from 'react'
 import {GradientBackground} from "./style"
-import { Button } from '../Utilities'
-import { Heading } from "@theme-ui/components"
+import Container from "../Container"
+import { Heading, Box } from "@chakra-ui/core"
+
 type HeroProps = {
   className?:string
 }
 
 const Hero:FunctionComponent<HeroProps> = ({className}) => (
   <GradientBackground>
-    <section className="hero py-5">
-      <div className="hero-body">
-        <div className="container">
-          <Heading>
-            Hi! I'm Srinjoy
-          </Heading>
-          <h2 className="subtitle has-text-white">
-          I'm a Software Engineer and Computer Vision Researcher
-          </h2>
-        </div>
-      </div>
-    </section>
+    <Box py="100px;">
+      <Container >
+        <Heading size="2xl">
+          Hi! I'm Srinjoy
+        </Heading>
+        <Heading size="lg">
+        I'm a Software Engineer and Computer Vision Researcher
+        </Heading>
+      </Container>
+    </Box>
   </GradientBackground>
 )
 
