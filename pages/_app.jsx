@@ -1,5 +1,4 @@
 import React from 'react'
-import Router from 'next/router';
 import { ThemeProvider, CSSReset } from '@chakra-ui/core'
 
 import '../styles/index.scss'
