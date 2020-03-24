@@ -1,17 +1,14 @@
 import React from 'react'
-import Hero from "../components/Hero"
-import Card from '../components/Card'
-import CardCollectionSection from '../components/CardCollectionSection'
-import Navigation from '../components/Navigation'
+import Container from '../components/Container'
+import { Heading } from '@chakra-ui/core'
 
 
-const Home = () => (
-  <div>
-    <Navigation />
-
-    <Hero />
-    <CardCollectionSection />
-  </div>
+const Page = () => (
+  <Container>
+    <Heading>
+      WIP
+    </Heading>
+  </Container>
 )
 
-export default Home
+export default Page
