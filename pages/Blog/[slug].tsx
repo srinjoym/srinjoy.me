@@ -2,7 +2,7 @@ import React from 'react'
 import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown'
 import { NextPage } from 'next'
-import { PageContainer } from '../../components/Container'
+import Container from '../../components/Container'
 
 const htmlParser = require('react-markdown/plugins/html-parser')
 
@@ -14,14 +14,14 @@ type BlogPostProps = {
 const BlogPost:NextPage<BlogPostProps> = ({content, data}) => {
   // data from getInitialProps
   return (
-    <PageContainer>
+    <Container>
       <article>
         <h1>{JSON.stringify(data)}</h1>
         <div className="pt-4">
           <ReactMarkdown className="content" source={content} escapeHtml={false} astPlugins={[htmlParser()]} />
         </div>
       </article>
-    </PageContainer>
+    </Container>
   )
 }
 
