@@ -12,6 +12,7 @@ const renderCards = (data) => {
       title={data.title}
       subtitle={data.subtitle}
       text={data.text}
+      link={'projects/'+data.link}
       />
   })
 

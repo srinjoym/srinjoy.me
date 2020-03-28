@@ -10,18 +10,18 @@ import projectData from '../data/projects'
 
 const Home = () => (
   <div>
-    <Alert status="error">
+    {/* <Alert status="error">
       <Container>
-      <AlertIcon />
-      <Link href="covid19">
-        Learn more about COVID-19 and track President Trump's response...
-      </Link>
+        <AlertIcon />
+        <Link href="covid19">
+          Learn more about COVID-19 and track President Trump's response...
+        </Link>
       </Container>
-    </Alert>
+    </Alert> */}
 
     <Hero className="pt-12" />
 
-    <CardSection title="Where I've Worked" data={workData}/>
+    {/* <CardSection title="Where I've Worked" data={workData}/> */}
     <CardSection title="Research" data={researchData}/>
     <CardSection title="Projects" data={projectData}/>
   </div>

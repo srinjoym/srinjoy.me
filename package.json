@@ -34,6 +34,7 @@
     "react-image-lightbox": "^5.1.1",
     "react-markdown": "^4.2.2",
     "react-player": "^1.15.2",
+    "react-twitter-embed": "^3.0.3",
     "react-visibility-sensor": "^5.1.1",
     "styled-components": "^4.4.1",
     "yarn": "^1.22.4"

@@ -7,7 +7,7 @@ export const FrostedContainer = styled.div`
   right: 0;
   background-color: rgba(255, 255, 255, .45);
   backdrop-filter: blur(50px);
-  z-index: 1;
+  z-index: 100;
 
   .navbar {
     background-color: transparent;
