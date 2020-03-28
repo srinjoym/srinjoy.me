@@ -1,10 +1,11 @@
 import React from 'react'
 import Container from "../components/Container"
-import ReactPlayer from 'react-player'
-import { Box, Text, Flex,Heading, Link } from '@chakra-ui/core'
+import Navigation from "../components/Navigation"
+import { Box, Text, Flex,Heading, Link, SimpleGrid } from '@chakra-ui/core'
 import styled from "styled-components"
 import ReactMarkdown from 'react-markdown'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
+import ResponsivePlayer from '../components/ResponsivePlayer'
 
 const VisibilitySensor = require('react-visibility-sensor').default;
 
@@ -48,10 +49,10 @@ export const VideoEvent = ({video}) => (
       {({isVisible}) =>
         <div>
           <Box position="relative" borderWidth="1px" rounded="lg" overflow="hidden" p={8} mx={8}>
-            <Flex align="center">
+            <SimpleGrid columns={{sm: 1, lg: 2}} alignContent="center">
               <Box m={4}>
-                <Heading my={2} size="xl">Title</Heading>
-                <Heading my={2} size="lg">{video.date}</Heading>
+                <Heading my={2} size="md">{video.title}</Heading>
+                <Heading my={2} size="sm">{video.date}</Heading>
 
                 {video.quotes.map(quote => (
                   <ReactMarkdown source={quote}/>
@@ -59,12 +60,12 @@ export const VideoEvent = ({video}) => (
               </Box>
 
               <Box m={4} rounded="lg">
-                <ReactPlayer
+                <ResponsivePlayer
                   playing={isVisible}
                   url={video.url}
                 />
               </Box>
-            </Flex>
+            </SimpleGrid>
           </Box>
           <Line />
         </div>
@@ -75,6 +76,7 @@ export const VideoEvent = ({video}) => (
 function Covid19({ events }){
   return (
     <Container>
+      <Navigation />
       <Box py={8}>
         {events.map(event => {
           switch(event.type) {
@@ -100,22 +102,26 @@ export async function getStaticProps() {
     {
       date: '3/17/2020',
       type: 'video',
+      title: "Claims he's always known it's a pandemic",
       quotes: [
-        'I\'ve always know this is a pandemic. I felt it was a pandemic long before it was called a pandemic',
+        `President Trump: "I\'ve always know this is a pandemic. I felt it was a pandemic long before it was called a pandemic"`,
       ],
       url: 'https://www.youtube.com/embed/2eB_xCk5ABw?start=245&end=261',
     },
     {
       date: '3/15/2020',
       type: 'video',
+      title: "Rates self response 10/10",
       quotes: [
-        'Reporter: On a scale of 1-10, how would you rate your response to this crisis? President Trump: I\'d rate it a 10, I think we\'ve done a great job',
+        `Reporter: "On a scale of 1-10, how would you rate your response to this crisis?"`,
+        `President Trump: "I\'d rate it a 10, I think we\'ve done a great job"`,
       ],
       url: 'https://www.youtube.com/embed/2eB_xCk5ABw?start=208&end=244',
     },
     {
       date: '3/13/2020',
       type: 'video',
+      title: "Shakes hands with multiple people",
       quotes: [
         'Trump shakes hands with multiple CEOs during Coronavirus briefing despite social distancing recommendations...'
       ],
@@ -124,6 +130,7 @@ export async function getStaticProps() {
     {
       date: '03/11/2020',
       type: 'video',
+      title: "Confuses public with Europe travel ban",
       quotes: [
         'Trump bans all travel from Europe. However, adminstration later has to correct and say that ban does **not** apply to American residents and any trade and cargo.'
       ],
@@ -137,6 +144,7 @@ export async function getStaticProps() {
     {
       date: '2/28/2020',
       type: 'video',
+      title: "Blames Democrats for Coronavirus",
       quotes: [
         'Now the democrats are *politicizing* the Coronavirus.',
         'How\'s President Trump doing? They (House Democrats) go oh not good not good (in a mocking tone). They have no clue, they don\'t have any clue',
@@ -153,24 +161,14 @@ export async function getStaticProps() {
     {
       date: '2/14/2020',
       type: 'video',
+      title: `Lies about "small" number of people who are fully recovering`,
       quotes: ['We have a very small number of people in the country with it, it\s like around 12, many of them are getting better and some are fully recovered already so we\'re in very good shape'],
       url: 'https://www.youtube.com/embed/2eB_xCk5ABw?start=82&end=90',
     },
     {
-      date: '2/10/2020',
-      type: 'video',
-      quotes: ['Looks like by April, you know when in theory when it gets a little warmer it miraculously goes away, hope that\'s true'],
-      url: 'https://www.youtube.com/embed/2eB_xCk5ABw?start=60&end=78',
-    },
-    {
-      date: '1/30/2020',
-      type: 'video',
-      quotes: ['Coronavirus is the new thing that a lot of people are talking about, hopefully won\'t be as bad as some people think it could be. But we\'re working very closely with and a lot of other people and a lot of other countries and we think we have it very well under control.'],
-      url: 'https://www.youtube.com/embed/2eB_xCk5ABw?start=41&end=59',
-    },
-    {
       date: '1/22/2020',
       type: 'video',
+      title: `Claims situation is totally under control`,
       quotes: ['We have it totally under control. There\'s one person coming in from China and we have it under control'],
       url: 'https://www.youtube.com/embed/2eB_xCk5ABw?start=9&end=37', // Jan. 22 Trump Interview
     },

@@ -4,12 +4,10 @@ import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core'
 import '../styles/index.scss'
 import '../styles/spacing.scss'
 
-import Navigation from '../components/Navigation'
-import defaultTheme from '../components/Theme';
-import { theme } from "@chakra-ui/core";
+import myTheme from '../components/Theme';
 
 export default ({Component, pageProps}) => (
-  <ThemeProvider theme={theme}>
+  <ThemeProvider theme={myTheme}>
     <ColorModeProvider>
       <CSSReset />
       <Component {...pageProps} />

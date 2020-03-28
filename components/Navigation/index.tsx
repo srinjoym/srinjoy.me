@@ -16,6 +16,9 @@ const MenuItems = ({ children }) => (
 );
 
 const Navigation = ({offset}: NavProps) => {
+  if (offset == null) {
+    offset = true;
+  }
 
   const [isExpanded, toggleExpansion] = useState(false)
 
