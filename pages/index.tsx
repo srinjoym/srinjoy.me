@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from "../components/Hero"
 import CardSection from '../components/CardSection'
+import Navigation from "../components/Navigation"
 import Container from "../components/Container"
 import { Alert, AlertIcon, Link } from '@chakra-ui/core'
 
@@ -10,6 +11,7 @@ import projectData from '../data/projects'
 
 const Home = () => (
   <div>
+    <Navigation offset={false}/>
     {/* <Alert status="error">
       <Container>
         <AlertIcon />

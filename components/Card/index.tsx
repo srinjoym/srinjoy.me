@@ -39,7 +39,7 @@ const OverlayContainer = styled.div`
 
 const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imagePath, link, text}) => {
   return (
-    <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden">
+    <Box maxW="md" borderWidth="1px" rounded="lg" overflow="hidden">
       <OverlayContainer>
         <Image src={imagePath} />
 

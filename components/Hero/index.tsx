@@ -9,7 +9,7 @@ type HeroProps = {
 
 const Hero:FunctionComponent<HeroProps> = ({className}) => (
   <GradientBackground>
-    <Box py="100px;">
+    <Box pb="100px;" pt="158px;">
       <Container >
         <Heading size="2xl">
           Hi! I'm Srinjoy

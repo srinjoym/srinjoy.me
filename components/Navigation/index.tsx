@@ -5,13 +5,17 @@ import { FrostedContainer } from './style'
 import Container from '../Container'
 import { Flex, Heading, Box, Text, Button } from '@chakra-ui/core'
 
+type NavProps = {
+  offset?: boolean
+}
+
 const MenuItems = ({ children }) => (
   <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
     {children}
   </Text>
 );
 
-const Navigation = () => {
+const Navigation = ({offset}: NavProps) => {
 
   const [isExpanded, toggleExpansion] = useState(false)
 
@@ -59,7 +63,7 @@ const Navigation = () => {
         </Container>
       </FrostedContainer>
 
-      <Box height="56px"/>
+      {offset && <Box height="56px"/>}
     </div>
   )
 }

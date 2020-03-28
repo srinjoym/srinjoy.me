@@ -12,7 +12,6 @@ export default ({Component, pageProps}) => (
   <ThemeProvider theme={theme}>
     <ColorModeProvider>
       <CSSReset />
-      <Navigation />
       <Component {...pageProps} />
     </ColorModeProvider>
   </ThemeProvider>
