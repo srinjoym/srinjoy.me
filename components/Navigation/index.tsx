@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { FrostedContainer } from './style'
 import Container from '../Container'
-import { Flex, Heading, Box, Text, Button } from '@chakra-ui/core'
+import { useColorMode, Flex, Box, Text, Button, IconButton } from '@chakra-ui/core'
 
 type NavProps = {
   offset?: boolean
@@ -21,6 +21,7 @@ const Navigation = ({offset}: NavProps) => {
   }
 
   const [isExpanded, toggleExpansion] = useState(false)
+  const { colorMode, toggleColorMode } = useColorMode()
 
   return (
     <div>
@@ -61,6 +62,13 @@ const Navigation = ({offset}: NavProps) => {
                   <a className="navbar-item">Photos</a>
                 </Link>
               </Button>
+
+              <IconButton
+                onClick={toggleColorMode}
+                backgroundColor="transparent"
+                aria-label="Toggle color mode"
+                icon={colorMode == "dark" ? "sun":"moon"}
+              />
             </Box>
           </Flex>
         </Container>
