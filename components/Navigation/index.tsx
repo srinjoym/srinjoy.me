@@ -20,7 +20,8 @@ const Navigation = ({offset}: NavProps) => {
     offset = true;
   }
 
-  const [isExpanded, toggleExpansion] = useState(false)
+  const [show, setShow] = React.useState(false);
+  const handleToggle = () => setShow(!show);
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
@@ -42,7 +43,21 @@ const Navigation = ({offset}: NavProps) => {
               </Button>
             </Flex>
 
+            <Box display={{ sm: "block", md: "none" }} onClick={handleToggle} mx={4}>
+              <svg
+                fill={colorMode === "dark" ? "white" : "black"}
+                width="12px"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Menu</title>
+                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+              </svg>
+            </Box>
+
             <Box
+              display={{ sm: show ? "block" : "none", md: "flex" }}
+              width={{ sm: "full", md: "auto" }}
               mt={{ base: 4, md: 0 }}
             >
               <Button mx={4} backgroundColor="transparent">

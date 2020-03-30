@@ -3,6 +3,7 @@ import { Box, Image, SimpleGrid, Link } from "@chakra-ui/core"
 import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
+import Navigation from '../../components/Navigation';
 
 var Flickr = require('flickr-sdk');
 var flickr = new Flickr(process.env.FLICKR_API_KEY);
@@ -30,6 +31,7 @@ function Home({ thumbnailURLs, lightboxURLs }){
 
   return (
     <div>
+      <Navigation />
       <Container>
         <SimpleGrid columns={{sm: 2, md:3}} spacing={10} pt={6}>
           {thumbnailURLs.map((url, index) => (
