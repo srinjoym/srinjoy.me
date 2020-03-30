@@ -20,7 +20,7 @@ const Navigation = ({offset}: NavProps) => {
     offset = true;
   }
 
-  const [show, setShow] = React.useState(false);
+  const [show, setShow] = useState(false);
   const handleToggle = () => setShow(!show);
   const { colorMode, toggleColorMode } = useColorMode()
 
@@ -56,7 +56,7 @@ const Navigation = ({offset}: NavProps) => {
             </Box>
 
             <Box
-              display={{ sm: show ? "block" : "none", md: "flex" }}
+              display={show ? "block" : "none"}
               width={{ sm: "full", md: "auto" }}
               mt={{ base: 4, md: 0 }}
             >
