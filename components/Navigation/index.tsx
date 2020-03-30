@@ -56,7 +56,7 @@ const Navigation = ({offset}: NavProps) => {
             </Box>
 
             <Box
-              display={show ? "block" : "none"}
+              display={{xs: show ? "block" : "none", md: "block"}}
               width={{ sm: "full", md: "auto" }}
               mt={{ base: 4, md: 0 }}
             >
