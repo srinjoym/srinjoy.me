@@ -1,7 +1,20 @@
 import React, {FunctionComponent} from 'react'
 
-import { Image, Link, Box, Heading, Text, Button } from '@chakra-ui/core'
+import { Image, Link, Box, PseudoBox, Heading, Text, Tooltip, Flex, useColorMode, IconButton } from '@chakra-ui/core'
 import styled from '@emotion/styled'
+
+const BackgroundImage = styled(Image)`
+  /* position: absolute; */
+  /* filter: blur(5px);
+  -webkit-filter: blur(5px); */
+  object-fit: cover;
+`
+
+type ButtonData = {
+  label: string,
+  link: string,
+  external?: boolean
+}
 
 type CardProps = {
   className?: string
@@ -9,79 +22,38 @@ type CardProps = {
   subtitle?: string
   imagePath?: string
   text?: string
-  link?: string
+  buttonData?: ButtonData
 }
 
-const OverlayContainer = styled.div`
-  position: relative;
+const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imagePath, buttonData, text}) => {
+  const {colorMode, toggleColorMode} = useColorMode();
 
-  :hover {
-    /* transition: all .2s ease-in-out;
-    transform: scale(1.01); */
-
-    .overlay {
-      height: 100%;
-    }
-  }
-
-  .overlay {
-    position: absolute;
-    bottom: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 0px;
-    z-index: 10;
-    transition: .35s ease;
-    background-color: rgba(0, 0, 0, .15);
-    backdrop-filter: blur(100px);
-  }
-`
-
-const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imagePath, link, text}) => {
   return (
-    <Box maxW="md" borderWidth="1px" rounded="lg" overflow="hidden">
-      <OverlayContainer>
-        <Image src={imagePath} />
+    <PseudoBox maxW="md" borderWidth="1px" rounded="lg" overflow="hidden" display="flex" flexDirection="column" alignItems="stretch" position="relative" _hover={{transition: "all .25s ease-in-out", transform: "scale(1.015)"}}>
+      <BackgroundImage src={imagePath} maxH="250px" />
 
-        <Box
-          pt={2}
-          px={3}
-          mt="1"
-          fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          isTruncated
-        >
-          <Heading size="md">
-            {title}
-          </Heading>
-        </Box>
-        <Box
-          py={2}
-          px={3}
-        >
-          <Heading size="sm">
-            {subtitle}
-          </Heading>
-        </Box>
-
-        <Box className='overlay' rounded="lg" overflow="hidden" pt={2} px={3}>
-          <Heading size="md">
+      <Box p={2}>
+        <Flex flexDirection="column" height="100%">
+          <Heading as="h4" size="md" fontWeight="bold">
             {title}
           </Heading>
 
-          <Text py={2}>
-            {text}
-          </Text>
+          <Flex>
+            <Text py={2} display="flex" flexGrow={1}>
+              {text}
+            </Text>
 
-          { link &&
-            <Link href={link}>
-              <Button variantColor="blue">Learn More</Button>
-            </Link>
-          }
-        </Box>
-      </OverlayContainer>
-    </Box>
+            { buttonData &&
+              <Link href={buttonData.link} mt={2}>
+                <Tooltip aria-label={buttonData.label} label={buttonData.label}>
+                  <IconButton backgroundColor="transparent" aria-label="Link" icon="link" />
+                </Tooltip>
+              </Link>
+            }
+          </Flex>
+        </Flex>
+      </Box>
+    </PseudoBox>
   )
 }
 
