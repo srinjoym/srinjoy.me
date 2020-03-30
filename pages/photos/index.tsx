@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from '../../components/Container'
 import { Box, Image, SimpleGrid, Link } from '@chakra-ui/core'
+import Navigation from '../../components/Navigation';
 
 var Flickr = require('flickr-sdk');
 var flickr = new Flickr(process.env.FLICKR_API_KEY);
@@ -8,6 +9,7 @@ var flickr = new Flickr(process.env.FLICKR_API_KEY);
 function Photosets({ photosets }){
   return(
     <div>
+      <Navigation />
       <Container>
         <SimpleGrid columns={{sm: 2, md:3}} spacing={10} pt={6}>
           {photosets.map(photoset => (
