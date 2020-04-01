@@ -36,11 +36,11 @@ const Navigation = ({offset}: NavProps) => {
             py={2}
           >
             <Flex align="center" mr={5}>
-              <Button mx={4} backgroundColor="transparent">
-                <Link href="/">
-                  <a className="navbar-item">Home</a>
-                </Link>
-              </Button>
+              <Link href="/">
+                <Button mx={4} backgroundColor="transparent">
+                  Home
+                </Button>
+              </Link>
             </Flex>
 
             <Box display={{ sm: "block", md: "none" }} onClick={handleToggle} mx={4}>
@@ -60,23 +60,23 @@ const Navigation = ({offset}: NavProps) => {
               width={{ sm: "full", md: "auto" }}
               mt={{ base: 4, md: 0 }}
             >
-              <Button mx={4} backgroundColor="transparent">
-                <Link href="/about">
-                  <a className="navbar-item">About</a>
-                </Link>
-              </Button>
+              <Link href="/about">
+                <Button mx={4} backgroundColor="transparent">
+                    About
+                </Button>
+              </Link>
 
-              <Button mx={4} backgroundColor="transparent">
-                <Link href="/blog">
-                  <a className="navbar-item">Blog</a>
-                </Link>
-              </Button>
+              <Link href="/blog">
+                <Button mx={4} backgroundColor="transparent">
+                  Blog
+                </Button>
+              </Link>
 
-              <Button mx={4} backgroundColor="transparent">
-                <Link href="/photos">
-                  <a className="navbar-item">Photos</a>
-                </Link>
-              </Button>
+              <Link href="/photos">
+                <Button mx={4} backgroundColor="transparent">
+                  Photos
+                </Button>
+              </Link>
 
               <IconButton
                 onClick={toggleColorMode}
