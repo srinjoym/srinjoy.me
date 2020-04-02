@@ -61,12 +61,12 @@ export const VideoEvent = ({video}) => {
 
               <StatGroup>
                 <Stat>
-                  <StatLabel>Confirmed Cases</StatLabel>
+                  <StatLabel>Cases</StatLabel>
                   <StatNumber>{video.confirmed}</StatNumber>
                 </Stat>
 
                 <Stat>
-                  <StatLabel>Total deaths</StatLabel>
+                  <StatLabel>Deaths</StatLabel>
                   <StatNumber>{video.deaths}</StatNumber>
                 </Stat>
 
