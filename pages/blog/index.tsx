@@ -1,14 +1,21 @@
 import React from 'react'
 import Container from '../../components/Container'
-import { Heading } from '@chakra-ui/core'
+import { Heading, Box } from '@chakra-ui/core'
+import Navigation from '../../components/Navigation'
 
 
 const Page = () => (
-  <Container>
-    <Heading>
-      WIP
-    </Heading>
-  </Container>
+  <Box>
+    <Navigation />
+
+    <Container>
+      <Heading>
+        WIP
+      </Heading>
+
+    
+    </Container>
+  </Box>
 )
 
 export default Page
