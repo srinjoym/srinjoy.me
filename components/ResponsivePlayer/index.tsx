@@ -1,9 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 import ReactPlayer from 'react-player'
 
 import { ResponsiveContainer } from './style'
-import Container from '../Container'
-import { Flex, Heading, Box, Text, Button } from '@chakra-ui/core'
 
 const ResponsivePlayer = ({url}) => (
   <ResponsiveContainer>
@@ -12,7 +10,8 @@ const ResponsivePlayer = ({url}) => (
       url={url}
       width='100%'
       height='100%'
-      // light={true}
+      light={true}
+      playing={true}
     />
   </ResponsiveContainer>
 )

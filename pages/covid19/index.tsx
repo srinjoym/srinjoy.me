@@ -1,13 +1,11 @@
 import React from 'react'
 import Container from "../../components/Container"
 import Navigation from "../../components/Navigation"
-import { Box, StatGroup, Flex,Heading, Link, SimpleGrid, Stat, StatLabel, StatNumber } from '@chakra-ui/core'
+import { Box, StatGroup, Flex,Heading, Link, SimpleGrid, Stat, StatLabel, StatNumber, Divider } from '@chakra-ui/core'
 import styled from "styled-components"
 import ReactMarkdown from 'react-markdown'
 import { TwitterTweetEmbed } from 'react-twitter-embed'
-import moment from 'moment'
 import ResponsivePlayer from '../../components/ResponsivePlayer'
-import covidTimeData from '../../data/timeseries.json'
 
 const Line = styled.div`
   position: relative;
@@ -46,24 +44,38 @@ export const TweetEvent = ({data}) => (
 export const VideoEvent = ({video}) => {
   return (
     <div>
-      <Box position="relative" borderWidth="1px" rounded="lg" overflow="hidden" p={8} mx={8}>
+      <Box position="relative" borderWidth="1px" rounded="lg" overflow="hidden" p={8}>
         <SimpleGrid columns={{sm: 1, lg: 2}} alignContent="center">
-          <Box m={4}>
-            <Heading my={2} size="md">{video.title}</Heading>
-            <Heading my={2} size="sm">{video.date}</Heading>
+          <Box m={4} display="flex" flexDirection="column">
+            <Box flexGrow={1}>
+              <Heading my={2} size="md">{video.title}</Heading>
+              <Heading my={2} size="sm">{video.date}</Heading>
 
-            {video.quotes.map(quote => (
-              <ReactMarkdown source={quote}/>
-            ))}
+              {video.quotes.map(quote => (
+                <ReactMarkdown key={quote} source={quote}/>
+              ))}
+            </Box>
 
-            {/* <Box rounded="lg" borderWidth="1px">
+            <Box>
+              <Divider />
+
               <StatGroup>
                 <Stat>
-                  <StatLabel>Number of cases</StatLabel>
-                  <StatNumber>{}</StatNumber>
+                  <StatLabel>Confirmed Cases</StatLabel>
+                  <StatNumber>{video.confirmed}</StatNumber>
+                </Stat>
+
+                <Stat>
+                  <StatLabel>Total deaths</StatLabel>
+                  <StatNumber>{video.deaths}</StatNumber>
+                </Stat>
+
+                <Stat>
+                  <StatLabel>Recovering</StatLabel>
+                  <StatNumber>{video.recovered}</StatNumber>
                 </Stat>
               </StatGroup>
-            </Box> */}
+            </Box>
           </Box>
 
           <Box m={4} rounded="lg">
@@ -78,7 +90,7 @@ export const VideoEvent = ({video}) => {
   )
 }
 
-function Covid19({ events, usCasesTimeline }){
+function Covid19({ events }){
   return (
     <Container>
       <Navigation />
@@ -86,29 +98,17 @@ function Covid19({ events, usCasesTimeline }){
       <Heading py={4} size="xl">President Trump's Coronavirus Response</Heading>
       <Heading size="md">This timeline documents President Trump's lies and faulty decision making in handling the 2019 Coronavirus outbreak.</Heading>
       <Box py={8}>
-        {events.reverse().map(event => {
-          // const numCases = usCasesTimeline[event.date].confirmed
-
+        {events.slice().reverse().map(event => {
           switch(event.type) {
             case 'tweet':
-              return <TweetEvent data={event}/>
+              return <TweetEvent key={event.date+event.type} data={event}/>
             case 'video':
-              return <VideoEvent video={event} />
+              return <VideoEvent key={event.date+event.type} video={event} />
           }
         })}
       </Box>
     </Container>
   )
-}
-
-const convertArrayToObject = (array, key) => {
-  const initialValue = {};
-  return array.reduce((obj, item) => {
-    return {
-      ...obj,
-      [item[key]]: item,
-    };
-  }, initialValue);
 }
 
 // This function gets called at build time on server-side.
@@ -127,6 +127,9 @@ export async function getStaticProps() {
         `Trump: "I would love to have that. It’s such an important day for other reasons, but I’d love to make it an important day for this. I would love to have the country opened up, and rarin’ to go by Easter."`,
       ],
       url: 'https://www.youtube.com/watch?v=t1RCznQ41Mc&t=2s',
+      "confirmed": 140886,
+      "deaths": 2467,
+      "recovered": 2665
     },
     {
       date: '3/24/2020',
@@ -136,6 +139,9 @@ export async function getStaticProps() {
         `Trump: "I would love to have that. It’s such an important day for other reasons, but I’d love to make it an important day for this. I would love to have the country opened up, and rarin’ to go by Easter."`,
       ],
       url: 'https://www.youtube.com/watch?v=qV6b_8gD_bg',
+      "confirmed": 53740,
+      "deaths": 706,
+      "recovered": 348
     },
     {
       date: '3/20/2020',
@@ -149,7 +155,10 @@ export async function getStaticProps() {
       quotes: ['Reporter: "What do you say to Americans who are scared?"',
                'Trump: "I say that you are a terrible reporter, That\'s what I say. \
                 I think that’s a very nasty question, and I think that’s a very bad signal that you’re putting out to the American people."'],
-      url: 'https://www.youtube.com/watch?v=N5NQdmHzBTY'
+      url: 'https://www.youtube.com/watch?v=N5NQdmHzBTY',
+      "confirmed": 19100,
+      "deaths": 244,
+      "recovered": 147
     },
     {
       date: '3/17/2020',
@@ -159,6 +168,9 @@ export async function getStaticProps() {
         `Trump: "I\'ve always know this is a pandemic. I felt it was a pandemic long before it was called a pandemic"`,
       ],
       url: 'https://www.youtube.com/watch?v=HOneVW5gA3U',
+      "confirmed": 6421,
+      "deaths": 108,
+      "recovered": 17
     },
     {
       date: '3/15/2020',
@@ -169,6 +181,9 @@ export async function getStaticProps() {
         `Trump: "I\'d rate it a 10, I think we\'ve done a great job"`,
       ],
       url: 'https://www.youtube.com/watch?v=jXjqsCNk4v8?start=4&end=83',
+      "confirmed": 3499,
+      "deaths": 63,
+      "recovered": 12
     },
     {
       date: '3/13/2020',
@@ -177,7 +192,10 @@ export async function getStaticProps() {
       quotes: [
         'Trump continues to shake hands with multiple speakers during the Coronavirus briefing despite his own social distancing recommendations.'
       ],
-      url: 'https://www.youtube.com/embed/H0wYtsouUi0?start=47&end=80'
+      url: 'https://www.youtube.com/embed/H0wYtsouUi0?start=47&end=80',
+      "confirmed": 2179,
+      "deaths": 47,
+      "recovered": 12
     },
     {
       date: '3/11/2020',
@@ -186,7 +204,10 @@ export async function getStaticProps() {
       quotes: [
         'Trump bans all travel from Europe. However, adminstration later has to correct and say that ban does **not** apply to American residents and any trade and cargo.'
       ],
-      url: 'https://www.youtube.com/watch?v=yAzS_xWBhfk&t=8s'
+      url: 'https://www.youtube.com/watch?v=yAzS_xWBhfk&t=8s',
+      "confirmed": 1281,
+      "deaths": 36,
+      "recovered": 8
     },
     {
       date: '3/9/2020',
@@ -199,14 +220,20 @@ export async function getStaticProps() {
       title: 'Doesn\'t want sick passengers on cruise ship to disembark to keep numbers low',
       quotes: ['Trump: "They would like to have the people come off. I’d rather have the people stay [on the ship]. But I’d go with them. I told them to make the final decision."',
                 '"I would rather — because I like the numbers being where they are. I don’t need to have the numbers double because of one ship that wasn’t our fault."'],
-      url: 'https://www.youtube.com/watch?v=ExWLn86Mu_g'
+      url: 'https://www.youtube.com/watch?v=ExWLn86Mu_g',
+      "confirmed": 402,
+      "deaths": 17,
+      "recovered": 7
     },
     {
       date: '3/6/2020',
       type: 'video',
       title: 'Claims anyone who wants a test can get a test',
       quotes: ['Trump: "But as of right now and yesterday, anybody that needs a test — that’s the important thing — and the tests are all perfect"'],
-      url: 'https://www.youtube.com/watch?v=1_XwC9IQKBc'
+      url: 'https://www.youtube.com/watch?v=1_XwC9IQKBc',
+      "confirmed": 262,
+      "deaths": 14,
+      "recovered": 7
     },
     {
       date: '2/28/2020',
@@ -217,6 +244,9 @@ export async function getStaticProps() {
         '"This is their new **hoax**"',
       ],
       url: 'https://www.youtube.com/watch?v=G5TZ6fTYrsE',
+      "confirmed": 60,
+      "deaths": 0,
+      "recovered": 7
     },
     {
       date: '2/24/2020',
@@ -229,23 +259,25 @@ export async function getStaticProps() {
       title: `Lies about "small" number of people who are fully recovering`,
       quotes: ['Trump: "We have a very small number of people in the country with it, it\s like around 12, many of them are getting better and some are fully recovered already so we\'re in very good shape"'],
       url: 'https://www.youtube.com/embed/2eB_xCk5ABw?start=82&end=90',
+      "confirmed": 13,
+      "deaths": 0,
+      "recovered": 3
     },
     {
       date: '1/22/2020',
       type: 'video',
       title: `Claims situation is totally under control`,
       quotes: ['Trump: "We have it totally under control. There\'s one person coming in from China and we have it under control"'],
-      url: 'https://www.youtube.com/embed/2eB_xCk5ABw?start=9&end=37', // Jan. 22 Trump Interview
+      url: 'https://www.youtube.com/embed/2eB_xCk5ABw?start=9&end=37',
+      "confirmed": 1,
+      "deaths": 0,
+      "recovered": 0
     },
   ]
-
-  // covidTimeData.US.map(item => item.date = moment(item.date, "YYYY-M-D").format("M/D/YYYY").toString())
-  // const usCasesTimeline = convertArrayToObject(covidTimeData.US, 'date')
 
   return {
     props: {
       events,
-      // usCasesTimeline
     }
   }
 }
