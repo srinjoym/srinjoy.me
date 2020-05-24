@@ -16,14 +16,6 @@ import Flickr from 'flickr-sdk'
 const Home = ({photos}) => (
   <Box mb={10}>
     <Navigation offset={false}/>
-    {/* <Alert status="error">
-      <Container>
-        <AlertIcon />
-        <Link href="covid19">
-          Learn more about COVID-19 and track President Trump's response...
-        </Link>
-      </Container>
-    </Alert> */}
 
     <Hero className="pt-12" />
 

@@ -8,9 +8,9 @@ import myTheme from '../components/Theme';
 
 export default ({Component, pageProps}) => (
   <ThemeProvider theme={myTheme}>
-    <ColorModeProvider>
+    {/* <ColorModeProvider> */}
       <CSSReset />
       <Component {...pageProps} />
-    </ColorModeProvider>
+    {/* </ColorModeProvider> */}
   </ThemeProvider>
 )

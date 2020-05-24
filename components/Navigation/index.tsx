@@ -77,13 +77,6 @@ const Navigation = ({offset}: NavProps) => {
                   Photos
                 </Button>
               </Link>
-
-              <IconButton
-                onClick={toggleColorMode}
-                backgroundColor="transparent"
-                aria-label="Toggle color mode"
-                icon={colorMode == "dark" ? "sun":"moon"}
-              />
             </Box>
           </Flex>
         </Container>
