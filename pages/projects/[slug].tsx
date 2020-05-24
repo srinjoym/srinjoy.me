@@ -1,10 +1,11 @@
 import React from 'react'
 import matter from 'gray-matter'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown/with-html'
 import { NextPage } from 'next'
 import Container from '../../components/Container'
-
-const htmlParser = require('react-markdown/plugins/html-parser')
+import ChakraUIRenderer from "chakra-ui-markdown-renderer"
+import { Box } from '@chakra-ui/core'
+import Navigation from '../../components/Navigation'
 
 type BlogPostProps = {
   content: string
@@ -14,14 +15,16 @@ type BlogPostProps = {
 const BlogPost:NextPage<BlogPostProps> = ({content, data}) => {
   // data from getInitialProps
   return (
-    <Container>
-      <article>
-        <h1>{JSON.stringify(data)}</h1>
-        <div className="pt-4">
-          <ReactMarkdown className="content" source={content} escapeHtml={false} astPlugins={[htmlParser()]} />
-        </div>
-      </article>
-    </Container>
+    <Box>
+      <Navigation />
+      <Container>
+        <article>
+          <div className="pt-4">
+            <ReactMarkdown renderers={ChakraUIRenderer()} source={content} escapeHtml={false} />
+          </div>
+        </article>
+      </Container>
+    </Box>
   )
 }
 

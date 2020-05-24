@@ -946,6 +946,28 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@chakra-ui/core@^0.5.2":
+  version "0.5.2"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/core/-/core-0.5.2.tgz#0aa9c059467e7e957098bc07561ed86d80025b0b"
+  integrity sha512-0JL7QDp/fr7xcR9vNS6L3N4MluajboLWdnBeN3xK1Cn2ysTBR++ihew4C6vUm8RTTltxmYLP9t6ccuHDxaOxcQ==
+  dependencies:
+    "@reach/auto-id" "0.2.0"
+    "@styled-system/css" "5.0.13"
+    "@styled-system/should-forward-prop" "5.0.12"
+    "@types/styled-system" "5.0.1"
+    aria-hidden "^1.1.1"
+    body-scroll-lock "^2.6.4"
+    color "3.1.2"
+    exenv "^1.2.2"
+    popper.js "^1.15.0"
+    pretty-num "0.3.0"
+    react-animate-height "2.0.9"
+    react-focus-lock "^2.2.1"
+    react-spring "^8.0.27"
+    styled-system "5.0.5"
+    toasted-notes "3.0.0"
+    use-dark-mode "2.3.1"
+
 "@chakra-ui/core@^0.6.1":
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/@chakra-ui/core/-/core-0.6.1.tgz#63478877cf25c9175b7809aa42edc6262d11a87c"
@@ -2489,6 +2511,13 @@ caw@^2.0.0, caw@^2.0.1:
     isurl "^1.0.0-alpha5"
     tunnel-agent "^0.6.0"
     url-to-options "^1.0.1"
+
+chakra-ui-markdown-renderer@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/chakra-ui-markdown-renderer/-/chakra-ui-markdown-renderer-0.2.0.tgz#56282495ba0ee46e4f47263e896e538146744024"
+  integrity sha512-nbpN8PydUYD87lsTjtBuJ4P0B+4tkatpfNlgZx4S3feuFlv60lqbW2HYZbnN8QjEMQLztmZcgXU7WPp1WOyqpw==
+  dependencies:
+    "@chakra-ui/core" "^0.5.2"
 
 chalk@2.4.2, chalk@^2.0.0, chalk@^2.0.1, chalk@^2.3.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
@@ -4354,6 +4383,11 @@ fresh@0.5.2:
   version "0.5.2"
   resolved "https://registry.yarnpkg.com/fresh/-/fresh-0.5.2.tgz#3d8cadd90d976569fa835ab1f8e4b23a105605a7"
   integrity sha1-PYyt2Q2XZWn6g1qx+OSyOhBWBac=
+
+from-exponential@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/from-exponential/-/from-exponential-1.0.0.tgz#feea3f96dc6861dca784599e391c24bdb48d28f2"
+  integrity sha512-lr7d141V95FOV+W9B2f4D5gNM2Tm6Qk5GOBGwr6ZukwhpWHldqJw30xI+UkVBYi1cQu3afLQQD9QEgxpehT9wg==
 
 from2@^2.1.0, from2@^2.1.1:
   version "2.3.0"
@@ -7797,6 +7831,14 @@ prepend-http@^2.0.0:
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
+pretty-num@0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/pretty-num/-/pretty-num-0.3.0.tgz#4b62b7315c8b0a14b5e93f7340983f02ec200c38"
+  integrity sha512-qELFXWLfKYZg3BSdPXG5XqsbjLojJcvssSTH70ITntXZUAiYYXqiFmZX3i1OGfltPmP3SmJAyXuxiZco7OOoyA==
+  dependencies:
+    from-exponential "^1.0.0"
+    thousands "^1.0.1"
+
 private@^0.1.8:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
@@ -9442,6 +9484,11 @@ terser@^4.1.2:
     commander "^2.20.0"
     source-map "~0.6.1"
     source-map-support "~0.5.12"
+
+thousands@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/thousands/-/thousands-1.0.1.tgz#59eb5b6d179ab20a42d9d1bdd05c2ca07fbc2d94"
+  integrity sha1-WetbbReasgpC2dG90FwsoH+8LZQ=
 
 thread-loader@2.1.3:
   version "2.1.3"
