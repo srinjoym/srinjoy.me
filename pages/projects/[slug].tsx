@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown/with-html'
 import { NextPage } from 'next'
 import Container from '../../components/Container'
-import ChakraUIRenderer from "chakra-ui-markdown-renderer"
+import ChakraMdRender from "../../components/ChakraMarkdownRenderer"
 import { Box } from '@chakra-ui/core'
 import Navigation from '../../components/Navigation'
 
@@ -15,12 +15,12 @@ type BlogPostProps = {
 const BlogPost:NextPage<BlogPostProps> = ({content, data}) => {
   // data from getInitialProps
   return (
-    <Box>
+    <Box mb={6}>
       <Navigation />
       <Container>
         <article>
           <div className="pt-4">
-            <ReactMarkdown renderers={ChakraUIRenderer()} source={content} escapeHtml={false} />
+            <ReactMarkdown renderers={ChakraMdRender()} source={content} escapeHtml={false} />
           </div>
         </article>
       </Container>

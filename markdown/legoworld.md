@@ -1,3 +1,10 @@
+# Lego World
+
+This semester (Fall 2018) I got the chance to take the undergraduate Image Processing course taught by Dr. Alan Bovik at UT Austin.
+One of the most interesting aspects of the course was the final project; we were given the freedom to build any application as long
+it used some of the image processing techniques we had learned in the course. I decided to build Lego World, a native Mixed-Reality
+iOS application built on top of ARKit which guides the user in augmented reality as they build a Lego Model.
+
 ### Development Process
 
 Since this project spanned the entire semester, I decided to split it up into three stages in the beginning.
@@ -10,7 +17,7 @@ The first stage of this project was based on recognizing key points on an object
 reliably detect the position of the Lego set. I experimented with several key point extraction methods using the OpenCV library
 such as the Scale Invariant Feature Transform (SIFT).
 
-<img src='/img/london_sift.jpg'/>
+![SIFT Feature Points](/img/london_sift.jpg)
 
 *Keypoints on a Lego Model*
 
@@ -26,7 +33,7 @@ The final stage of this project was taking the things learned from Stages 1 and 
 
 I first needed 3D models of the Lego sets so I could overlay them as the user built each layer in the app. Thankfully, the [Eurobricks](www.eurobricks.com) community has an excellent archive of Lego Digital Designer models for most major Lego sets. From there, I just had to do some tinkering to split each model into different steps for the user to follow, and then export each into the COLLADA file format.
 
-<img src='/img/legoworld_cad_models.png'/>
+![Lego World Design Models](/img/legoworld_cad_models.png)
 
 *Models of the Lego Architecture Sets I used*
 
@@ -42,7 +49,7 @@ After initial testing, I decided to scan two point clouds for each step in the b
 
 After the app detects which step the user is on, it loads the COLLADA file for the next step and anchors to the correct place on the physical model. This allows the user to clearly see where the next pieces should go instead of having to guess based on the manual.
 
-<img src='/img/legoworld_anchor_demo.png'/>
+![Anchor Demo](/img/legoworld_anchor_demo.png)
 
 *Left: 3D Model of Big Ben anchored, Right: Physical Big Ben Set*
 

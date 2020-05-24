@@ -15,7 +15,7 @@ const Hero:FunctionComponent<HeroProps> = ({className}) => (
           Hi! I'm Srinjoy
         </Heading>
         <Heading size="lg" mt={2}>
-        I'm a Software Engineer at Microsoft building AR apps for the Hololens
+        I'm a Software Engineer at Microsoft building HoloLens
         </Heading>
 
         <Link href="/about">

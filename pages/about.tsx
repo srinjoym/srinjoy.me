@@ -2,21 +2,20 @@ import React from 'react'
 import Container from '../components/Container'
 import { Heading, Box, Image, Link } from '@chakra-ui/core'
 import Navigation from '../components/Navigation'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown/with-html'
 
 const bio = `
-  👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft building AR apps for the Hololens.
-  This past year, I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering.
+  👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft building Mixed Reality apps for the Hololens. This past year, I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
 
-  At UT, I conducted computer vision research in the Human-Robot Interaction domain under Dr. Andrea Thomaz and Dr. Scott Niekum.
+  <br />
 
-  Previously, I worked part-time as a Software Engineer at GitHub. I worked on various projects such as developing [GitHub Classroom](https://github.com/srinjoym/classroom)
-  developing products in education and social networking.
+  While at UT, I conducted computer vision research in Human-Robot Interaction under Dr. Andrea Thomaz and Dr. Scott Niekum. I explored new 6 D.O.F. object tracking algorithms, gaze tracking methods and real-time environment mapping.
+  I also helped develop software for the lab's custom humanoid robot named Poli!
+
+  <br />
+
+  Previously, I worked part-time as a Software Engineer at GitHub while going to school. I worked on various projects such as developing [GitHub Classroom](https://github.com/srinjoym/classroom) and other social features on GitHub.
 `
-
-const urlTransform = (uri) => (
-  <Link />
-)
 
 const Page = () => (
   <Box>
@@ -26,7 +25,7 @@ const Page = () => (
         About Me
       </Heading>
 
-      <ReactMarkdown source={bio} renderers={{link: Link}} />
+      <ReactMarkdown source={bio} renderers={{link: Link}} escapeHtml={false} />
 
       <Image width="300px" rounded="lg" mt={6} marginLeft="auto" marginRight="auto" src={('/img/prof.jpg')} />
     </Container>
