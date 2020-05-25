@@ -10,12 +10,6 @@ type NavProps = {
   offset?: boolean
 }
 
-const MenuItems = ({ children }) => (
-  <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
-    {children}
-  </Text>
-);
-
 const Navigation = ({offset}: NavProps) => {
   if (offset == null) {
     offset = true;
@@ -27,7 +21,7 @@ const Navigation = ({offset}: NavProps) => {
 
   return (
     <div>
-      <FrostedContainer>
+      <FrostedContainer backgroundColor={colorMode === "dark" ? "rgba(0, 0, 0, .9)":"rgba(255, 255, 255, .9)"}>
         <Container>
           <Flex
             as="nav"
@@ -38,7 +32,7 @@ const Navigation = ({offset}: NavProps) => {
           >
             <Flex align="center" mr={5}>
               <Link href="/">
-                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .15)"}}>
+                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
                   Home
                 </Button>
               </Link>
@@ -61,16 +55,24 @@ const Navigation = ({offset}: NavProps) => {
               flexDirection="column"
             >
               <Link href="/about">
-                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .15)"}}>
+                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
                     About
                 </Button>
               </Link>
 
               <Link href="/photos">
-                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .15)"}}>
+                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
                   Photos
                 </Button>
               </Link>
+
+              <IconButton
+                onClick={toggleColorMode}
+                variant="ghost"
+                aria-label="Toggle color mode"
+                icon={colorMode == "dark" ? "sun":"moon"}
+                _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}
+              />
             </Box>
           </Flex>
         </Container>

@@ -29,8 +29,10 @@ export default ({Component, pageProps}) => {
 
   return (
     <ThemeProvider theme={myTheme}>
-      <CSSReset />
-      <Component {...pageProps} />
+      <ColorModeProvider>
+        <CSSReset />
+        <Component {...pageProps} />
+      </ColorModeProvider>
     </ThemeProvider>
   )
 }
