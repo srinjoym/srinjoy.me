@@ -5,7 +5,7 @@ import styled from '@emotion/styled'
 import ReactGA from 'react-ga'
 
 const BackgroundImage = styled(Image)`
-  object-fit: cover;
+  object-fit: fill;
 `
 
 type ButtonData = {
@@ -42,10 +42,11 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
       overflow="hidden"
       display="flex"
       flexDirection="row"
-      alignItems="stretch"
+      alignItems="center"
       position="relative">
 
-      <BackgroundImage src={imagePath} maxH="150px" mr={3} />
+      <BackgroundImage display={{xs: "none", md: "flex"}} src={imagePath} mr={3} height="auto" maxW="30%" maxH="175px" w="auto"/>
+
       <Box p={4}>
         <Flex flexDirection="column" height="100%" alignItems="flex-start">
           <Heading as="h4" size="md" fontWeight="bold">
