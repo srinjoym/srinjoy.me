@@ -11,8 +11,10 @@ const Footer:FunctionComponent = () => {
       <Container>
         <Flex alignItems="center">
           <Box flexGrow={1} display="flex">
-            <Text>This website is open-source on&nbsp;</Text>
-            <Link href="https://github.com/srinjoym/srinjoy.me.v3" color="blue.500">GitHub</Link>
+            <Text>
+              This website is open-source on
+              <Link href="https://github.com/srinjoym/srinjoy.me.v3" color="blue.500"> GitHub</Link>
+            </Text>
           </Box>
           <SocialIcons my={6} color={colorMode === "dark" ? "white":"black"}/>
         </Flex>
