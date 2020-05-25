@@ -17,6 +17,10 @@ class MyDocument extends Document {
           <meta name="format-detection" content="telephone=no"/>
           <meta name="HandheldFriendly" content="True"/>
           <meta http-equiv="cleartype" content="on"/>
+          <link rel="icon"
+            type="image/png"
+            href="/img/favicon.png"
+          />
           <link
             href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap"
             rel="stylesheet"
