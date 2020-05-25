@@ -6,6 +6,7 @@ class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
+          <title>Srinjoy Majumdar</title>
           <meta name="description" content="Srinjoy Majumdar is a Software Engineer at Microsoft building HoloLens."/>
           <meta name="author" content="Srinjoy Majumdar"/>
           <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"/>

@@ -13,7 +13,6 @@ const Page = () => (
         WIP
       </Heading>
 
-    
     </Container>
   </Box>
 )
