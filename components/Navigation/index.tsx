@@ -38,7 +38,7 @@ const Navigation = ({offset}: NavProps) => {
           >
             <Flex align="center" mr={5}>
               <Link href="/">
-                <Button mx={4} variant="ghost">
+                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .15)"}}>
                   Home
                 </Button>
               </Link>
@@ -61,13 +61,13 @@ const Navigation = ({offset}: NavProps) => {
               flexDirection="column"
             >
               <Link href="/about">
-                <Button mx={4} variant="ghost">
+                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .15)"}}>
                     About
                 </Button>
               </Link>
 
               <Link href="/photos">
-                <Button mx={4} backgroundColor="transparent">
+                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .15)"}}>
                   Photos
                 </Button>
               </Link>

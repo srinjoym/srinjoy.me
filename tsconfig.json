@@ -24,6 +24,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "components/SectionHeader/index.jsx", "pages/_app.jsx"
+    "**/*.tsx", "components/SectionHeader/index.jsx", "pages/_app.jsx", "components/Utilities/ChakraMarkdownRenderer.jsx"
   ]
 }
