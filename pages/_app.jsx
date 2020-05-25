@@ -12,11 +12,8 @@ export default ({Component, pageProps}) => {
 
   useEffect(() => {
     if (!window.GA_INITIALIZED) {
-      ReactGA.initialize('UA-56121800-2', {
-        gaOptions: {
-          name: 'srinjoy.me.v3'
-        }
-      })
+      ReactGA.initialize('UA-56121800-2')
+      ReactGA.set({siteVersion: 'v3'}) // To compare engagement between v1 and v3
 
       window.GA_INITIALIZED = true
     }

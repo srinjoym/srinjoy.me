@@ -38,7 +38,7 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
 
       <BackgroundImage src={imagePath} maxH="150px" mr={3} />
       <Box p={4}>
-        <Flex flexDirection="column" height="100%">
+        <Flex flexDirection="column" height="100%" alignItems="flex-start">
           <Heading as="h4" size="md" fontWeight="bold">
             {title}
           </Heading>
@@ -49,8 +49,8 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
             </Text>
           </Flex>
           { buttonData &&
-            <Link href={buttonData.link} mt={2}>
-              <Button aria-label="Link">{buttonData.label}</Button>
+            <Link href={buttonData.link} mt={2} _hover={{textDecoration: "none"}}>
+              <Button aria-label="Link" rightIcon="external-link">{buttonData.label}</Button>
             </Link>
           }
         </Flex>
