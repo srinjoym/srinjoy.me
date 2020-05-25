@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../components/Container'
-import { Heading, Box, Image, Link } from '@chakra-ui/core'
+import { Heading, Box, Image, Link, Flex, Button } from '@chakra-ui/core'
 import Navigation from '../components/Navigation'
 import ReactMarkdown from 'react-markdown/with-html'
 import Footer from '../components/Footer'
@@ -22,9 +22,20 @@ const Page = () => (
   <Box>
     <Navigation />
     <Container>
-      <Heading marginTop="50px" pb={6}>
-        About Me
-      </Heading>
+      <Flex alignItems="center" my={6}>
+        <Heading flexGrow={1}>
+          About Me
+        </Heading>
+
+        <Link
+          href="https://drive.google.com/file/d/0B3RGMraz9IZlNi1WZ0ZJU01fdTA/view?usp=sharing"
+          _hover={{textDecoration: "none"}}
+        >
+          <Button rightIcon="external-link">
+            Resume
+          </Button>
+        </Link>
+      </Flex>
 
       <ReactMarkdown source={bio} renderers={{link: Link}} escapeHtml={false} />
 
