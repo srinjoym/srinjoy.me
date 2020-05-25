@@ -38,7 +38,7 @@ const Navigation = ({offset}: NavProps) => {
               </Link>
             </Flex>
 
-            <Box display={{ sm: "block", md: "none" }} onClick={handleToggle} mx={4}>
+            <Box display={{ xs: "block", md: "none" }} onClick={handleToggle} mx={4}>
               {!show &&
                 <FiMenu color= {colorMode === "dark" ? "white" : "black"}/>
               }
@@ -50,7 +50,7 @@ const Navigation = ({offset}: NavProps) => {
 
             <Box
               display={{xs: show ? "flex" : "none", md: "block"}}
-              width={{ sm: "full", md: "auto" }}
+              width={{ xs: "full", md: "auto" }}
               alignItems="start"
               flexDirection="column"
             >

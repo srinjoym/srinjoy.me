@@ -10,7 +10,7 @@ const Footer:FunctionComponent = () => {
     <Box borderTopWidth="1px" mt={8}>
       <Container>
         <Flex alignItems="center">
-          <Box flexGrow={1} display="flex">
+          <Box flexGrow={1} display={{xs: "none", md: "flex"}}>
             <Text>
               This website is open-source on
               <Link href="https://github.com/srinjoym/srinjoy.me.v3" color="blue.500"> GitHub</Link>

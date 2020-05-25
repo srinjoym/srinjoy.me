@@ -18,7 +18,7 @@ const renderCards = (data) => {
 
   return(
     <SimpleGrid
-      columns={{sm: 1, md:2,lg:3}}
+      columns={{xs: 1, md:2,lg:3}}
       spacing={10}>
       {cards}
     </SimpleGrid>
