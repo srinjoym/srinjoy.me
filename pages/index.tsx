@@ -12,10 +12,11 @@ import ImageSection from '../components/FlickrImageSection'
 
 import Flickr from 'flickr-sdk'
 import StackSection from '../components/StackSection'
+import Footer from '../components/Footer'
 
 
 const Home = ({photos}) => (
-  <Box mb={10}>
+  <Box>
     <Navigation offset={false}/>
 
     <Hero className="pt-12" />
@@ -23,6 +24,7 @@ const Home = ({photos}) => (
     <StackSection title="Research" data={researchData}/>
     <CardSection title="Projects" data={projectData}/>
     <ImageSection photos={photos}/>
+    <Footer />
   </Box>
 )
 

@@ -3,6 +3,7 @@ import Container from '../components/Container'
 import { Heading, Box, Image, Link } from '@chakra-ui/core'
 import Navigation from '../components/Navigation'
 import ReactMarkdown from 'react-markdown/with-html'
+import Footer from '../components/Footer'
 
 const bio = `
   👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft building Mixed Reality apps for the Hololens. This past year, I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
@@ -29,6 +30,7 @@ const Page = () => (
 
       <Image width="300px" rounded="lg" mt={6} marginLeft="auto" marginRight="auto" src={('/img/prof.jpg')} />
     </Container>
+    <Footer />
   </Box>
 )
 

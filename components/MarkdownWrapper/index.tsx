@@ -4,21 +4,19 @@ import { Box } from '@chakra-ui/core'
 import {MDXProvider} from '@mdx-js/react'
 import Navigation from '../../components/Navigation'
 import MarkdownComponents from '../Utilities/ChakraMarkdownRenderer'
+import Footer from '../Footer'
 
 const MarkdownWrapper = ({children}) => {
   // data from getInitialProps
   return (
-    <Box mb={6}>
+    <Box>
       <Navigation />
       <Container>
-        <article>
-          <div className="pt-4">
-            <MDXProvider components={MarkdownComponents}>
-              {children}
-            </MDXProvider>
-          </div>
-        </article>
+        <MDXProvider components={MarkdownComponents}>
+          {children}
+        </MDXProvider>
       </Container>
+      <Footer />
     </Box>
   )
 }

@@ -1,14 +1,20 @@
-import React, {FunctionComponent} from 'react'
-import { OffsetContainer } from "./style"
+import styled from "styled-components";
+import { Box } from '@chakra-ui/core'
 
-type HeroProps = {
-  className?:string
-}
+export const OffsetContainer = styled(Box)`
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 
-const PageContainer:FunctionComponent<HeroProps> = ({className, children}) => (
-  <OffsetContainer className={className}>
-    {children}
-  </OffsetContainer>
-)
-
-export default PageContainer
+  @media (min-width: 768px) {
+    width: 750px;
+  }
+  @media (min-width: 992px) {
+    width: 970px;
+  }
+  @media (min-width: 1200px) {
+    width: 1170px;
+  }
+`
+export default OffsetContainer

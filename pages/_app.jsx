@@ -29,7 +29,7 @@ export default ({Component, pageProps}) => {
 
   return (
     <ThemeProvider theme={myTheme}>
-      <ColorModeProvider>
+      <ColorModeProvider value="light">
         <CSSReset />
         <Component {...pageProps} />
       </ColorModeProvider>

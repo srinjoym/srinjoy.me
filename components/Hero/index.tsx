@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react'
 import { GradientBackground, GradientText } from "./style"
 import Container from "../Container"
 import { Heading, Box, Button, Link } from "@chakra-ui/core"
-import SocialIcons from "./SocialIcons"
+import SocialIcons from "../Utilities/SocialIcons"
 
 type HeroProps = {
   className?:string
