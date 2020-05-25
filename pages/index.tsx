@@ -11,6 +11,7 @@ import projectData from '../data/projects'
 import ImageSection from '../components/FlickrImageSection'
 
 import Flickr from 'flickr-sdk'
+import StackSection from '../components/StackSection'
 
 
 const Home = ({photos}) => (
@@ -20,7 +21,7 @@ const Home = ({photos}) => (
     <Hero className="pt-12" />
 
     {/* <CardSection title="Where I've Worked" data={workData}/> */}
-    <CardSection title="Research" data={researchData}/>
+    <StackSection title="Research" data={researchData}/>
     <CardSection title="Projects" data={projectData}/>
     <ImageSection photos={photos}/>
   </Box>

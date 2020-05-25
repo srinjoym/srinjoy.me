@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import ReactMarkdown from 'react-markdown/with-html'
 import { NextPage } from 'next'
 import Container from '../../components/Container'
-import ChakraMdRender from "../../components/ChakraMarkdownRenderer"
+import ChakraMdRender from "../../components/Utilities/ChakraMarkdownRenderer"
 import { Box } from '@chakra-ui/core'
 import Navigation from '../../components/Navigation'
 

@@ -1,8 +1,7 @@
 import React, {FunctionComponent} from 'react'
 
-import { Image, Link, Box, PseudoBox, Heading, Text, Tooltip, Flex, useColorMode, IconButton } from '@chakra-ui/core'
+import { Image, Link, Box, PseudoBox, Heading, Text, Flex, useColorMode, Button } from '@chakra-ui/core'
 import styled from '@emotion/styled'
-import { useRouter } from 'next/router'
 
 const BackgroundImage = styled(Image)`
   object-fit: cover;
@@ -24,30 +23,21 @@ type CardProps = {
 }
 
 const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imagePath, buttonData, text}) => {
-  const router = useRouter()
   const {colorMode, toggleColorMode} = useColorMode();
-
-  const pushProjectPage = () => {
-    router.push("/"+buttonData.link)
-  }
 
   return (
     <PseudoBox
-      maxW="md"
-      overflow="hidden"
       borderWidth="1px"
       rounded="lg"
+      mb={6}
+      overflow="hidden"
       display="flex"
-      flexDirection="column"
+      flexDirection="row"
       alignItems="stretch"
-      position="relative"
-      onClick={pushProjectPage}
-      transition="all .25s ease-in-out"
-      cursor="pointer"
-      _hover={{transform: "scale(1.016)"}}>
+      position="relative">
 
-      <BackgroundImage src={imagePath} maxH="250px" />
-      <Box p={2} >
+      <BackgroundImage src={imagePath} maxH="150px" mr={3} />
+      <Box p={4}>
         <Flex flexDirection="column" height="100%">
           <Heading as="h4" size="md" fontWeight="bold">
             {title}
@@ -58,6 +48,11 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
               {text}
             </Text>
           </Flex>
+          { buttonData &&
+            <Link href={buttonData.link} mt={2}>
+              <Button aria-label="Link">{buttonData.label}</Button>
+            </Link>
+          }
         </Flex>
       </Box>
     </PseudoBox>
