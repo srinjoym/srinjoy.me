@@ -14,7 +14,7 @@ const ProjectsResearch = [
   {
     'id': 'gaze',
     'title': 'Gaze Tracking System',
-    'image': 'gaze_card.png',
+    'image': 'gaze_card.jpg',
     'text': 'Novel deep learning approach to predict gaze fixations in real-time.',
     'buttonData': {
       'label': 'Read the paper',
