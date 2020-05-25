@@ -60,7 +60,7 @@ export const defaults = {
   },
   thematicBreak: Divider,
   a: ({href, children}) => <Link href={href} color="blue.500">{children}</Link>,
-  img: ({src, alt}) => <Image src={src} alt={alt} maxW="xl" mt={2} />,
+  img: ({src, alt}) => <Image src={src} alt={alt} maxW="xl" w="100%" mt={2} />,
   ul: formatList,
   ol: formatList,
   li: ListItem,
