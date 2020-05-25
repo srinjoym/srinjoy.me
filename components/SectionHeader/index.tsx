@@ -1,13 +1,13 @@
 import React, {FunctionComponent} from 'react'
 
-import { Heading } from '@chakra-ui/core'
+import { Heading, HeadingProps } from '@chakra-ui/core'
 
 type SectionHeaderProps = {
   title: String
 }
 
-const SectionHeader:FunctionComponent<SectionHeaderProps> = ({title}) => (
-    <Heading size="xl" my={4}>
+const SectionHeader:FunctionComponent<SectionHeaderProps&HeadingProps> = ({title, ...rest}) => (
+    <Heading size="xl" my={4} {...rest}>
       {title}
     </Heading>
 )

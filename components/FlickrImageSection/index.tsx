@@ -1,7 +1,6 @@
 import React from 'react'
 import SectionHeader from "../SectionHeader"
-import Card from '../Card'
-import { SimpleGrid, Box, Link, Image } from '@chakra-ui/core'
+import { SimpleGrid, Box, Link, Image, Flex, Button } from '@chakra-ui/core'
 import Container from "../Container"
 
 const imageURL = (photo, size="z") => {
@@ -12,7 +11,14 @@ const imageURL = (photo, size="z") => {
 
 const FlickrImageSection = ({photos}) => (
   <Container>
-    <SectionHeader title="Recent Photos"/>
+    <Flex alignItems="center">
+      <SectionHeader title="Recent Photos" flexGrow={1}/>
+      <Link href="/photos" _hover={{textDecoration: "none"}}>
+        <Button variant="ghost" rightIcon="arrow-forward">
+          See More
+        </Button>
+      </Link>
+    </Flex>
 
     <SimpleGrid columns={{sm: 2, md:3}} spacing={10} pt={6}>
       {photos.map((photo, index) => (

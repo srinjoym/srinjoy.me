@@ -66,12 +66,6 @@ const Navigation = ({offset}: NavProps) => {
                 </Button>
               </Link>
 
-              <Link href="/blog">
-                <Button mx={4} backgroundColor="transparent">
-                  Blog
-                </Button>
-              </Link>
-
               <Link href="/photos">
                 <Button mx={4} backgroundColor="transparent">
                   Photos

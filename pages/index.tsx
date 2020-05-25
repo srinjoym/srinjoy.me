@@ -20,7 +20,6 @@ const Home = ({photos}) => (
 
     <Hero className="pt-12" />
 
-    {/* <CardSection title="Where I've Worked" data={workData}/> */}
     <StackSection title="Research" data={researchData}/>
     <CardSection title="Projects" data={projectData}/>
     <ImageSection photos={photos}/>
