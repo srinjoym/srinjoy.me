@@ -71,6 +71,7 @@ const Navigation = ({offset}: NavProps) => {
                 variant="ghost"
                 aria-label="Toggle color mode"
                 icon={colorMode == "dark" ? "sun":"moon"}
+                ml={4}
                 _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}
               />
             </Box>
