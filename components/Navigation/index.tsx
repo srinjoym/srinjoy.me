@@ -37,7 +37,7 @@ const Navigation = ({offset}: NavProps) => {
           >
             <Flex align="center" mr={5}>
               <Link href="/">
-                <Button mx={4} backgroundColor="transparent">
+                <Button mx={4} variant="ghost">
                   Home
                 </Button>
               </Link>
@@ -61,7 +61,7 @@ const Navigation = ({offset}: NavProps) => {
               mt={{ base: 4, md: 0 }}
             >
               <Link href="/about">
-                <Button mx={4} backgroundColor="transparent">
+                <Button mx={4} variant="ghost">
                     About
                 </Button>
               </Link>

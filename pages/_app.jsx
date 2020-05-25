@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core'
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga'
 import Router from 'next/router'
 
 import '../styles/index.scss'

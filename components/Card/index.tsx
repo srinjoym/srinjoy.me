@@ -1,8 +1,9 @@
 import React, {FunctionComponent} from 'react'
 
-import { Image, Link, Box, PseudoBox, Heading, Text, Tooltip, Flex, useColorMode, IconButton } from '@chakra-ui/core'
+import { Image, Link, Box, Heading, Text, Flex, useColorMode, Icon } from '@chakra-ui/core'
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
+import ReactGA from 'react-ga'
 
 const BackgroundImage = styled(Image)`
   object-fit: cover;
@@ -27,12 +28,18 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
   const router = useRouter()
   const {colorMode, toggleColorMode} = useColorMode();
 
-  const pushProjectPage = () => {
-    router.push("/"+buttonData.link)
+  const trackEvent = () => {
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'Learn More',
+      label: this.props.title
+    })
   }
 
   return (
-    <PseudoBox
+    <Link
+      href={buttonData.link}
+      onClick={trackEvent}
       maxW="md"
       overflow="hidden"
       borderWidth="1px"
@@ -41,26 +48,29 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
       flexDirection="column"
       alignItems="stretch"
       position="relative"
-      onClick={pushProjectPage}
       transition="all .25s ease-in-out"
       cursor="pointer"
-      _hover={{transform: "scale(1.016)"}}>
+      _hover={{transform: "scale(1.016)", textDecoration: "none"}}>
 
       <BackgroundImage src={imagePath} maxH="250px" />
       <Box p={2} >
         <Flex flexDirection="column" height="100%">
-          <Heading as="h4" size="md" fontWeight="bold">
-            {title}
-          </Heading>
+          <Flex alignItems="center">
+            <Heading as="h4" size="md" fontWeight="bold" display="flex" flexGrow={1}>
+              {title}
+            </Heading>
 
-          <Flex>
-            <Text py={2} display="flex" flexGrow={1}>
-              {text}
-            </Text>
+            {buttonData.external &&
+              <Icon name="external-link" mx={2}/>
+            }
           </Flex>
+
+          <Text py={2}>
+            {text}
+          </Text>
         </Flex>
       </Box>
-    </PseudoBox>
+    </Link>
   )
 }
 
