@@ -32,7 +32,7 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
     ReactGA.event({
       category: 'Navigation',
       action: 'Learn More',
-      label: this.props.title
+      label: title
     })
   }
 

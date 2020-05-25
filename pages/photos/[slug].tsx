@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { Box, Image, SimpleGrid, Link } from "@chakra-ui/core"
 import Container from "../../components/Container"
-import Lightbox from 'react-image-lightbox';
-import 'react-image-lightbox/style.css'; // This only needs to be imported once in your app
-import Navigation from '../../components/Navigation';
+import Lightbox from 'react-image-lightbox'
+import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
+import Navigation from '../../components/Navigation'
 
 var Flickr = require('flickr-sdk');
 var flickr = new Flickr(process.env.FLICKR_API_KEY);

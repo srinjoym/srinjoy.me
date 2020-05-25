@@ -2,6 +2,7 @@ import React, {FunctionComponent} from 'react'
 
 import { Image, Link, Box, PseudoBox, Heading, Text, Flex, useColorMode, Button } from '@chakra-ui/core'
 import styled from '@emotion/styled'
+import ReactGA from 'react-ga'
 
 const BackgroundImage = styled(Image)`
   object-fit: cover;
@@ -24,6 +25,14 @@ type CardProps = {
 
 const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imagePath, buttonData, text}) => {
   const {colorMode, toggleColorMode} = useColorMode();
+
+  const trackEvent = () => {
+    ReactGA.event({
+      category: 'Navigation',
+      action: 'Research Link',
+      label: title
+    })
+  }
 
   return (
     <PseudoBox
@@ -49,7 +58,7 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
             </Text>
           </Flex>
           { buttonData &&
-            <Link href={buttonData.link} mt={2} _hover={{textDecoration: "none"}}>
+            <Link href={buttonData.link} mt={2} _hover={{textDecoration: "none"}} onClick={trackEvent}>
               <Button aria-label="Link" rightIcon="external-link">{buttonData.label}</Button>
             </Link>
           }
