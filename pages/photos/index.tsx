@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../../components/Container'
-import { Box, Image, SimpleGrid, Link, PseudoBox } from '@chakra-ui/core'
+import { Box, Image, SimpleGrid, Text, PseudoBox, Heading } from '@chakra-ui/core'
 import Navigation from '../../components/Navigation';
 import Footer from '../../components/Footer';
 import NextLink from 'next/link'
@@ -12,16 +12,18 @@ function Photosets({ photosets }){
     <div>
       <Navigation />
       <Container>
-        <SimpleGrid columns={{xs: 2, md:3}} spacing={10} pt={6}>
+        <Heading mt={6}>Photosets</Heading>
+
+        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 10}} pt={6}>
           {photosets.map(photoset => (
             <NextLink key={photoset.id} href={`/photos/[slug]`} as={`/photos/${photoset.id}`}>
               <PseudoBox
                 maxW="sm"
-                borderWidth="1px"
                 rounded="lg"
                 overflow="hidden"
                 position="relative"
-                _hover={{transition: "all .2s ease-in-out", transform: "scale(1.01)"}}>
+                transition="all .25s ease-in-out"
+                _hover={{transform: "scale(1.012)"}}>
 
                 <Image src={photoset.primary_photo_extras.url_m} />
 
@@ -31,6 +33,7 @@ function Photosets({ photosets }){
                   left="10px"
                   color="white"
                   fontWeight="semibold"
+                  fontSize="20px"
                 >
                   {photoset.title._content}
                 </Box>

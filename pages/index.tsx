@@ -15,7 +15,7 @@ import StackSection from '../components/StackSection'
 import Footer from '../components/Footer'
 
 
-const Home = ({photos}) => (
+const Home = ({photoURLs}) => (
   <Box>
     <Navigation offset={false}/>
 
@@ -23,7 +23,7 @@ const Home = ({photos}) => (
 
     <StackSection title="Research" data={researchData}/>
     <CardSection title="Projects" data={projectData}/>
-    <ImageSection photos={photos}/>
+    <ImageSection photoURLs={photoURLs}/>
     <Footer />
   </Box>
 )
@@ -32,28 +32,16 @@ const Home = ({photos}) => (
 // It won't be called on client-side, so you can even do
 // direct database queries. See the "Technical details" section.
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts.
-  const flickr = new Flickr(process.env.FLICKR_API_KEY);
-
-  let photos = []
-
-  try {
-    const res = await flickr.people.getPhotos({
-      user_id: '58074610@N03',
-      primary_photo_extras: 'url_m',
-      per_page: 3
-    })
-
-    photos = res.body.photos.photo.slice(0, 3)
-  } catch(err) {
-    console.error('bonk', err);
-  }
-
+  const photoURLs = [
+    "https://farm66.staticflickr.com/65535/49935850317_5d6515eed0_b.jpg",
+    "https://farm66.staticflickr.com/65535/49935583121_6031d18bfe_b.jpg",
+    "https://farm2.staticflickr.com/1746/40630882210_2d387971bc_b.jpg",
+  ]
   // By returning { props: posts }, the Blog component
   // will receive `posts` as a prop at build time
   return {
     props: {
-      photos
+      photoURLs: photoURLs
     }
   }
 }

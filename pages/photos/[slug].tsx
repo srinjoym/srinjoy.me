@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Image, SimpleGrid, Link } from "@chakra-ui/core"
+import { Box, Image, SimpleGrid, Link, Heading } from "@chakra-ui/core"
 import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
@@ -17,7 +17,7 @@ const imageURL = (photo, size="z") => {
 
 
 
-function Home({ thumbnailURLs, lightboxURLs }){
+function Home({ title, thumbnailURLs, lightboxURLs }){
   const [isOpen, setIsOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState(-1);
 
@@ -34,10 +34,14 @@ function Home({ thumbnailURLs, lightboxURLs }){
     <div>
       <Navigation />
       <Container>
-        <SimpleGrid columns={{xs: 2, md:3}} spacing={10} pt={6}>
+        <Heading mt={6}>{title}</Heading>
+
+        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 10}} pt={6}>
           {thumbnailURLs.map((url, index) => (
-            <Link _hover={{transition: "all .2s ease-in-out", transform: "scale(1.01)"}}>
-              <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden" borderStyle="solid" position="relative" onClick={() => openModal(index)}>
+            <Link
+              transition="all .25s ease-in-out"
+              _hover={{transform: "scale(1.012)"}}>
+              <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden" borderStyle="none" position="relative" onClick={() => openModal(index)}>
                 <Image src={url} />
               </Box>
             </Link>
@@ -65,13 +69,21 @@ function Home({ thumbnailURLs, lightboxURLs }){
 // direct database queries. See the "Technical details" section.
 export async function getStaticProps({ params }) {
   // Call an external API endpoint to get posts.
+  let title = ""
   let photos = []
+
   try {
-    const res = await flickr.photosets.getPhotos({
+    const infoRes = await flickr.photosets.getInfo({
       user_id: '58074610@N03',
       photoset_id: params.slug
     })
-    photos = res.body.photoset.photo
+
+    const photosRes = await flickr.photosets.getPhotos({
+      user_id: '58074610@N03',
+      photoset_id: params.slug
+    })
+    title = infoRes.body.photoset.title._content
+    photos = photosRes.body.photoset.photo
   } catch(err) {
     console.error('bonk', err);
   }
@@ -81,6 +93,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
+      title: title,
       thumbnailURLs,
       lightboxURLs
     }

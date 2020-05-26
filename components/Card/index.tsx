@@ -50,7 +50,7 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
         position="relative"
         transition="all .25s ease-in-out"
         cursor="pointer"
-        _hover={{transform: "scale(1.016)", textDecoration: "none"}}>
+        _hover={{transform: "scale(1.012)", textDecoration: "none"}}>
 
         <BackgroundImage src={imagePath} maxH="250px" />
         <Box p={2} >
