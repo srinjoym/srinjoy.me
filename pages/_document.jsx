@@ -19,7 +19,7 @@ class MyDocument extends Document {
           <meta http-equiv="cleartype" content="on"/>
           <link rel="icon"
             type="image/png"
-            href="/img/favicon.png"
+            href="/img/favicon.png?v=1.2"
           />
           <link
             href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap"
