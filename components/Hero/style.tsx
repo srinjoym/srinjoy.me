@@ -8,5 +8,4 @@ export const GradientBackground = styled.div`
   bottom:0;
   left:0;
   z-index:0;
-  /* color: white; */
 `
