@@ -10,9 +10,3 @@ export const GradientBackground = styled.div`
   z-index:0;
   /* color: white; */
 `
-
-export const GradientText = styled(Heading)`
-  /* background: linear-gradient(45deg, rgb(85, 51, 255) 0%, rgb(5, 213, 255) 40%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-`

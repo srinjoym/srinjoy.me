@@ -29,13 +29,16 @@ function Photosets({ photosets }){
 
                 <Box
                   position="absolute"
-                  bottom="5px"
-                  left="10px"
-                  color="white"
+                  bottom="0px"
+                  left="0px"
+                  right="0px"
                   fontWeight="semibold"
-                  fontSize="20px"
+                  fontSize="lg"
+                  background="linear-gradient(rgba(26, 32, 44, 0) 0%, rgba(26, 32, 44, 0.65) 50%, rgba(26, 32, 44, 0.8) 100%)"
                 >
-                  {photoset.title._content}
+                  <Text px={4} pt={6} pb={2} color="white">
+                    {photoset.title._content}
+                  </Text>
                 </Box>
               </PseudoBox>
             </NextLink>
