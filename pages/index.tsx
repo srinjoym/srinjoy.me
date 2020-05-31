@@ -5,7 +5,6 @@ import Navigation from "../components/Navigation"
 import Container from "../components/Container"
 import { Box } from '@chakra-ui/core'
 
-import workData from '../data/experience'
 import researchData from '../data/research'
 import projectData from '../data/projects'
 import ImageSection from '../components/FlickrImageSection'
