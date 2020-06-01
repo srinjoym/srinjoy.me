@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react'
-
-import { Image, Link, Box, PseudoBox, Heading, Text, Flex, useColorMode, Button, FlexProps } from '@chakra-ui/core'
+import { Image, Box, PseudoBox, Heading, Text, Flex, useColorMode, Button, FlexProps } from '@chakra-ui/core'
+import NextLink from 'next/link'
 import styled from '@emotion/styled'
 import ReactGA from 'react-ga'
 
@@ -35,9 +35,9 @@ const MyCard:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, image
   return (
     <Flex my={5} {...rest}>
       <Box flexGrow={1}>
-        <Link href={link} onClick={trackEvent}>
-          <Heading cursor="pointer" fontSize={["sm", "md", "lg", "xl"]}>{title}</Heading>
-        </Link>
+        <NextLink href={link ?? ''}>
+          <Heading cursor="pointer" fontSize={["sm", "md", "lg", "xl"]} onClick={trackEvent}>{title}</Heading>
+        </NextLink>
         <Text mt={2} fontSize={["sm", "sm", "md", "md"]}>{desc}</Text>
         <Text mt={2} fontSize={["sm", "sm", "md", "md"]} color="gray.500">{date}</Text>
       </Box>
