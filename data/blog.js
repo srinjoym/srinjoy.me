@@ -1,14 +1,14 @@
 const BlogPostIndex = [
   {
     'title': 'Installing MicroPython on the ESP32 (macOS)',
-    'image': '',
+    'image': '/img/huzzah32.jpg',
     'text': "I've been tinkering around with a lot of Bluetooth Low Energy (BLE) projects on my Adafruit Huzzah32 (a board with the ESP32 chip) during quarantine. This is a quick guide on installing the MicroPython firmware on macOS.",
     'link': 'blog/installing-micropython-on-the-esp32',
     'published': '5/31/2020'
   },
   {
     'title': 'Setting up Mixed Reality Toolkit (MRTK) on iOS',
-    'image': '',
+    'image': '/img/mrtk-logo.png',
     'text': "In this tutorial I walk through how I setup the open-source Mixed Reality Toolkit (MRTK) the framework on iOS. MRTK enables users to create interactive cross-platform mixed-reality experiences.",
     'link': 'blog/setting-up-mrtk-on-ios',
     'published': '1/19/2020'
