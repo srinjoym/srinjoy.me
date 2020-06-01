@@ -2,14 +2,14 @@ import React from 'react'
 import Container from '../../components/Container'
 import { Box } from '@chakra-ui/core'
 import {MDXProvider} from '@mdx-js/react'
-import MarkdownComponents from '../Utilities/ChakraMarkdownRenderer'
+import MarkdownComponents from '../Utilities/MarkdownComponents'
 import Layout from '../Layout'
 
 const MarkdownWrapper = ({title, children}) => {
   // data from getInitialProps
   return (
     <Layout title={title}>
-      <Container>
+      <Container maxW="900px">
         <MDXProvider components={MarkdownComponents}>
           {children}
         </MDXProvider>

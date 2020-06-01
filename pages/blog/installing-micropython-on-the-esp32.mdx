@@ -1,0 +1,67 @@
+---
+title: Installing MicroPython on the ESP32 (Mac OS)
+Authors: Srinjoy Majumdar
+Date: May 31, 2020
+Published: No
+---
+import MarkdownWrapper from "../../components/MarkdownWrapper"
+
+<MarkdownWrapper title="Installing MicroPython on the ESP32 (macOS)">
+
+# Installing MicroPython on the ESP32 (macOS)
+
+Recently, I've been tinkering around with MicroPython on an Adafruit Huzzah32 (a board with the ESP32 chip). MicroPython has a strong ecosystem of libraries and has allowed me to prototype much faster than using the typical Arduino Editor. This is a quick guide on getting started with the firmware on MacOS.
+
+## Installing the Firmware
+
+1. Download the SiLabs USB→UART drivers from [https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers](https://www.silabs.com/products/development-tools/software/usb-to-uart-bridge-vcp-drivers). This is required to communicate with the board from a Mac.
+2. Download the MicroPython firmware from [https://micropython.org/download/esp32/](https://micropython.org/download/esp32/). I downloaded the latest generic firmware with ESP-IDF v3.x for my Adafruit Huzzah32.
+3. Next, install ESPTool. This will allow us to flash the firmware to the board.
+
+    ```bash
+    pip install --upgrade esptool
+    ```
+
+4. Erase the existing firmware from the board. The port argument is `/dev/tty.SLAB_USBtoUART` for MacOS, this is different on other platforms.
+
+    ```bash
+     esptool.py --port /dev/tty.SLAB_USBtoUART erase_flash
+    ```
+
+5. Install the new firmware:
+
+    ```bash
+    esptool.py --chip esp32 --port /dev/tty.SLAB_USBtoUART write_flash -z 0x1000 <PATH_TO_YOUR_BIN_FILE>
+    ```
+
+6. The firmware should now be installed on your board 🎉You can open a Python shell on the board using `screen`. To exit the session type (Ctrl-A Ctrl-\\)
+
+    ```bash
+    screen /dev/tty.SLAB_USBtoUART 115200
+    ```
+
+## Uploading Code to the board
+
+Most of the tutorials I followed stopped here - but I still didn't know how to actually upload code to the board. We can use a tool from Adafruit called `ampy` to manage the files on device. Install the pip package:
+
+```bash
+pip install adafruit-ampy
+```
+
+To upload code to the board simply create a `.py` file and then use ampy:
+
+```bash
+ampy -p /dev/tty.SLAB_USBtoUART put <your .py file>
+```
+
+> Note: You must close any screen sessions before attempting to upload a file.
+
+The final step to run your code is to open a screen session and import the file you uploaded:
+```bash
+import <your file name>.py
+```
+
+After you've verified that your code works, you can rename it to `main.py` **to have it run when the board boots.
+
+
+</MarkdownWrapper>
