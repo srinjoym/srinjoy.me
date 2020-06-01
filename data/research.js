@@ -2,7 +2,7 @@ const ProjectsResearch = [
   {
     'id': 'artrack',
     'title': 'AR Tag Position Tracker',
-    'image': 'ar_card.jpg',
+    'image': '/img/ar_card.jpg',
     'text': 'Accurately track 6 D.O.F pose using locations from multiple QR codes.',
     'buttonData': {
       'label': 'View on GitHub',
@@ -14,7 +14,7 @@ const ProjectsResearch = [
   {
     'id': 'gaze',
     'title': 'Gaze Tracking System',
-    'image': 'gaze_card.jpg',
+    'image': '/img/gaze_card.jpg',
     'text': 'Novel deep learning approach to predict gaze fixations in real-time.',
     'buttonData': {
       'label': 'Read the paper',
@@ -26,7 +26,7 @@ const ProjectsResearch = [
   {
     'id': 'viewpointsel',
     'title': 'Robotic Furniture Assembly',
-    'image': 'gemini.jpg',
+    'image': '/img/gemini.jpg',
     'text': 'Programmed humanoid robot to autonomously assemble furniture.',
     'buttonData': {
       'label': 'Read the paper',

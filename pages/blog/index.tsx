@@ -23,7 +23,7 @@ const Feature = ({ title, desc, link, imageLink, date, ...rest }) => {
 
 const Page = () => (
   <Layout title="Blog">
-    <Container maxW="900px" mx="auto">
+    <Container mx="auto">
       <Heading mt={6}>
         Blog
       </Heading>

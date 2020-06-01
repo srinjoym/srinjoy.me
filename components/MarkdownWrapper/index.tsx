@@ -9,7 +9,7 @@ const MarkdownWrapper = ({title, children}) => {
   // data from getInitialProps
   return (
     <Layout title={title}>
-      <Container maxW="900px">
+      <Container>
         <MDXProvider components={MarkdownComponents}>
           {children}
         </MDXProvider>

@@ -36,7 +36,7 @@ function Home({ title, thumbnailURLs, lightboxURLs }){
       <Container>
         <Heading mt={6}>{title}</Heading>
 
-        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 10}} pt={6}>
+        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 5}} pt={6}>
           {thumbnailURLs.map((url, index) => (
             <Link
               transition="all .25s ease-in-out"

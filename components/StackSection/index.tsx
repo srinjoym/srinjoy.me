@@ -1,18 +1,19 @@
 import React from 'react'
 import SectionHeader from "../SectionHeader"
 import Feature from '../Feature'
-import { Stack, Box } from '@chakra-ui/core'
+import { Stack, Box, Flex, Button } from '@chakra-ui/core'
 import Container from "../Container"
+import NextLink from "next/link"
 
 const renderCards = (data) => {
   const cards = data.map(data => {
     return <Feature
       className="column is-one-third"
-      imagePath={'/img/' + data.image}
+      imageLink={data.image}
       title={data.title}
-      subtitle={data.subtitle}
-      text={data.text}
-      buttonData={data.buttonData}
+      desc={data.text}
+      link={data.link}
+      date={data.published}
       />
   })
 
@@ -23,10 +24,20 @@ const renderCards = (data) => {
   )
 }
 
-const StackSection = ({title, data}) => (
-  <Box pt={8} py={4}>
+const StackSection = ({title, data, seeMoreLink=null, ...rest}) => (
+  <Box py={4} {...rest}>
     <Container>
-      <SectionHeader title={title}/>
+      <Flex alignItems="center">
+        <SectionHeader title={title} flexGrow={1}/>
+
+        {seeMoreLink &&
+          <NextLink href={seeMoreLink}>
+            <Button variant="ghost" rightIcon="arrow-forward">
+              See More
+            </Button>
+          </NextLink>
+        }
+      </Flex>
 
       { renderCards(data) }
     </Container>

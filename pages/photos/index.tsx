@@ -12,7 +12,7 @@ function Photosets({ photosets }){
       <Container>
         <Heading mt={6}>Photosets</Heading>
 
-        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 10}} pt={6}>
+        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 5}} pt={6}>
           {photosets.map(photoset => (
             <NextLink key={photoset.id} href={`/photos/[slug]`} as={`/photos/${photoset.id}`}>
               <PseudoBox

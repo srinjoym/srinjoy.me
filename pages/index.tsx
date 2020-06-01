@@ -4,7 +4,7 @@ import CardSection from '../components/CardSection'
 import { Box } from '@chakra-ui/core'
 
 import researchData from '../data/research'
-import projectData from '../data/projects'
+import blogIndex from '../data/blog'
 import ImageSection from '../components/FlickrImageSection'
 
 import Flickr from 'flickr-sdk'
@@ -15,8 +15,9 @@ const Home = ({photoURLs}) => (
   <Layout title="Home" headerOffset={false}>
     <Hero className="pt-12" />
 
-    <StackSection title="Research" data={researchData}/>
-    <CardSection title="Projects" data={projectData}/>
+    <StackSection title="Blog" data={blogIndex.slice(0, 3)} seeMoreLink="/blog" />
+    <StackSection title="Research" data={researchData} />
+
     <ImageSection photoURLs={photoURLs}/>
   </Layout>
 )
