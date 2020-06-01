@@ -1,9 +1,8 @@
 import React from 'react'
 import Container from '../components/Container'
 import { Heading, Box, Image, Link, Flex, Button } from '@chakra-ui/core'
-import Navigation from '../components/Navigation'
 import ReactMarkdown from 'react-markdown/with-html'
-import Footer from '../components/Footer'
+import Layout from '../components/Layout'
 
 const bio = `
   👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft building Mixed Reality apps for the Hololens. This past year, I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
@@ -19,8 +18,7 @@ const bio = `
 `
 
 const Page = () => (
-  <Box>
-    <Navigation />
+  <Layout title="About">
     <Container>
       <Flex alignItems="center" my={6}>
         <Heading flexGrow={1}>
@@ -41,8 +39,7 @@ const Page = () => (
 
       <Image width="300px" rounded="lg" mt={6} marginLeft="auto" marginRight="auto" src={('/img/prof.jpg')} />
     </Container>
-    <Footer />
-  </Box>
+  </Layout>
 )
 
 export default Page

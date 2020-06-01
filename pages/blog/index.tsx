@@ -1,13 +1,13 @@
 import React from 'react'
 import Container from '../../components/Container'
 import { Heading, Box, Stack, Text, PseudoBox } from '@chakra-ui/core'
-import Navigation from '../../components/Navigation'
 import blogPostIndex from "../../data/blog"
 import Link from 'next/link'
+import Layout from '../../components/Layout'
 
 const Feature = ({ title, desc, link, ...rest }) => {
   return (
-    <Box>
+    <Box my={4} {...rest}>
       <PseudoBox cursor="pointer" transition="all .25s ease-in-out" color="blue.500" _hover={{color: "blue.600"}}>
         <Link href={link}>
           <Heading fontSize="xl">{title}</Heading>
@@ -19,8 +19,7 @@ const Feature = ({ title, desc, link, ...rest }) => {
 }
 
 const Page = () => (
-  <Box>
-    <Navigation />
+  <Layout title="Blog">
     <Container>
       <Heading mt={6}>
         Blog
@@ -31,12 +30,12 @@ const Page = () => (
           <Feature
             title={postInfo.title}
             desc={postInfo.text}
-            link={postInfo.buttonData.link}
+            link={postInfo.link}
           />
         ))}
       </Stack>
     </Container>
-  </Box>
+  </Layout>
 )
 
 export default Page

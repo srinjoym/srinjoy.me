@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core'
 import ReactGA from 'react-ga'
 import Router from 'next/router'
+import { DefaultSeo } from 'next-seo'
 
 import '../styles/index.scss'
 import '../styles/spacing.scss'
@@ -31,6 +32,7 @@ export default ({Component, pageProps}) => {
     <ThemeProvider theme={myTheme}>
       <ColorModeProvider value="light">
         <CSSReset />
+        <DefaultSeo titleTemplate="%s | Srinjoy Majumdar"/>
         <Component {...pageProps} />
       </ColorModeProvider>
     </ThemeProvider>
