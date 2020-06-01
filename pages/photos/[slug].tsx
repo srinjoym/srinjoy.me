@@ -15,8 +15,6 @@ const imageURL = (photo, size="z") => {
   return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`
 }
 
-
-
 function Home({ title, thumbnailURLs, lightboxURLs }){
   const [isOpen, setIsOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState(-1);

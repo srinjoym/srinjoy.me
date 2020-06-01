@@ -8,7 +8,6 @@ import NextLink from "next/link"
 const renderCards = (data) => {
   const cards = data.map(data => {
     return <Feature
-      className="column is-one-third"
       imageLink={data.image}
       title={data.title}
       desc={data.text}
@@ -24,11 +23,13 @@ const renderCards = (data) => {
   )
 }
 
-const StackSection = ({title, data, seeMoreLink=null, ...rest}) => (
+const StackSection = ({data, title=null, seeMoreLink=null, ...rest}) => (
   <Box py={4} {...rest}>
     <Container>
       <Flex alignItems="center">
-        <SectionHeader title={title} flexGrow={1}/>
+        {title &&
+          <SectionHeader title={title} flexGrow={1}/>
+        }
 
         {seeMoreLink &&
           <NextLink href={seeMoreLink}>

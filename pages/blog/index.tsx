@@ -4,6 +4,7 @@ import { Heading, Box, Stack, Text, PseudoBox, Flex, Image } from '@chakra-ui/co
 import blogPostIndex from "../../data/blog"
 import Link from 'next/link'
 import Layout from '../../components/Layout'
+import StackSection from '../../components/StackSection'
 
 const Feature = ({ title, desc, link, imageLink, date, ...rest }) => {
   return (
@@ -23,26 +24,16 @@ const Feature = ({ title, desc, link, imageLink, date, ...rest }) => {
 
 const Page = () => (
   <Layout title="Blog">
-    <Container mx="auto">
+    <Container>
       <Heading mt={6}>
         Blog
       </Heading>
       <Heading size="md" my={2} color="gray.500">
         A work-in-progress set of articles on things I've built
       </Heading>
-
-      <Stack mt={6}>
-        {blogPostIndex.map(postInfo => (
-          <Feature
-            title={postInfo.title}
-            desc={postInfo.text}
-            link={postInfo.link}
-            imageLink={postInfo.image}
-            date={postInfo.published}
-          />
-        ))}
-      </Stack>
     </Container>
+
+    <StackSection title="" data={blogPostIndex}/>
   </Layout>
 )
 

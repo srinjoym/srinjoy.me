@@ -56,7 +56,7 @@ export const defaults = {
     const { children, className } = props;
 
     return (
-      <Code p={2} my={2} className={className} rounded="md">
+      <Code p={2} my={2} className={className} rounded="md" maxW="100%" overflow="scroll">
         {children}
       </Code>
     );

@@ -36,13 +36,13 @@ const MyCard:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, image
     <Flex my={5} {...rest}>
       <Box flexGrow={1}>
         <Link href={link} onClick={trackEvent}>
-          <Heading cursor="pointer" fontSize="xl">{title}</Heading>
+          <Heading cursor="pointer" fontSize={["sm", "md", "lg", "xl"]}>{title}</Heading>
         </Link>
-        <Text mt={2}>{desc}</Text>
-        <Text mt={2} color="gray.500">{date}</Text>
+        <Text mt={2} fontSize={["sm", "sm", "md", "md"]}>{desc}</Text>
+        <Text mt={2} fontSize={["sm", "sm", "md", "md"]} color="gray.500">{date}</Text>
       </Box>
 
-      <Image src={imageLink} rounded="lg" maxH="100px" maxW="100px" ml={2}/>
+      <Image src={imageLink} rounded="lg" maxH={["50px", "70px", "70px", "100px"]} maxW={["50px", "70px", "70px", "100px"]} ml={2}/>
     </Flex>
   )
 }
