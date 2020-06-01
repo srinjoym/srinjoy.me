@@ -4,8 +4,12 @@ import NextLink from 'next/link'
 import styled from '@emotion/styled'
 import ReactGA from 'react-ga'
 
-const BackgroundImage = styled(Image)`
-  object-fit: fill;
+const ClampContainer = styled(Box)`
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `
 
 type ButtonData = {
@@ -36,13 +40,15 @@ const MyCard:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, image
     <Flex my={5} {...rest}>
       <Box flexGrow={1}>
         <NextLink href={link ?? ''}>
-          <Heading cursor="pointer" fontSize={["sm", "md", "lg", "xl"]} onClick={trackEvent}>{title}</Heading>
+          <Heading cursor="pointer" fontSize={["md", "md", "lg", "xl"]} onClick={trackEvent}>{title}</Heading>
         </NextLink>
-        <Text mt={2} fontSize={["sm", "sm", "md", "md"]}>{desc}</Text>
-        <Text mt={2} fontSize={["sm", "sm", "md", "md"]} color="gray.500">{date}</Text>
+        <ClampContainer mt={2} fontSize={["sm", "sm", "md", "md"]}>
+          <Text>{desc}</Text>
+        </ClampContainer>
+        <Text mt={2} fontSize={["xs", "xs", "sm", "sm"]} color="gray.500">{date}</Text>
       </Box>
 
-      <Image src={imageLink} rounded="lg" maxH={["50px", "70px", "70px", "100px"]} maxW={["50px", "70px", "70px", "100px"]} ml={2}/>
+      <Image src={imageLink} rounded="lg" maxH={["70px", "70px", "70px", "100px"]} maxW={["70px", "70px", "70px", "100px"]} ml={2}/>
     </Flex>
   )
 }

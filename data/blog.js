@@ -16,7 +16,7 @@ const BlogPostIndex = [
   {
     'title': 'Building Lego Instructions in Augmented Reality',
     'image': '/img/legoworld_card.png',
-    'text':'A write-up of my final project in my university Computer Vision course. I built Lego World, an iOS app that guides users in Augmented Reality as they build lego models. I go over some basic feature matching methods and how they can be applied to larger frameworks such as ARKit.',
+    'text':'A write-up of my final project in my university Computer Vision course. I built Lego World, an iOS app that guides users in Augmented Reality as they build lego models.',
     'link': 'blog/legoworld',
     'categories': ['Mixed Reality', 'Computer Vision', 'Swift'],
     'published': '5/31/2020'
