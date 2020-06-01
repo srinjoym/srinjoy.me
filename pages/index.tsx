@@ -3,7 +3,7 @@ import Hero from "../components/Hero"
 import CardSection from '../components/CardSection'
 import { Box } from '@chakra-ui/core'
 
-import researchData from '../data/research'
+import researchIndex from '../data/research'
 import blogIndex from '../data/blog'
 import ImageSection from '../components/FlickrImageSection'
 
@@ -16,7 +16,7 @@ const Home = ({photoURLs}) => (
     <Hero className="pt-12" />
 
     <StackSection title="Blog" data={blogIndex.slice(0, 3)} seeMoreLink="/blog" />
-    <StackSection title="Research" data={researchData} />
+    <StackSection title="Research" data={researchIndex} />
 
     <ImageSection photoURLs={photoURLs}/>
   </Layout>

@@ -12,6 +12,7 @@ const renderCards = (data) => {
       title={data.title}
       desc={data.text}
       link={data.link}
+      isExternal={data.isExternal ?? false}
       date={data.published}
       />
   })

@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from 'react'
-import { Image, Box, PseudoBox, Heading, Text, Flex, useColorMode, Button, FlexProps } from '@chakra-ui/core'
+import { Image, Box, PseudoBox, Heading, Text, Flex, useColorMode, Button, FlexProps, Link } from '@chakra-ui/core'
 import NextLink from 'next/link'
 import styled from '@emotion/styled'
 import ReactGA from 'react-ga'
@@ -24,9 +24,10 @@ type CardProps = {
   link: string
   imageLink: string
   date: ButtonData
+  isExternal: boolean
 }
 
-const MyCard:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, imageLink, date, ...rest}) => {
+const Feature:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, imageLink, date, isExternal, ...rest}) => {
 
   const trackEvent = () => {
     ReactGA.event({
@@ -36,12 +37,14 @@ const MyCard:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, image
     })
   }
 
+  const LinkWrapper = (props) => isExternal ? <Link isExternal _hover={{textDecoration: "none"}} {...props} />: <NextLink {...props} />
+
   return (
     <Flex my={5} {...rest}>
       <Box flexGrow={1}>
-        <NextLink href={link ?? ''}>
-          <Heading cursor="pointer" fontSize={["md", "md", "lg", "xl"]} onClick={trackEvent}>{title}</Heading>
-        </NextLink>
+        <LinkWrapper href={link}>
+          <Heading color="blue.500" cursor="pointer" fontSize={["md", "md", "lg", "xl"]} onClick={trackEvent}>{title}</Heading>
+        </LinkWrapper>
         <ClampContainer mt={2} fontSize={["sm", "sm", "md", "md"]}>
           <Text>{desc}</Text>
         </ClampContainer>
@@ -53,4 +56,4 @@ const MyCard:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, image
   )
 }
 
-export default MyCard
+export default Feature
