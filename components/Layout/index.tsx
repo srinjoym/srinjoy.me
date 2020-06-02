@@ -7,7 +7,7 @@ import { NextSeo } from 'next-seo'
 
 const Layout = ({children, title, headerOffset=true, ...rest}) => (
   <Box {...rest}>
-    <NextSeo title={title} />
+    <NextSeo title={title} noindex={false} />
     <Navigation offset={headerOffset} />
       {children}
     <Footer />
