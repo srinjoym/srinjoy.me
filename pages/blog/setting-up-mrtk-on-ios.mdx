@@ -1,0 +1,62 @@
+import MarkdownWrapper from "../../components/MarkdownWrapper"
+
+<MarkdownWrapper title="Setting up MRTK on iOS">
+
+  # Getting Started with MRTK on iOS
+
+  In this tutorial I walk through how I setup the open-source Mixed Reality Toolkit (MRTK) on iOS. I'll mostly be following these guides from Microsoft on getting started but also throw in some notes on issues I hit during the setup process.
+
+  [Getting started with MRTK](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/GettingStartedWithTheMRTK.html)
+
+  [How to configure MRTK for iOS and Android [Experimental]](https://microsoft.github.io/MixedRealityToolkit-Unity/Documentation/CrossPlatform/UsingARFoundation.html)
+
+  ## Install Unity
+
+  The first step to getting MRTK running is installing Unity and Visual Studio 2019.
+
+  Unity versions 2019.1.x, 2019.2.x and 2018.4.x were supported when this article was written, however, I recommend installing **2018.4.x** through Unity Hub because I was not able to get the UnityAR plugin running properly on Unity 2019.x.
+
+  Unity Hub Download Link: [https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.dmg](https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.dmg)
+
+  ## Install MRTK Packages
+
+  To enable MRTK to run on iOS we need to install the ARFoundation and ARKit packages. Open the Package Manager on Unity and search for the package names and click install.
+
+  ![/blog/setting-up-mrtk-on-ios/Screen_Shot_2020-01-10_at_12.56.15_PM.png](/blog/setting-up-mrtk-on-ios/Screen_Shot_2020-01-10_at_12.56.15_PM.png)
+
+  > Note: The ARFoundation package on Unity 2018.4.x is in preview so you need to enable preview packages on the Package Manager. This option is under Window > Package Manager > Advanced > Show Preview Packages
+
+  <br />
+
+  Now we need to install MRTK into our project. Go to the [MRTK GitHub releases page](https://github.com/Microsoft/MixedRealityToolkit-Unity/releases) and download the following packages from the latest release:
+
+  - Microsoft.MixedRealityToolkit.Unity.Foundation
+  - Microsoft.MixedReality.Toolkit.Providers.UnityAR
+  - Microsoft.MixedRealityToolkit.Unity.Examples
+
+  Install these packages by selecting the "Assets > Import Package > Custom Package" menu item and selecting each .unitypackage file
+
+  > Note: If you're using a Mac, uncheck the "Enable MSBuild for Unity" Checkbox in the default configuration when installing the MRTK package. It will keep prompting you to check this box, but click the ignore button to silence the alert. This caused lots of headaches in the setup process for me but it is a [known issue](https://github.com/microsoft/MixedRealityToolkit-Unity/issues/6947) and will likely be fixed soon.
+
+  ![/blog/setting-up-mrtk-on-ios/Screen_Shot_2020-01-08_at_10.52.23_PM.png](/blog/setting-up-mrtk-on-ios/Screen_Shot_2020-01-08_at_10.52.23_PM.png)
+
+  ## Setting up the example scene
+
+  It's time to get a scene into our project! We'll setup a copy of the HandInteractionExamples demo to test the project. Duplicate the scene at Assets/MixedRealityToolkit.Examples/Scenes/HandInteractionExamples (Cmd-D on MacOS) and open it.
+
+  Select the `MixedRealityToolkit` game object in the scene to view the configuration profile. Make a copy of the profile by clicking "Copy & Customize".
+
+  ![/blog/setting-up-mrtk-on-ios/copycustomize.png](/blog/setting-up-mrtk-on-ios/copycustomize.png)
+
+  Next, open the Camera tab in the Configuration Profile and clone the default camera profile. Add a new provider to the **Camera Settings Providers** section. Set its type to UnityARCameraSettings (under Microsoft.MixedReality.Toolkit.Experimental.UnityAR).
+  ![/blog/setting-up-mrtk-on-ios/camerasettings.png](/blog/setting-up-mrtk-on-ios/camerasettings.png)
+
+  ## Build Settings
+
+  Change the build target of the Unity project to iOS, this might regenerate the assets in the project.
+
+  > Note: Uncheck the "Strip Engine Code" option in Player Settings to prevent build errors in Xcode.
+
+  You should now be able to build and deploy the project through Xcode 🎉
+
+</MarkdownWrapper>

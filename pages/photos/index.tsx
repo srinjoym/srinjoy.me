@@ -1,23 +1,22 @@
 import React from 'react'
 import Container from '../../components/Container'
 import { Box, Image, SimpleGrid, Text, PseudoBox, Heading } from '@chakra-ui/core'
-import Navigation from '../../components/Navigation';
-import Footer from '../../components/Footer';
 import NextLink from 'next/link'
+import Layout from '../../components/Layout';
 var Flickr = require('flickr-sdk');
 var flickr = new Flickr(process.env.FLICKR_API_KEY);
 
 function Photosets({ photosets }){
   return(
-    <div>
-      <Navigation />
+    <Layout title="Photosets">
       <Container>
         <Heading mt={6}>Photosets</Heading>
 
-        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 10}} pt={6}>
+        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 5}} pt={6}>
           {photosets.map(photoset => (
             <NextLink key={photoset.id} href={`/photos/[slug]`} as={`/photos/${photoset.id}`}>
               <PseudoBox
+                cursor="pointer"
                 maxW="sm"
                 rounded="lg"
                 overflow="hidden"
@@ -45,8 +44,7 @@ function Photosets({ photosets }){
           ))}
         </SimpleGrid>
       </Container>
-      <Footer />
-    </div>
+    </Layout>
   )
 }
 

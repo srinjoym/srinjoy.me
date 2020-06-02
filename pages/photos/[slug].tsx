@@ -15,8 +15,6 @@ const imageURL = (photo, size="z") => {
   return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`
 }
 
-
-
 function Home({ title, thumbnailURLs, lightboxURLs }){
   const [isOpen, setIsOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState(-1);
@@ -36,7 +34,7 @@ function Home({ title, thumbnailURLs, lightboxURLs }){
       <Container>
         <Heading mt={6}>{title}</Heading>
 
-        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 10}} pt={6}>
+        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 5}} pt={6}>
           {thumbnailURLs.map((url, index) => (
             <Link
               transition="all .25s ease-in-out"

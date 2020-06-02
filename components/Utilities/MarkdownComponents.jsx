@@ -5,14 +5,16 @@ import {
   Divider,
   Link,
   List,
-  Checkbox,
+  AlertIcon,
   ListItem,
   Heading,
-  Image
+  Image,
+  Alert
 } from "@chakra-ui/core";
 
 const formatList = (props) => {
-  const { ordered, children, depth } = props;
+  const { children } = props;
+  console.log(props)
   let styleType = 'disc';
   if (ordered) styleType = 'decimal';
   if (depth === 1) styleType = 'circle';
@@ -35,7 +37,7 @@ const formatHeading = ({level, children}) => {
 export const defaults = {
   p: props => {
     const { children } = props;
-    return <Text mb={2}>{children}</Text>;
+    return <Text my={3}>{children}</Text>;
   },
   em: props => {
     const { children } = props;
@@ -43,14 +45,19 @@ export const defaults = {
   },
   blockquote: props => {
     const { children } = props;
-    return <Code p={2}>{children}</Code>;
+
+    return (
+      <Text as="i">
+        {children}
+      </Text>
+    )
   },
   code: props => {
-    const { language, value } = props;
-    const className = language && `language-${language}`;
+    const { children, className } = props;
+
     return (
-      <Code p={2} className={className || null}>
-        {value}
+      <Code p={2} my={2} className={className} rounded="md" maxW="100%" overflow="scroll">
+        {children}
       </Code>
     );
   },
@@ -60,10 +67,10 @@ export const defaults = {
   },
   thematicBreak: Divider,
   a: ({href, children}) => <Link href={href} color="blue.500">{children}</Link>,
-  img: ({src, alt}) => <Image src={src} alt={alt} maxW="xl" w="100%" mt={2} />,
-  ul: formatList,
-  ol: formatList,
-  li: ListItem,
+  img: ({src, alt}) => <Image src={src} alt={alt} maxW="xl" w="100%" my={2} />,
+  ul: (props) => <List as="ul" styleType="disc" {...props}/>,
+  ol: (props) => <List as="ol" styleType="decimal" {...props}/>,
+  li: ({children}) => <ListItem>{children}</ListItem>,
   definition: () => null,
   h1: (props) => formatHeading({level: 1, ...props}),
   h2: (props) => formatHeading({level: 2, ...props}),
@@ -73,7 +80,7 @@ export const defaults = {
   h6: (props) => formatHeading({level: 6, ...props}),
   inlineCode: props => {
     const { children } = props;
-    return <Code>{children}</Code>;
+    return <Code rounded="md">{children}</Code>;
   }
 };
 

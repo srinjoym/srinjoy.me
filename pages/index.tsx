@@ -1,31 +1,25 @@
 import React from 'react'
 import Hero from "../components/Hero"
 import CardSection from '../components/CardSection'
-import Navigation from "../components/Navigation"
-import Container from "../components/Container"
 import { Box } from '@chakra-ui/core'
 
-import workData from '../data/experience'
-import researchData from '../data/research'
-import projectData from '../data/projects'
+import researchIndex from '../data/research'
+import blogIndex from '../data/blog'
 import ImageSection from '../components/FlickrImageSection'
 
 import Flickr from 'flickr-sdk'
 import StackSection from '../components/StackSection'
-import Footer from '../components/Footer'
-
+import Layout from '../components/Layout'
 
 const Home = ({photoURLs}) => (
-  <Box>
-    <Navigation offset={false}/>
-
+  <Layout title="Home" headerOffset={false}>
     <Hero className="pt-12" />
 
-    <StackSection title="Research" data={researchData}/>
-    <CardSection title="Projects" data={projectData}/>
+    <StackSection title="Blog" data={blogIndex.slice(0, 3)} seeMoreLink="/blog" />
+    <StackSection title="Research" data={researchIndex} />
+
     <ImageSection photoURLs={photoURLs}/>
-    <Footer />
-  </Box>
+  </Layout>
 )
 
 // This function gets called at build time on server-side.

@@ -29,6 +29,7 @@
     "imagemin-optipng": "^7.1.0",
     "next": "^9.3.2",
     "next-optimized-images": "^2.6.0",
+    "next-seo": "^4.5.0",
     "node-sass": "^4.13.0",
     "raw-loader": "^4.0.0",
     "react": "16.12.0",

@@ -5,7 +5,7 @@ const ProjectsPersonal = [
     'image': 'legoworld_card.png',
     'text':'Native iOS app which guides users in AR as they build Lego models',
     'buttonData': {
-      'link': 'projects/legoworld',
+      'link': 'blog/legoworld',
       'label': 'Learn More'
     },
     'categories': ['Mixed Reality', 'Computer Vision', 'Swift']
@@ -29,7 +29,7 @@ const ProjectsPersonal = [
     'text': 'Soft pneumatic robot gripper focused on safety.',
     'buttonData': {
       'label': 'Learn more',
-      'link': 'projects/softrobot',
+      'link': 'blog/softrobot',
     },
     'categories': ['Computer Vision', 'CAD']
   },
@@ -40,7 +40,7 @@ const ProjectsPersonal = [
     'text': 'Led design of robot that navigated rough terrain and shot foam boulders.',
     'buttonData': {
       'label': 'Learn more',
-      'link': 'projects/monkeypython',
+      'link': 'blog/monkeypython',
     },
     'categories': ['System Design', 'CAD']
   },
@@ -51,7 +51,7 @@ const ProjectsPersonal = [
     'text': 'Designed substructure for FRC Robot that built stacks of totes and bins.',
     'buttonData': {
       'label': 'Learn more',
-      'link': 'projects/junkymonkey',
+      'link': 'blog/junkymonkey',
     },
     'categories': ['Gearbox Design', 'CAD']
   },
@@ -62,7 +62,7 @@ const ProjectsPersonal = [
     'text': 'Built electrical system for FRC Robot that shot exercise balls into high goals.',
     'buttonData': {
       'label': 'Learn more',
-      'link': 'projects/funkcannon',
+      'link': 'blog/funkcannon',
     },
     'categories': ['Electrical Systems']
   },

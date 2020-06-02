@@ -1,11 +1,15 @@
 import React, {FunctionComponent} from 'react'
-
-import { Image, Link, Box, PseudoBox, Heading, Text, Flex, useColorMode, Button } from '@chakra-ui/core'
+import { Image, Box, PseudoBox, Heading, Text, Flex, useColorMode, Button, FlexProps, Link } from '@chakra-ui/core'
+import NextLink from 'next/link'
 import styled from '@emotion/styled'
 import ReactGA from 'react-ga'
 
-const BackgroundImage = styled(Image)`
-  object-fit: fill;
+const ClampContainer = styled(Box)`
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 `
 
 type ButtonData = {
@@ -15,58 +19,41 @@ type ButtonData = {
 }
 
 type CardProps = {
-  className?: string
   title: string
-  subtitle?: string
-  imagePath?: string
-  text?: string
-  buttonData?: ButtonData
+  desc: string
+  link: string
+  imageLink: string
+  date: ButtonData
+  isExternal: boolean
 }
 
-const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imagePath, buttonData, text}) => {
-  const {colorMode, toggleColorMode} = useColorMode();
+const Feature:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, imageLink, date, isExternal, ...rest}) => {
 
   const trackEvent = () => {
     ReactGA.event({
       category: 'Navigation',
-      action: 'Research Link',
+      action: 'FeatureLink',
       label: title
     })
   }
 
+  const LinkWrapper = (props) => isExternal ? <Link isExternal _hover={{textDecoration: "none"}} {...props} />: <NextLink {...props} />
+
   return (
-    <PseudoBox
-      borderWidth="1px"
-      rounded="lg"
-      mb={6}
-      overflow="hidden"
-      display="flex"
-      flexDirection="row"
-      alignItems="center"
-      position="relative">
-
-      <BackgroundImage display={{xs: "none", md: "flex"}} src={imagePath} mr={3} height="auto" maxW="30%" maxH="175px" w="auto"/>
-
-      <Box p={4}>
-        <Flex flexDirection="column" height="100%" alignItems="flex-start">
-          <Heading as="h4" size="md" fontWeight="bold">
-            {title}
-          </Heading>
-
-          <Flex>
-            <Text py={2} display="flex" flexGrow={1}>
-              {text}
-            </Text>
-          </Flex>
-          { buttonData &&
-            <Link href={buttonData.link} mt={2} _hover={{textDecoration: "none"}} onClick={trackEvent}>
-              <Button aria-label="Link" rightIcon="external-link">{buttonData.label}</Button>
-            </Link>
-          }
-        </Flex>
+    <Flex pb={6} {...rest}>
+      <Box flexGrow={1}>
+        <LinkWrapper href={link}>
+          <Heading color="blue.500" cursor="pointer" fontSize={["md", "md", "lg", "xl"]} onClick={trackEvent}>{title}</Heading>
+        </LinkWrapper>
+        <ClampContainer mt={2} fontSize={["sm", "sm", "md", "md"]}>
+          <Text>{desc}</Text>
+        </ClampContainer>
+        <Text mt={2} fontSize={["xs", "xs", "sm", "sm"]} color="gray.500">{date}</Text>
       </Box>
-    </PseudoBox>
+
+      <Image src={imageLink} rounded="lg" maxH={["70px", "70px", "70px", "100px"]} maxW={["70px", "70px", "70px", "100px"]} ml={2}/>
+    </Flex>
   )
 }
 
-export default MyCard
+export default Feature
