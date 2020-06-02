@@ -32,7 +32,7 @@ const Feature:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, imag
   const trackEvent = () => {
     ReactGA.event({
       category: 'Navigation',
-      action: 'Link',
+      action: 'FeatureLink',
       label: title
     })
   }

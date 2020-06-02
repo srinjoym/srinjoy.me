@@ -37,7 +37,7 @@ const formatHeading = ({level, children}) => {
 export const defaults = {
   p: props => {
     const { children } = props;
-    return <Text my={2}>{children}</Text>;
+    return <Text my={3}>{children}</Text>;
   },
   em: props => {
     const { children } = props;
@@ -67,7 +67,7 @@ export const defaults = {
   },
   thematicBreak: Divider,
   a: ({href, children}) => <Link href={href} color="blue.500">{children}</Link>,
-  img: ({src, alt}) => <Image src={src} alt={alt} maxW="xl" w="100%" mt={2} />,
+  img: ({src, alt}) => <Image src={src} alt={alt} maxW="xl" w="100%" my={2} />,
   ul: (props) => <List as="ul" styleType="disc" {...props}/>,
   ol: (props) => <List as="ol" styleType="decimal" {...props}/>,
   li: ({children}) => <ListItem>{children}</ListItem>,
