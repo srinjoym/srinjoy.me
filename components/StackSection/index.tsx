@@ -29,7 +29,7 @@ const StackSection = ({data, title=null, seeMoreLink=null, ...rest}) => (
     <Container>
       <Flex alignItems="center">
         {title &&
-          <SectionHeader title={title} flexGrow={1}/>
+          <SectionHeader title={title} flexGrow={1} mb={6}/>
         }
 
         {seeMoreLink &&

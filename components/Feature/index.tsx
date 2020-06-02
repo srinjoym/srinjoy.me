@@ -40,7 +40,7 @@ const Feature:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, imag
   const LinkWrapper = (props) => isExternal ? <Link isExternal _hover={{textDecoration: "none"}} {...props} />: <NextLink {...props} />
 
   return (
-    <Flex my={5} {...rest}>
+    <Flex pb={6} {...rest}>
       <Box flexGrow={1}>
         <LinkWrapper href={link}>
           <Heading color="blue.500" cursor="pointer" fontSize={["md", "md", "lg", "xl"]} onClick={trackEvent}>{title}</Heading>

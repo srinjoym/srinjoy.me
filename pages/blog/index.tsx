@@ -12,7 +12,7 @@ const Page = () => (
       <Heading mt={6}>
         Blog
       </Heading>
-      <Heading size="md" my={2} color="gray.500">
+      <Heading size="md" mt={2} mb={4} color="gray.500">
         A work-in-progress set of articles on things I've built
       </Heading>
     </Container>
