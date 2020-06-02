@@ -24,7 +24,7 @@ const BlogPostIndex = [
   {
     'title': 'Soft Robotic Grippers',
     'image': '/img/base_card.png',
-    'text': 'How I designed, 3D printed, (and set on fire) Soft Robotic grippers. These gripers can be used to pick up a wide range of objects using pneumatic pressure.',
+    'text': 'How I designed, 3D printed (and set on fire) my own Soft Robotic grippers. These grippers can be used to pick up a wide range of objects using pneumatic pressure.',
     'link': 'blog/softrobot',
     'categories': ['Computer Vision', 'CAD'],
     'published': 'Aug, 2016'
