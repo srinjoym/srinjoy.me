@@ -6,6 +6,8 @@ export const OffsetContainer = styled(Box)`
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
+  max-width: 100%;
+  overflow-wrap: break-word;
 
   @media (min-width: 768px) {
     width: 750px;

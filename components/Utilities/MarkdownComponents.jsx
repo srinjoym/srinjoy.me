@@ -9,7 +9,8 @@ import {
   ListItem,
   Heading,
   Image,
-  Alert
+  Alert,
+  Box
 } from "@chakra-ui/core";
 
 const formatList = (props) => {
@@ -28,17 +29,13 @@ const formatList = (props) => {
 const formatHeading = ({level, children}) => {
   const sizes = ['xl', 'lg', 'md', 'sm', 'xs', 'xs'];
   return (
-    <Heading mt={6} mb={4} as={`h${level}`} size={sizes[`${level - 1}`]}>
+    <Heading mt={6} mb={2 } as={`h${level}`} size={sizes[`${level - 1}`]}>
       {children}
     </Heading>
   );
 }
 
 export const defaults = {
-  p: props => {
-    const { children } = props;
-    return <Text my={3}>{children}</Text>;
-  },
   em: props => {
     const { children } = props;
     return <Text as="em">{children}</Text>;
@@ -56,7 +53,7 @@ export const defaults = {
     const { children, className } = props;
 
     return (
-      <Code p={2} my={2} className={className} rounded="md" maxW="100%" overflow="scroll">
+      <Code p={2} mt={2} className={className} rounded="md" maxW="100%" overflow="scroll">
         {children}
       </Code>
     );
@@ -68,9 +65,10 @@ export const defaults = {
   thematicBreak: Divider,
   a: ({href, children}) => <Link href={href} color="blue.500">{children}</Link>,
   img: ({src, alt}) => <Image src={src} alt={alt} maxW="xl" w="100%" my={2} />,
-  ul: (props) => <List as="ul" styleType="disc" {...props}/>,
-  ol: (props) => <List as="ol" styleType="decimal" {...props}/>,
-  li: ({children}) => <ListItem>{children}</ListItem>,
+  p: (props) => <Text as="p" mt={4} lineHeight="tall" {...props} />,
+  ul: (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
+  ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
+  li: (props) => <Box as="li" {...props} />,
   definition: () => null,
   h1: (props) => formatHeading({level: 1, ...props}),
   h2: (props) => formatHeading({level: 2, ...props}),
