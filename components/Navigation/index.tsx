@@ -32,7 +32,7 @@ const Navigation = ({offset}: NavProps) => {
           >
             <Flex align="center" mr={5}>
               <Link href="/">
-                <Button mx={4} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
+                <Button mx={2} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
                   Home
                 </Button>
               </Link>
