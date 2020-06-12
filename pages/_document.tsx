@@ -8,12 +8,7 @@ class MyDocument extends Document {
         <Head>
           <meta name="description" content="Srinjoy Majumdar is a Software Engineer at Microsoft building HoloLens."/>
           <meta name="author" content="Srinjoy Majumdar"/>
-          <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width"/>
-          <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)"/>
-          <meta name="apple-mobile-web-app-title" content="srinjoy.me"/>
           <meta name="apple-mobile-web-app-capable" content="yes"/>
-          <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-          <meta name="format-detection" content="telephone=no"/>
           <meta name="HandheldFriendly" content="True"/>
           <meta http-equiv="cleartype" content="on"/>
           <link rel="icon"
