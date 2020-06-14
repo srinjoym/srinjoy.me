@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { Box, Image, SimpleGrid, Link, Heading, Button } from "@chakra-ui/core"
+import { Box, Image, SimpleGrid, Link, Heading, Button, PseudoBox } from "@chakra-ui/core"
 import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
-import Gallery, {PhotoProps} from 'react-photo-gallery'
+import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
 import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
 
@@ -52,24 +52,39 @@ const Photos = ({ title, photos, sizes }) => {
     return links
   }
 
+  const imageRenderer:React.FC<RenderImageProps> = ({ photo, margin, direction, index, top, left }) => {
+    const cont:any = {
+      backgroundColor: "#eee",
+      cursor: "pointer",
+      overflow: "hidden",
+      position: "relative"
+    };
+
+    if (direction === "column") {
+      cont.position = "absolute";
+      cont.left = left;
+      cont.top = top;
+    }
+
+    return(
+      <PseudoBox
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        transition="all .25s ease-in-out"
+        _hover={{transform: "scale(1.012)"}}
+        onClick={() => openModal(index)}>
+          <Image {...photo} />
+      </PseudoBox>
+    )
+  }
+
+
   return (
     <div>
       <Navigation />
-        <Container>
-          <Heading mt={6}>{title}</Heading>
+        <Container wide>
+          <Heading my={6}>{title}</Heading>
 
-          {/* <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 5}} pt={6}>
-            {thumbnailURLs.slice(0, numShownPhotos).map((url, index) => (
-              <Link
-                transition="all .25s ease-in-out"
-                _hover={{transform: "scale(1.012)"}}>
-                <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden" borderStyle="none" position="relative" onClick={() => openModal(index)}>
-                  <Image src={url} />
-                </Box>
-              </Link>
-            ))}
-          </SimpleGrid> */}
-          <Gallery photos={galleryLinks()} direction="column"/>
+          <Gallery photos={galleryLinks()} direction="column" renderImage={imageRenderer}/>
 
           <Button onClick={loadNextPhotos} mt={8} mb={2} mx="auto" display="block">Load More</Button>
 

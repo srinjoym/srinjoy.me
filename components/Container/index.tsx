@@ -15,5 +15,8 @@ export const OffsetContainer = styled(Box)`
   @media (min-width: 960px) {
     width: 940px;
   }
+  @media (min-width: 1200px) {
+    width: ${props =>  props.wide && '1130px'};
+  }
 `
 export default OffsetContainer
