@@ -84,7 +84,7 @@ const Photos = ({ title, photos, sizes }) => {
         <Container wide>
           <Heading my={6}>{title}</Heading>
 
-          <Gallery photos={galleryLinks()} direction="column" renderImage={imageRenderer}/>
+          <Gallery photos={galleryLinks()} direction="row" renderImage={imageRenderer}/>
 
           <Button onClick={loadNextPhotos} mt={8} mb={2} mx="auto" display="block">Load More</Button>
 
