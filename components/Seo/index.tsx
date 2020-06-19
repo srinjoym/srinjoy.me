@@ -1,7 +1,7 @@
 import { DefaultSeo } from 'next-seo'
 
 const SeoConfig = {
-  titleTemplate: "%s | Srinjoy Majumdar",
+  titleTemplate: "%s - Srinjoy Majumdar",
   description: 'Software Engineer at Microsoft building HoloLens',
   noIndex: false,
   openGraph: {
