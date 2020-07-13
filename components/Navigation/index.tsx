@@ -21,7 +21,7 @@ const Navigation = ({offset}: NavProps) => {
 
   return (
     <div>
-      <FrostedContainer backgroundColor={colorMode === "dark" ? "rgba(0, 0, 0, .9)":"rgba(255, 255, 255, .9)"}>
+      <FrostedContainer backgroundColor={colorMode === "dark" ? "rgba(0, 0, 10, .7)":"rgba(255, 255, 255, .9)"}>
         <Container>
           <Flex
             as="nav"

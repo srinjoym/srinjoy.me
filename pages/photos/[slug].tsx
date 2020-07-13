@@ -1,21 +1,21 @@
 import React, { useState } from 'react'
-import { Box, Image, SimpleGrid, Link, Heading } from "@chakra-ui/core"
+import { Image, Heading, PseudoBox, Button } from "@chakra-ui/core"
+import NextLink from 'next/link'
 import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
+import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
-import Navigation from '../../components/Navigation'
-import Footer from '../../components/Footer'
-
+import Layout from '../../components/Layout'
 var Flickr = require('flickr-sdk');
 var flickr = new Flickr(process.env.FLICKR_API_KEY);
 
-const imageURL = (photo, size="z") => {
-  if (photo == null)
-    return;
-  return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`
-}
+function Home({ title, photos, sizes }){
+  const PAGE_SIZE = 20
+  const thumbnailURLs = photos.map(photo => sizes[photo.id][6].source) // Small Square Size for Thumbnails
+  const lightboxURLs = photos.map(photo => sizes[photo.id][11].source) // Large 2048 for preview
 
-function Home({ title, thumbnailURLs, lightboxURLs }){
+  const [loadMoreEnabled, setLoadMoreEnabled] = useState(thumbnailURLs.length > PAGE_SIZE)
+  const [numShownPhotos, setNumShownPhotos] = useState(PAGE_SIZE)
   const [isOpen, setIsOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState(-1);
 
@@ -28,23 +28,59 @@ function Home({ title, thumbnailURLs, lightboxURLs }){
     setIsOpen(false);
   }
 
-  return (
-    <div>
-      <Navigation />
-      <Container>
-        <Heading mt={6}>{title}</Heading>
+  const galleryLinks = ():PhotoProps[] => {
+    const links = photos.slice(0, numShownPhotos).map(photo => ({
+      src: sizes[photo.id][6].source,
+      width: sizes[photo.id][6].width,
+      height: sizes[photo.id][6].height
+    }))
 
-        <SimpleGrid columns={{xs: 2, md:3}} spacing={{xs: 3, md: 5}} pt={6}>
-          {thumbnailURLs.map((url, index) => (
-            <Link
-              transition="all .25s ease-in-out"
-              _hover={{transform: "scale(1.012)"}}>
-              <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden" borderStyle="none" position="relative" onClick={() => openModal(index)}>
-                <Image src={url} />
-              </Box>
-            </Link>
-          ))}
-        </SimpleGrid>
+    return links
+  }
+
+  const loadNextPhotos = () => {
+    if (numShownPhotos + PAGE_SIZE >= thumbnailURLs.length) {
+      setLoadMoreEnabled(false);
+    }
+
+    setNumShownPhotos(Math.min(numShownPhotos+PAGE_SIZE, thumbnailURLs.length));
+  }
+
+  const imageRenderer:React.FC<RenderImageProps> = ({ photo, margin, direction, index, top, left }) => {
+    const cont:any = {
+      cursor: "pointer",
+      overflow: "hidden",
+      position: "relative"
+    };
+
+    if (direction === "column") {
+      cont.position = "absolute";
+      cont.left = left;
+      cont.top = top;
+    }
+
+    return(
+      <PseudoBox
+        rounded="lg"
+        style={{ margin, height: photo.height, width: photo.width, ...cont }}
+        transition="all .25s ease-in-out"
+        _hover={{transform: "scale(1.006)"}}
+        onClick={() => openModal(index)}>
+          <Image {...photo} />
+      </PseudoBox>
+    )
+  }
+
+  return (
+    <Layout title={`${title}`}>
+      <Container wide>
+        <NextLink href="/photos">
+          <Button mt={6} mb={2} leftIcon="chevron-left" size="sm">Back to Photos</Button>
+        </NextLink>
+
+        <Heading mb={6}>{title}</Heading>
+
+        <Gallery photos={galleryLinks()} direction="row" margin={4} renderImage={imageRenderer}/>
 
         {isOpen && (
           <Lightbox
@@ -56,9 +92,10 @@ function Home({ title, thumbnailURLs, lightboxURLs }){
             onMoveNextRequest={() => setCurrentPhoto((currentPhoto+1)%lightboxURLs.length)}
           />
         )}
+
+        <Button onClick={loadNextPhotos} display={loadMoreEnabled ? "block":"none"} mt={8} mb={2} mx="auto">Load More</Button>
       </Container>
-      <Footer />
-    </div>
+    </Layout>
   )
 }
 
@@ -69,6 +106,7 @@ export async function getStaticProps({ params }) {
   // Call an external API endpoint to get posts.
   let title = ""
   let photos = []
+  let sizes = {}
 
   try {
     const infoRes = await flickr.photosets.getInfo({
@@ -82,18 +120,23 @@ export async function getStaticProps({ params }) {
     })
     title = infoRes.body.photoset.title._content
     photos = photosRes.body.photoset.photo
+
+    const reqs = photos.map(async photo => {
+      const sizeRes = await flickr.photos.getSizes({
+        photo_id: photo.id
+      })
+      sizes[photo.id] = sizeRes.body.sizes.size
+    })
+    await Promise.all(reqs)
   } catch(err) {
     console.error('bonk', err);
   }
 
-  let thumbnailURLs = photos.map(photo => imageURL(photo, "z"))
-  let lightboxURLs = photos.map(photo => imageURL(photo, "b"))
-
   return {
     props: {
       title: title,
-      thumbnailURLs,
-      lightboxURLs
+      photos,
+      sizes
     }
   }
 }
