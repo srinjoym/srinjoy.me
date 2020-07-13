@@ -5,8 +5,7 @@ import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
 import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
-import Navigation from '../../components/Navigation'
-import Footer from '../../components/Footer'
+import Layout from '../../components/Layout'
 var Flickr = require('flickr-sdk');
 var flickr = new Flickr(process.env.FLICKR_API_KEY);
 
@@ -73,8 +72,7 @@ function Home({ title, photos, sizes }){
   }
 
   return (
-    <div>
-      <Navigation />
+    <Layout title={`${title}`}>
       <Container wide>
         <NextLink href="/photos">
           <Button mt={6} mb={2} leftIcon="chevron-left" size="sm">Back to Photos</Button>
@@ -97,8 +95,7 @@ function Home({ title, photos, sizes }){
 
         <Button onClick={loadNextPhotos} display={loadMoreEnabled ? "block":"none"} mt={8} mb={2} mx="auto">Load More</Button>
       </Container>
-      <Footer />
-    </div>
+    </Layout>
   )
 }
 

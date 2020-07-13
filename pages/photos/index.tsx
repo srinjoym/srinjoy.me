@@ -5,8 +5,7 @@ import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
 import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
-import Navigation from '../../components/Navigation'
-import Footer from '../../components/Footer'
+import Layout from '../../components/Layout'
 var Flickr = require('flickr-sdk')
 var flickr = new Flickr(process.env.FLICKR_API_KEY)
 
@@ -75,8 +74,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
 
 
   return (
-    <div>
-      <Navigation />
+    <Layout title="Photos">
         <Container wide>
           <Heading mt={6}>{title}</Heading>
           <Heading size="md" mt={2} mb={4} color="gray.500">
@@ -140,8 +138,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
             />
           )}
         </Container>
-      <Footer />
-    </div>
+    </Layout>
   )
 }
 
