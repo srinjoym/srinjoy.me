@@ -62,7 +62,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
 
     return(
       <PseudoBox
-        rounded="md"
+        rounded="lg"
         style={{ margin, height: photo.height, width: photo.width, ...cont }}
         transition="all .25s ease-in-out"
         _hover={{transform: "scale(1.006)"}}
