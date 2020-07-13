@@ -1,25 +1,19 @@
 import React, { useState } from 'react'
-import { Box, Image, SimpleGrid, Link, Heading, PseudoBox, Button } from "@chakra-ui/core"
+import { Image, Heading, PseudoBox, Button } from "@chakra-ui/core"
+import NextLink from 'next/link'
 import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
 import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
 import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
-
 var Flickr = require('flickr-sdk');
 var flickr = new Flickr(process.env.FLICKR_API_KEY);
 
-const imageURL = (photo, size="z") => {
-  if (photo == null)
-    return;
-  return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`
-}
-
 function Home({ title, photos, sizes }){
   const PAGE_SIZE = 20
-  const thumbnailURLs = photos.map(photo => imageURL(photo, "sq"))
-  const lightboxURLs = photos.map(photo => imageURL(photo, "k"))
+  const thumbnailURLs = photos.map(photo => sizes[photo.id][6].source) // Small Square Size for Thumbnails
+  const lightboxURLs = photos.map(photo => sizes[photo.id][11].source) // Large 2048 for preview
 
   const [loadMoreEnabled, setLoadMoreEnabled] = useState(thumbnailURLs.length > PAGE_SIZE)
   const [numShownPhotos, setNumShownPhotos] = useState(PAGE_SIZE)
@@ -82,7 +76,11 @@ function Home({ title, photos, sizes }){
     <div>
       <Navigation />
       <Container wide>
-        <Heading my={6}>{title}</Heading>
+        <NextLink href="/photos">
+          <Button mt={4} mb={2} leftIcon="chevron-left" size="sm">Back to Photos</Button>
+        </NextLink>
+
+        <Heading mb={6}>{title}</Heading>
 
         <Gallery photos={galleryLinks()} direction="row" margin={4} renderImage={imageRenderer}/>
 

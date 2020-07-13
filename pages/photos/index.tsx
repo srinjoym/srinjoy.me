@@ -7,20 +7,14 @@ import 'react-image-lightbox/style.css' // This only needs to be imported once i
 import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
 import Navigation from '../../components/Navigation'
 import Footer from '../../components/Footer'
-
 var Flickr = require('flickr-sdk')
 var flickr = new Flickr(process.env.FLICKR_API_KEY)
 
-const imageURL = (photo, size="z") => {
-  if (photo == null)
-    return;
-  return `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_${size}.jpg`
-}
-
 const Photos = ({ title, photosets, photos, sizes }) => {
   const PAGE_SIZE = 20
-  const thumbnailURLs = photos.map(photo => imageURL(photo, "sq"))
-  const lightboxURLs = photos.map(photo => imageURL(photo, "b"))
+
+  const thumbnailURLs = photos.map(photo => sizes[photo.id][6].source) // Small Square Size for Thumbnails
+  const lightboxURLs = photos.map(photo => sizes[photo.id][11].source) // Large 2048 for preview
 
   const [loadMoreEnabled, setLoadMoreEnabled] = useState(thumbnailURLs.length > PAGE_SIZE)
   const [numShownPhotos, setNumShownPhotos] = useState(PAGE_SIZE)
