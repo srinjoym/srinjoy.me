@@ -82,7 +82,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
           </Heading>
 
           <Heading size="lg" pb={2} pt={5}>Collections</Heading>
-          <SimpleGrid columns={{xs: 3, md: 5}} spacing={2} pb={6}>
+          <SimpleGrid columns={{xs: 2, sm:3, md: 5}} spacing={2} pb={6}>
             {photosets.map(photoset => (
               <NextLink key={photoset.id} href={`/photos/[slug]`} as={`/photos/${photoset.id}`}>
                 <PseudoBox
