@@ -90,7 +90,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
           </Heading>
 
           <Heading size="lg" pb={2} pt={5}>Collections</Heading>
-          <SimpleGrid columns={5} spacing={2} pb={6}>
+          <SimpleGrid columns={{xs: 3, md: 5}} spacing={2} pb={6}>
             {photosets.map(photoset => (
               <NextLink key={photoset.id} href={`/photos/[slug]`} as={`/photos/${photoset.id}`}>
                 <PseudoBox
@@ -106,17 +106,24 @@ const Photos = ({ title, photosets, photos, sizes }) => {
 
                   <Box
                     position="absolute"
+                    top="0px"
                     bottom="0px"
                     left="0px"
                     right="0px"
+                    background="linear-gradient(rgba(26, 32, 44, 0)  15%, rgba(26, 32, 44, 0.65) 50%, rgba(26, 32, 44, 0.8) 100%)"
+                  />
+
+                  <Text
+                    px={4}
+                    pt={6}
+                    pb={2}
+                    color="white"
+                    position="absolute"
+                    bottom="0px"
                     fontWeight="semibold"
-                    fontSize="lg"
-                    background="linear-gradient(rgba(26, 32, 44, 0) 0%, rgba(26, 32, 44, 0.65) 50%, rgba(26, 32, 44, 0.8) 100%)"
-                  >
-                    <Text px={4} pt={6} pb={2} color="white">
+                    fontSize="lg">
                       {photoset.title._content}
                     </Text>
-                  </Box>
                 </PseudoBox>
               </NextLink>
             ))}
