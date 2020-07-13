@@ -77,7 +77,7 @@ function Home({ title, photos, sizes }){
       <Navigation />
       <Container wide>
         <NextLink href="/photos">
-          <Button mt={4} mb={2} leftIcon="chevron-left" size="sm">Back to Photos</Button>
+          <Button mt={6} mb={2} leftIcon="chevron-left" size="sm">Back to Photos</Button>
         </NextLink>
 
         <Heading mb={6}>{title}</Heading>

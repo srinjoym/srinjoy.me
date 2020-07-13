@@ -80,7 +80,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
         <Container wide>
           <Heading mt={6}>{title}</Heading>
           <Heading size="md" mt={2} mb={4} color="gray.500">
-            I'm an amateur photographer on my days off. Mostly shot on a Nikon D5100
+            I love taking photos on my days off. Mostly shot on a Nikon D5100
           </Heading>
 
           <Heading size="lg" pb={2} pt={5}>Collections</Heading>
