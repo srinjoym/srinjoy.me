@@ -13,19 +13,6 @@ import {
   Box
 } from "@chakra-ui/core";
 
-const formatList = (props) => {
-  const { children } = props;
-  console.log(props)
-  let styleType = 'disc';
-  if (ordered) styleType = 'decimal';
-  if (depth === 1) styleType = 'circle';
-  return (
-    <List as={ordered ? 'ol' : 'ul'} styleType={styleType} pl={4}>
-      {children}
-    </List>
-  );
-}
-
 const formatHeading = ({level, children}) => {
   const sizes = ['xl', 'lg', 'md', 'sm', 'xs', 'xs'];
   return (
