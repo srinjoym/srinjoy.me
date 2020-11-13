@@ -14,7 +14,7 @@ const Page = () => (
         Experiments
       </Heading>
       <Heading size="md" mt={2} mb={4} color="gray.500">
-        3D scenes exploring the possibilites of mixed reality
+        3D scenes exploring mixed reality
       </Heading>
     </Container>
 
