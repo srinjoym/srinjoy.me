@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import Hero from "../components/Hero"
 import CardSection from '../components/CardSection'
 import { Box } from '@chakra-ui/core'
