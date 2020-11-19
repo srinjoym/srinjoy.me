@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { FrostedContainer } from './style'
 import Container from '../Container'
-import { useColorMode, Flex, Box, Text, Button, IconButton } from '@chakra-ui/core'
+import { useColorMode, Flex, Box, Text, Button, IconButton } from '@chakra-ui/react'
 import { FiMenu, FiX } from 'react-icons/fi'
 
 type NavProps = {
@@ -38,7 +38,7 @@ const Navigation = ({offset}: NavProps) => {
               </Link>
             </Flex>
 
-            <Box display={{ xs: "block", md: "none" }} onClick={handleToggle} mx={4}>
+            <Box display={{ base: "block", md: "none" }} onClick={handleToggle} mx={4}>
               {!show &&
                 <FiMenu color= {colorMode === "dark" ? "white" : "black"}/>
               }
@@ -49,8 +49,8 @@ const Navigation = ({offset}: NavProps) => {
             </Box>
 
             <Box
-              display={{xs: show ? "flex" : "none", md: "block"}}
-              width={{ xs: "full", md: "auto" }}
+              display={{base: show ? "flex" : "none", md: "block"}}
+              width={{ base: "full", md: "auto" }}
               alignItems="start"
               flexDirection="column"
             >

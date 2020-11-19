@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react'
 import Container from "../Container"
-import { Heading, Box, Button, Text, Flex, Link, useColorMode } from "@chakra-ui/core"
+import { Heading, Box, Button, Text, Flex, Link, useColorMode } from "@chakra-ui/react"
 import SocialIcons from "../Utilities/SocialIcons"
 
 const Footer:FunctionComponent = () => {

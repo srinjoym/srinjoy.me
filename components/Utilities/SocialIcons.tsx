@@ -1,5 +1,5 @@
 import React from 'react'
-import { Stack, StackProps, Link, PseudoBox } from '@chakra-ui/core'
+import { Stack, StackProps, Link, Box } from '@chakra-ui/react'
 import { FiTwitter, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import { IconType } from 'react-icons/lib/cjs'
 
@@ -9,7 +9,7 @@ interface SocialIconLinkProps {
 }
 
 const SocialIconLink = ({Icon, link, ...rest}:SocialIconLinkProps&StackProps) => (
-  <PseudoBox
+  <Box
     transition="all .15s ease-in-out"
     _hover={{transform: "scale(1.05)"}}
     {...rest}>
@@ -17,7 +17,7 @@ const SocialIconLink = ({Icon, link, ...rest}:SocialIconLinkProps&StackProps) =>
     <Link href={link}>
       <Icon />
     </Link>
-  </PseudoBox>
+  </Box>
 )
 
 const SocialIcons = (props: StackProps) => (

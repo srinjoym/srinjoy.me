@@ -1,5 +1,5 @@
 import React, {FunctionComponent} from 'react'
-import { Image, Box, PseudoBox, Heading, Text, Flex, useColorMode, Button, FlexProps, Link } from '@chakra-ui/core'
+import { Image, Box, Heading, Text, Flex, useColorMode, Button, FlexProps, Link } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import styled from '@emotion/styled'
 import ReactGA from 'react-ga'

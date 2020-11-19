@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../../components/Container'
-import { Heading, Box, Stack, Text, PseudoBox, Flex, Image } from '@chakra-ui/core'
+import { Heading } from '@chakra-ui/react'
 import blogPostIndex from "../../data/blog"
 import Link from 'next/link'
 import Layout from '../../components/Layout'

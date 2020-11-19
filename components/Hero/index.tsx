@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from 'react'
 import { GradientBackground } from "./style"
 import Container from "../Container"
-import { Heading, Box } from "@chakra-ui/core"
+import { Heading, Box } from "@chakra-ui/react"
 import SocialIcons from "../Utilities/SocialIcons"
 
 type HeroProps = {
@@ -12,7 +12,7 @@ const Hero:FunctionComponent<HeroProps> = ({className}) => (
   <GradientBackground>
     <Box pb="100px;" pt="158px;">
       <Container >
-        <Heading size="2xl" color="white">
+        <Heading as="h1" size="2xl" color="white">
           Hi! I'm Srinjoy
         </Heading>
 

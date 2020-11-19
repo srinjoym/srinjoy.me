@@ -1,7 +1,7 @@
 import React from 'react'
 import SectionHeader from "../SectionHeader"
 import Card from '../Card'
-import { SimpleGrid, Box } from '@chakra-ui/core'
+import { SimpleGrid, Box } from '@chakra-ui/react'
 import Container from "../Container"
 
 const renderCards = (data) => {

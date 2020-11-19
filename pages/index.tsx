@@ -1,7 +1,7 @@
 import React from 'react'
 import Hero from "../components/Hero"
 import CardSection from '../components/CardSection'
-import { Box } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/react'
 
 import researchIndex from '../data/research'
 import blogIndex from '../data/blog'

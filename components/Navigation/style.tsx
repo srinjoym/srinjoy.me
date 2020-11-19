@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Box } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/react'
 
 export const FrostedContainer = styled(Box)`
   position: fixed;

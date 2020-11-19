@@ -1,9 +1,10 @@
 import React from 'react'
 import SectionHeader from "../SectionHeader"
 import Feature from '../Feature'
-import { Stack, Box, Flex, Button } from '@chakra-ui/core'
+import { Stack, Box, Flex, Button } from '@chakra-ui/react'
 import Container from "../Container"
 import NextLink from "next/link"
+import { ArrowForwardIcon } from '@chakra-ui/icons'
 
 const renderCards = (data) => {
   const cards = data.map(data => {
@@ -34,7 +35,7 @@ const StackSection = ({data, title=null, seeMoreLink=null, ...rest}) => (
 
         {seeMoreLink &&
           <NextLink href={seeMoreLink}>
-            <Button variant="ghost" rightIcon="arrow-forward">
+            <Button variant="ghost" rightIcon={<ArrowForwardIcon />}>
               See More
             </Button>
           </NextLink>

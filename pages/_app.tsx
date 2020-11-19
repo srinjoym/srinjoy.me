@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { ThemeProvider, CSSReset, ColorModeProvider } from '@chakra-ui/core'
+import { ChakraProvider, CSSReset, ColorModeProvider } from '@chakra-ui/react'
 import ReactGA from 'react-ga'
 import Router from 'next/router'
 import '../styles/index.scss'
@@ -27,12 +27,9 @@ export default ({Component, pageProps}) => {
   }, [])
 
   return (
-    <ThemeProvider theme={theme}>
-      <ColorModeProvider value="light">
-        <CSSReset config={colorConfig}/>
-        <RootSeo />
-        <Component {...pageProps} />
-      </ColorModeProvider>
-    </ThemeProvider>
+    <ChakraProvider>
+      <RootSeo />
+      <Component {...pageProps} />
+    </ChakraProvider>
   )
 }

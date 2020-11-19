@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Image, Heading, PseudoBox, Button } from "@chakra-ui/core"
+import { Image, Heading, Box, Button } from "@chakra-ui/react"
 import NextLink from 'next/link'
 import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
 import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
 import Layout from '../../components/Layout'
+import { ChevronLeftIcon } from '@chakra-ui/icons'
 var Flickr = require('flickr-sdk');
 var flickr = new Flickr(process.env.FLICKR_API_KEY);
 
@@ -60,14 +61,14 @@ function Home({ title, photos, sizes }){
     }
 
     return(
-      <PseudoBox
+      <Box
         rounded="lg"
         style={{ margin, height: photo.height, width: photo.width, ...cont }}
         transition="all .25s ease-in-out"
         _hover={{transform: "scale(1.006)"}}
         onClick={() => openModal(index)}>
           <Image {...photo} />
-      </PseudoBox>
+      </Box>
     )
   }
 
@@ -75,7 +76,7 @@ function Home({ title, photos, sizes }){
     <Layout title={`${title}`}>
       <Container wide>
         <NextLink href="/photos">
-          <Button mt={6} mb={2} leftIcon="chevron-left" size="sm">Back to Photos</Button>
+          <Button mt={6} mb={2} leftIcon={<ChevronLeftIcon/>} size="sm">Back to Photos</Button>
         </NextLink>
 
         <Heading mb={6}>{title}</Heading>

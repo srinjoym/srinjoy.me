@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box } from '@chakra-ui/core'
+import { Box } from '@chakra-ui/react'
 
 export const OffsetContainer = styled(Box)`
   padding-right: 15px;

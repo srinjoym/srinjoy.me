@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Image, SimpleGrid, Text, Heading, Button, PseudoBox } from "@chakra-ui/core"
+import { Box, Image, SimpleGrid, Text, Heading, Button } from "@chakra-ui/react"
 import NextLink from 'next/link'
 import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
@@ -61,14 +61,14 @@ const Photos = ({ title, photosets, photos, sizes }) => {
     }
 
     return(
-      <PseudoBox
+      <Box
         rounded="lg"
         style={{ margin, height: photo.height, width: photo.width, ...cont }}
         transition="all .25s ease-in-out"
         _hover={{transform: "scale(1.006)"}}
         onClick={() => openModal(index)}>
           <Image {...photo} />
-      </PseudoBox>
+      </Box>
     )
   }
 
@@ -82,10 +82,10 @@ const Photos = ({ title, photosets, photos, sizes }) => {
           </Heading>
 
           <Heading size="lg" pb={2} pt={5}>Collections</Heading>
-          <SimpleGrid columns={{xs: 2, sm:3, md: 5}} spacing={2} pb={6}>
+          <SimpleGrid columns={{base: 2, sm:3, md: 5}} spacing={2} pb={6}>
             {photosets.map(photoset => (
               <NextLink key={photoset.id} href={`/photos/[slug]`} as={`/photos/${photoset.id}`}>
-                <PseudoBox
+                <Box
                   cursor="pointer"
                   // maxW="100px"
                   rounded="lg"
@@ -116,7 +116,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
                     fontSize="lg">
                       {photoset.title._content}
                     </Text>
-                </PseudoBox>
+                </Box>
               </NextLink>
             ))}
           </SimpleGrid>

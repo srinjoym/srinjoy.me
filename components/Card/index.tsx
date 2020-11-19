@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react'
 
-import { Image, Link, Box, Heading, Text, Flex, useColorMode, Icon, PseudoBox } from '@chakra-ui/core'
+import { Image, Link, Box, Heading, Text, Flex, useColorMode, Icon } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import { useRouter } from 'next/router'
 import ReactGA from 'react-ga'
@@ -38,7 +38,7 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
 
   return (
     <NextLink href={buttonData.link}>
-      <PseudoBox
+      <Box
         onClick={trackEvent}
         maxW="md"
         overflow="hidden"
@@ -70,7 +70,7 @@ const MyCard:FunctionComponent<CardProps> = ({className, title, subtitle, imageP
             </Text>
           </Flex>
         </Box>
-      </PseudoBox>
+      </Box>
     </NextLink>
   )
 }
