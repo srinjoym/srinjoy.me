@@ -5,6 +5,7 @@ import { FrostedContainer } from './style'
 import Container from '../Container'
 import { useColorMode, Flex, Box, Text, Button, IconButton } from '@chakra-ui/react'
 import { FiMenu, FiX } from 'react-icons/fi'
+import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 
 type NavProps = {
   offset?: boolean
@@ -76,7 +77,7 @@ const Navigation = ({offset}: NavProps) => {
                 onClick={toggleColorMode}
                 variant="ghost"
                 aria-label="Toggle color mode"
-                icon={colorMode == "dark" ? "sun":"moon"}
+                icon={colorMode == "dark" ? <SunIcon/>:<MoonIcon/>}
                 ml={4}
                 _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}
               />
