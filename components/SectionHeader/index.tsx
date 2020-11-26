@@ -1,6 +1,6 @@
 import React, {FunctionComponent} from 'react'
 
-import { Heading, HeadingProps } from '@chakra-ui/core'
+import { Heading, HeadingProps } from '@chakra-ui/react'
 
 type SectionHeaderProps = {
   title: String

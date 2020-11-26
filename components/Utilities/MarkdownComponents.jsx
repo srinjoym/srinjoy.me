@@ -11,7 +11,7 @@ import {
   Image,
   Alert,
   Box
-} from "@chakra-ui/core";
+} from "@chakra-ui/react";
 
 const formatHeading = ({level, children}) => {
   const sizes = ['xl', 'lg', 'md', 'sm', 'xs', 'xs'];

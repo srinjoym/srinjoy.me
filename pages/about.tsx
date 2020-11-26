@@ -1,8 +1,9 @@
 import React from 'react'
 import Container from '../components/Container'
-import { Heading, Box, Image, Link, Flex, Button } from '@chakra-ui/core'
+import { Heading, Box, Image, Link, Flex, Button } from '@chakra-ui/react'
 import ReactMarkdown from 'react-markdown/with-html'
 import Layout from '../components/Layout'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 const bio = `
   👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft building Mixed Reality apps for the Hololens. This past year, I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
@@ -29,7 +30,7 @@ const Page = () => (
           href="https://drive.google.com/file/d/0B3RGMraz9IZlNi1WZ0ZJU01fdTA/view?usp=sharing"
           _hover={{textDecoration: "none"}}
         >
-          <Button rightIcon="external-link">
+          <Button rightIcon={<ExternalLinkIcon />}>
             Resume
           </Button>
         </Link>
