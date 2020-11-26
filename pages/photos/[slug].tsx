@@ -67,7 +67,15 @@ function Home({ title, photos, sizes }){
         transition="all .25s ease-in-out"
         _hover={{transform: "scale(1.006)"}}
         onClick={() => openModal(index)}>
-          <Image {...photo} />
+          <Image
+            src={photo.src}
+            width={photo.width}
+            height={photo.height}
+            alt={photo.alt}
+            key={photo.key}
+            srcSet={photo.srcSet as string}
+            sizes={photo.sizes as string}
+          />
       </Box>
     )
   }
