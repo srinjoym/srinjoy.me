@@ -8,6 +8,9 @@
     "start": "next start"
   },
   "dependencies": {
+    "@babylonjs/core": "^4.2.0",
+    "@babylonjs/gui": "^4.2.0",
+    "@babylonjs/loaders": "^4.2.0",
     "@chakra-ui/icons": "^1.0.0",
     "@chakra-ui/react": "^1.0.0",
     "@emotion/react": "^11.0.0",
@@ -21,6 +24,8 @@
     "@zeit/next-sass": "^1.0.1",
     "add": "^2.0.6",
     "autoprefixer": "^9.7.3",
+    "babylonjs-hook": "^0.1.0-beta.0",
+    "cannon": "^0.6.2",
     "cssnano": "^4.1.10",
     "flickr-sdk": "^3.9.0",
     "framer-motion": "^2.9.4",
@@ -30,9 +35,11 @@
     "next": "^9.3.2",
     "next-optimized-images": "^2.6.0",
     "next-seo": "^4.5.0",
+    "next-transpile-modules": "^7.2.0",
     "node-sass": "^4.13.1",
     "raw-loader": "^4.0.0",
     "react": "16.12.0",
+    "react-babylonjs": "^3.0.15",
     "react-dom": "16.12.0",
     "react-ga": "^2.7.0",
     "react-icons": "^3.8.0",
@@ -43,13 +50,13 @@
     "react-twitter-embed": "^3.0.3",
     "react-visibility-sensor": "^5.1.1",
     "styled-components": "^4.4.1",
-    "yarn": "^1.22.4"
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "@types/node": "^13.1.1",
     "@types/react": "^16.9.17",
     "babel-plugin-styled-components": "^1.8.0",
-    "next-compose-plugins": "^2.2.0",
+    "next-compose-plugins": "^2.2.1",
     "typescript": "^3.8.0"
   }
 }

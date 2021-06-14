@@ -5,6 +5,7 @@ const withOptimizedImages = require('next-optimized-images')
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
 })
+const withTM = require('next-transpile-modules')(['@babylonjs/core', 'babylonjs-hook', '@babylonjs/loaders', 'react-babylonjs', '@babylonjs/gui'])
 
 const nextConfig = {
   webpack: function(config) {
@@ -16,6 +17,6 @@ const nextConfig = {
   },
 }
 
-module.exports = withPlugins([withCSS, withSass, withOptimizedImages, withMDX, {
+module.exports = withPlugins([withCSS, withSass, withOptimizedImages, withMDX, withTM, {
   pageExtensions: ['js', 'jsx', 'mdx', 'md', 'tsx'],
 }], nextConfig)

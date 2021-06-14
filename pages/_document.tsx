@@ -1,11 +1,11 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main, NextScript, Html } from 'next/document';
 import React from 'react';
 import { ColorModeScript } from '@chakra-ui/react';
 
 class MyDocument extends Document {
   render() {
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head>
           <meta name="description" content="Srinjoy Majumdar is a Software Engineer at Microsoft building HoloLens."/>
           <meta name="author" content="Srinjoy Majumdar"/>
@@ -72,7 +72,7 @@ class MyDocument extends Document {
               `,
             }}
           />
-      </html>
+      </Html>
     );
   }
 }
