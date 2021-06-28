@@ -32,30 +32,6 @@ const getAnimation = ((rotate: Boolean, mesh: Mesh, animationProperty: string) =
   return [anim]
 })
 
-function getSlideUpAnimation(position, offsetY) {
-  const { y } = position;
-
-  const keys = [{
-    frame: 0,
-    value: y + offsetY,
-  }, {
-    frame: 60,
-    value: y
-  }, {
-    frame: 120,
-    value: y + offsetY
-  }];
-
-  const animation = new Animation(
-    'animation', "position.y",
-    60, 0, 1
-  );
-  animation.setKeys(keys);
-
-  return [animation];
-}
-
-
 const RemoteModel: React.FC<RemoteModelProps> = (props) => {
   const scene = useScene();
 
@@ -63,44 +39,25 @@ const RemoteModel: React.FC<RemoteModelProps> = (props) => {
     let mesh = model.meshes[1]
     mesh.actionManager = new ActionManager(mesh._scene)
 
-    // mesh.actionManager.registerAction(
-    //   new SetValueAction(
-    //     ActionManager.OnPointerOverTrigger,
-    //     mesh.material,
-    //     'wireframe',
-    //     true
-    //   )
-    // )
-    // mesh.actionManager.registerAction(
-    //   new SetValueAction(
-    //     ActionManager.OnPointerOutTrigger,
-    //     mesh.material,
-    //     'wireframe',
-    //     false
-    //   )
-    // )
-
     mesh.actionManager.registerAction(
       new ExecuteCodeAction(
         ActionManager.OnPointerOverTrigger,
         () => {
           scene.stopAnimation(mesh)
-          // scene.beginDirectAnimation(mesh, getAnimation(true, mesh as Mesh, props.animationProperty), 0, 10, false)
-          const position = Vector3.Zero();
-          const animations = getSlideUpAnimation(position, -2);
-          const animatable = scene.beginDirectAnimation(mesh, animations, 0, 120, true);
+          scene.beginDirectAnimation(mesh, getAnimation(true, mesh as Mesh, props.animationProperty), 0, 10, false)
         }
       )
     )
-    // mesh.actionManager.registerAction(
-    //   new ExecuteCodeAction(
-    //     ActionManager.OnPointerOutTrigger,
-    //     () => {
-    //       scene.stopAnimation(mesh)
-    //       scene.beginDirectAnimation(mesh, getAnimation(false, mesh as Mesh, props.animationProperty), 0, 10, false)
-    //     }
-    //   )
-    // )
+
+    mesh.actionManager.registerAction(
+      new ExecuteCodeAction(
+        ActionManager.OnPointerOutTrigger,
+        () => {
+          scene.stopAnimation(mesh)
+          scene.beginDirectAnimation(mesh, getAnimation(false, mesh as Mesh, props.animationProperty), 0, 10, false)
+        }
+      )
+    )
   }
 
   return (
@@ -196,7 +153,7 @@ const App: React.FC = (props) => {
 
         <AssetManagerContextProvider>
           <Suspense fallback={<box name="fallback" />}>
-            <RemoteModel name="remote model" animationProperty="rotation.y"/>
+            <RemoteModel name="remote model" animationProperty="position.y"/>
           </Suspense>
         </AssetManagerContextProvider>
 
