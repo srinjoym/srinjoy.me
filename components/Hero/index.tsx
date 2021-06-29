@@ -9,21 +9,24 @@ type HeroProps = {
 }
 
 const Hero:FunctionComponent<HeroProps> = ({className}) => (
-  <Box pb="100px;" pt="158px;">
-    <Container position="absolute" left="0" right="0">
-      <Heading as="h1" size="2xl">
-        Hi! I'm Srinjoy
-      </Heading>
+  <GradientBackground>
+  <Box pt="158px;">
+    
+      <Container position="absolute" left="0" right="0">
+        <Heading as="h1" size="2xl">
+          Hi! I'm Srinjoy
+        </Heading>
 
-      <Heading size="lg" mt={2}>
-        I'm a Software Engineer at Microsoft building HoloLens
-      </Heading>
+        <Heading size="lg" mt={2}>
+          I'm a Software Engineer at Microsoft building HoloLens
+        </Heading>
 
-      <SocialIcons my={6}/>
-    </Container>
+        <SocialIcons my={6}/>
+      </Container>
 
-    <AbsoluteBabylon />
-  </Box>
+      <AbsoluteBabylon />
+    </Box>
+  </GradientBackground>
 )
 
 export default Hero
