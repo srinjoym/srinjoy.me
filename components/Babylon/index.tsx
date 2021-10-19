@@ -41,13 +41,17 @@ const RemoteModel: React.FC<RemoteModelProps> = (props) => {
   const onModelLoaded  = (model:ILoadedModel) => {
     let mesh = model.meshes[1]
     mesh.actionManager = new ActionManager(mesh._scene)
+    scene.getAnimationGroupByName("Animation").stop()
+    scene.getAnimationGroupByName("Animation").reset()
 
     mesh.actionManager.registerAction(
       new ExecuteCodeAction(
         ActionManager.OnPointerOverTrigger,
         () => {
-          scene.stopAnimation(mesh)
-          scene.beginDirectAnimation(mesh, getAnimation(true, mesh as Mesh, props.animationProperty), 0, 10, false)
+          scene.getAnimationGroupByName("Animation").reset()
+          scene.getAnimationGroupByName("Animation").play()
+          // scene.stopAnimation(mesh)
+          // scene.beginDirectAnimation(mesh, getAnimation(true, mesh as Mesh, props.animationProperty), 0, 10, false)
         }
       )
     )
@@ -56,8 +60,10 @@ const RemoteModel: React.FC<RemoteModelProps> = (props) => {
       new ExecuteCodeAction(
         ActionManager.OnPointerOutTrigger,
         () => {
-          scene.stopAnimation(mesh)
-          scene.beginDirectAnimation(mesh, getAnimation(false, mesh as Mesh, props.animationProperty), 0, 10, false)
+          // scene.getAnimationGroupByName("Animation").stop()
+          // scene.getAnimationGroupByName("Animation").reset()
+          // scene.stopAnimation(mesh)
+          // scene.beginDirectAnimation(mesh, getAnimation(false, mesh as Mesh, props.animationProperty), 0, 10, false)
         }
       )
     )
@@ -75,27 +81,19 @@ const App: React.FC = (props) => {
   return (
     <Engine antialias={true} canvasId="babylon-canvas" {...props} height={50}>
       <Scene clearColor={new Color4(0, 0, 0, 0)}>
-        <arcRotateCamera name="arc" target={ new Vector3(0, 0, 0) }
+        <arcRotateCamera name="arc" target={ new Vector3(-4, 0, 0) }
           alpha={-Math.PI / 2} beta={(0.5 + (Math.PI / 4))}
           radius={0.1} minZ={0.001} wheelPrecision={50} 
           lowerRadiusLimit={9} upperRadiusLimit={9} upperBetaLimit={Math.PI / 2}
         />
 
-        <pointLight name="point" intensity={1000} position={new Vector3(4, 6, -1)} />
+        <pointLight name="point" intensity={100} position={new Vector3(2, 4, 1)} />
         {/* <hemisphericLight name='hemi' direction={new Vector3(0, -1, 0)} intensity={0.4} /> */}
         <glowLayer name="glow" options={{mainTextureSamples: 2}} isEnabled={true} intensity={0}/>
 
         <AssetManagerContextProvider>
           <Suspense fallback={<box name="fallback" />}>
-            <RemoteModel name="cone" animationProperty="position.y" modelFileName="cone.glb" position={new Vector3(0, 0, 0)} />
-          </Suspense>
-
-          <Suspense fallback={<box name="fallback" />}>
-            <RemoteModel name="cube" animationProperty="position.y" modelFileName="cube.glb" position={new Vector3(0, 0, 0)} />
-          </Suspense>
-
-          <Suspense fallback={<box name="fallback" />}>
-            <RemoteModel name="ico" animationProperty="position.y" modelFileName="ico.glb" position={new Vector3(0, 0, 0)} />
+            <RemoteModel name="cone" animationProperty="position.y" modelFileName="luxo.glb" position={new Vector3(0, 0, 0)} scaling={new Vector3(5, 5, 5)} />
           </Suspense>
         </AssetManagerContextProvider>
       </Scene>

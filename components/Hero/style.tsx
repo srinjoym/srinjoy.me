@@ -14,5 +14,5 @@ export const GradientBackground = styled.div`
 `
 export const AbsoluteBabylon = styled(Babylon)`
   position: absolute;
-  height: 100%;
+  width: 100%;
 `
