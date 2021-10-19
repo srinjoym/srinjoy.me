@@ -30,7 +30,7 @@ const getProperty = (target, propertyPath) => {
 
 const getAnimation = ((rotate: Boolean, mesh: Mesh, animationProperty: string) => {
   let keys = [{frame: 0, value: getProperty(mesh, animationProperty)}, {frame: 8, value: rotate ? Math.PI/6+0.08:-0.08}, {frame: 10, value: rotate ? Math.PI/6:0}]
-  let anim = new Animation("test", animationProperty, 20, 0)
+  let anim = new Animation(Math.random().toString(36).substring(7), animationProperty, 20, 0)
   anim.setKeys(keys)
   return [anim]
 })
@@ -39,28 +39,28 @@ const RemoteModel: React.FC<RemoteModelProps> = (props) => {
   const scene = useScene();
 
   const onModelLoaded  = (model:ILoadedModel) => {
-    // let mesh = model.meshes[1]
-    // mesh.actionManager = new ActionManager(mesh._scene)
+    let mesh = model.meshes[1]
+    mesh.actionManager = new ActionManager(mesh._scene)
 
-    // mesh.actionManager.registerAction(
-    //   new ExecuteCodeAction(
-    //     ActionManager.OnPointerOverTrigger,
-    //     () => {
-    //       scene.stopAnimation(mesh)
-    //       scene.beginDirectAnimation(mesh, getAnimation(true, mesh as Mesh, props.animationProperty), 0, 10, false)
-    //     }
-    //   )
-    // )
+    mesh.actionManager.registerAction(
+      new ExecuteCodeAction(
+        ActionManager.OnPointerOverTrigger,
+        () => {
+          scene.stopAnimation(mesh)
+          scene.beginDirectAnimation(mesh, getAnimation(true, mesh as Mesh, props.animationProperty), 0, 10, false)
+        }
+      )
+    )
 
-    // mesh.actionManager.registerAction(
-    //   new ExecuteCodeAction(
-    //     ActionManager.OnPointerOutTrigger,
-    //     () => {
-    //       scene.stopAnimation(mesh)
-    //       scene.beginDirectAnimation(mesh, getAnimation(false, mesh as Mesh, props.animationProperty), 0, 10, false)
-    //     }
-    //   )
-    // )
+    mesh.actionManager.registerAction(
+      new ExecuteCodeAction(
+        ActionManager.OnPointerOutTrigger,
+        () => {
+          scene.stopAnimation(mesh)
+          scene.beginDirectAnimation(mesh, getAnimation(false, mesh as Mesh, props.animationProperty), 0, 10, false)
+        }
+      )
+    )
   }
 
   return (
@@ -68,65 +68,34 @@ const RemoteModel: React.FC<RemoteModelProps> = (props) => {
   )
 }
 
-const Hoverable: React.FC<BoxProps> = (props) => {
-  const boxRef = useRef<Nullable<Mesh>>();
-  const scene = useScene();
-
-  const [hovered, setHovered] = useState(false);
-  useHover(
-    () => setHovered(true),
-    () => setHovered(false),
-    boxRef
-  )
-
-  useMemo(() => {
-    if (boxRef.current)
-    {
-      boxRef.current.actionManager.registerAction(
-        new ExecuteCodeAction(
-          ActionManager.OnPointerOverTrigger,
-          () => {
-            scene.stopAnimation(boxRef.current)
-            scene.beginDirectAnimation(boxRef.current, getAnimation(true, boxRef.current as Mesh, props.animationProperty), 0, 10, false)
-          }
-        )
-      )
-      boxRef.current.actionManager.registerAction(
-        new ExecuteCodeAction(
-          ActionManager.OnPointerOutTrigger,
-          () => {
-            scene.stopAnimation(boxRef.current)
-            scene.beginDirectAnimation(boxRef.current, getAnimation(false, boxRef.current as Mesh, props.animationProperty), 0, 10, false)
-          }
-        )
-      )
-    }
-  }, [boxRef.current])
-
-  return (
-    <transformNode name={props.name}>
-      {props.mesh(boxRef)}
-    </transformNode>
-  )
-}
 
 const App: React.FC = (props) => {
   const { colorMode, toggleColorMode } = useColorMode()
 
   return (
-    <Engine antialias={true} canvasId="babylon-canvas" {...props}>
-      <Scene clearColor={colorMode == "dark" ? new Color4(0, 0, 0, 0) : Color3.White().toColor4()}>
+    <Engine antialias={true} canvasId="babylon-canvas" {...props} height={50}>
+      <Scene clearColor={new Color4(0, 0, 0, 0)}>
         <arcRotateCamera name="arc" target={ new Vector3(0, 0, 0) }
           alpha={-Math.PI / 2} beta={(0.5 + (Math.PI / 4))}
           radius={0.1} minZ={0.001} wheelPrecision={50} 
           lowerRadiusLimit={9} upperRadiusLimit={9} upperBetaLimit={Math.PI / 2}
         />
-        <hemisphericLight name='hemi' direction={new Vector3(0, -1, 0)} intensity={0.4} />
+
+        <pointLight name="point" intensity={1000} position={new Vector3(4, 6, -1)} />
+        {/* <hemisphericLight name='hemi' direction={new Vector3(0, -1, 0)} intensity={0.4} /> */}
         <glowLayer name="glow" options={{mainTextureSamples: 2}} isEnabled={true} intensity={0}/>
 
         <AssetManagerContextProvider>
           <Suspense fallback={<box name="fallback" />}>
-            <RemoteModel name="remote model" animationProperty="position.y" modelFileName="island.glb" position={new Vector3(4, -1, 0)} scaling={new Vector3(0.5, 0.5, 0.5)}/>
+            <RemoteModel name="cone" animationProperty="position.y" modelFileName="cone.glb" position={new Vector3(0, 0, 0)} />
+          </Suspense>
+
+          <Suspense fallback={<box name="fallback" />}>
+            <RemoteModel name="cube" animationProperty="position.y" modelFileName="cube.glb" position={new Vector3(0, 0, 0)} />
+          </Suspense>
+
+          <Suspense fallback={<box name="fallback" />}>
+            <RemoteModel name="ico" animationProperty="position.y" modelFileName="ico.glb" position={new Vector3(0, 0, 0)} />
           </Suspense>
         </AssetManagerContextProvider>
       </Scene>

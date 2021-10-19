@@ -10,9 +10,8 @@ type HeroProps = {
 
 const Hero:FunctionComponent<HeroProps> = ({className}) => (
   <GradientBackground>
-  <Box pt="158px;">
-    
-      <Container position="absolute" left="0" right="0">
+    <Box pt="158px">
+      <Container position="absolute" left="0" right="0" color="white">
         <Heading as="h1" size="2xl">
           Hi! I'm Srinjoy
         </Heading>
@@ -24,7 +23,9 @@ const Hero:FunctionComponent<HeroProps> = ({className}) => (
         <SocialIcons my={6}/>
       </Container>
 
-      <AbsoluteBabylon />
+      <Box height="100%">
+        <AbsoluteBabylon />
+      </Box>
     </Box>
   </GradientBackground>
 )

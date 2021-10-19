@@ -4,7 +4,8 @@ import Babylon from "../Babylon"
 
 export const GradientBackground = styled.div`
   /* background-image: linear-gradient(150deg, rgb(85, 51, 255) 15%, rgb(5, 213, 255) 70%, rgb(166, 255, 203) 94%); */
-  background-image: linear-gradient(to right, #b92b27, #1565c0);
+  /* background-image: linear-gradient(to right, #b92b27, #1565c0); */
+  background-color: #2600a1;
   top:0;
   right:0;
   bottom:0;
@@ -13,4 +14,5 @@ export const GradientBackground = styled.div`
 `
 export const AbsoluteBabylon = styled(Babylon)`
   position: absolute;
+  height: 100%;
 `
