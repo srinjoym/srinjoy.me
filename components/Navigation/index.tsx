@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { FrostedContainer } from './style'
 import Container from '../Container'
 import { useColorMode, Flex, Box, Text, Button, IconButton } from '@chakra-ui/react'
-import { FiMenu, FiX } from 'react-icons/fi'
+import { FiMenu, FiX, FiUser, FiEdit2, FiCamera } from 'react-icons/fi'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 
 type NavProps = {
@@ -57,18 +57,27 @@ const Navigation = ({offset}: NavProps) => {
             >
               <Link href="/about">
                 <Button mx={2} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
-                    About
+                  <Box mr={2}>
+                    <FiUser color= {colorMode === "dark" ? "white" : "black"}/>
+                  </Box>
+                  About
                 </Button>
               </Link>
 
               <Link href="/blog">
                 <Button mx={2} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
-                    Blog
+                  <Box mr={2}>
+                    <FiEdit2 color= {colorMode === "dark" ? "white" : "black"}/>
+                  </Box>
+                  Blog
                 </Button>
               </Link>
 
               <Link href="/photos">
                 <Button mx={2} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
+                  <Box mr={2}>
+                    <FiCamera color= {colorMode === "dark" ? "white" : "black"}/>
+                  </Box>
                   Photos
                 </Button>
               </Link>
