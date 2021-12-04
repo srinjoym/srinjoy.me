@@ -1,15 +1,12 @@
 import React from 'react'
 import Hero from "../components/Hero"
-import CardSection from '../components/CardSection'
-import { Box } from '@chakra-ui/react'
-
 import researchIndex from '../data/research'
 import blogIndex from '../data/blog'
 import ImageSection from '../components/FlickrImageSection'
-
-import Flickr from 'flickr-sdk'
 import StackSection from '../components/StackSection'
 import Layout from '../components/Layout'
+const Flickr = require('flickr-sdk')
+const flickr = new Flickr(process.env.FLICKR_API_KEY)
 
 const Home = ({photoURLs}) => (
   <Layout title="Home" headerOffset={false}>
@@ -22,20 +19,19 @@ const Home = ({photoURLs}) => (
   </Layout>
 )
 
-// This function gets called at build time on server-side.
-// It won't be called on client-side, so you can even do
-// direct database queries. See the "Technical details" section.
 export async function getStaticProps() {
-  const photoURLs = [
-    "https://farm66.staticflickr.com/65535/49935850317_5d6515eed0_b.jpg",
-    "https://farm66.staticflickr.com/65535/49935583121_6031d18bfe_b.jpg",
-    "https://farm2.staticflickr.com/1746/40630882210_2d387971bc_b.jpg",
-  ]
-  // By returning { props: posts }, the Blog component
-  // will receive `posts` as a prop at build time
+  const streamResponse = await flickr.people.getPublicPhotos({
+    user_id: '58074610@N03',
+    extras: 'url_l'
+  })
+
+  const photos = streamResponse.body.photos.photo
+  const horizontalPhotos = photos.filter(p => p.width_l > p.height_l)
+  const latestURLs = horizontalPhotos.slice(0, 3).map(p => p.url_l)
+
   return {
     props: {
-      photoURLs: photoURLs
+      photoURLs: latestURLs
     }
   }
 }
