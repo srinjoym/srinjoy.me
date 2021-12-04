@@ -16,9 +16,10 @@ const Navigation = ({offset}: NavProps) => {
     offset = true;
   }
 
-  const [show, setShow] = useState(false);
-  const handleToggle = () => setShow(!show);
+  const [show, setShow] = useState(false)
+  const handleToggle = () => setShow(!show)
   const { colorMode, toggleColorMode } = useColorMode()
+  const hoverBackgroundColor = "#af9fff58"
 
   return (
     <div>
@@ -33,7 +34,7 @@ const Navigation = ({offset}: NavProps) => {
           >
             <Flex align="center" mr={5}>
               <Link href="/">
-                <Button mx={2} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
+                <Button mx={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
                   Home
                 </Button>
               </Link>
@@ -56,7 +57,7 @@ const Navigation = ({offset}: NavProps) => {
               flexDirection="column"
             >
               <Link href="/about">
-                <Button mx={2} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
+                <Button mx={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
                   <Box mr={2}>
                     <FiUser color= {colorMode === "dark" ? "white" : "black"}/>
                   </Box>
@@ -65,7 +66,7 @@ const Navigation = ({offset}: NavProps) => {
               </Link>
 
               <Link href="/blog">
-                <Button mx={2} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
+                <Button mx={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
                   <Box mr={2}>
                     <FiEdit2 color= {colorMode === "dark" ? "white" : "black"}/>
                   </Box>
@@ -74,7 +75,7 @@ const Navigation = ({offset}: NavProps) => {
               </Link>
 
               <Link href="/photos">
-                <Button mx={2} variant="ghost" _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}>
+                <Button mx={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
                   <Box mr={2}>
                     <FiCamera color= {colorMode === "dark" ? "white" : "black"}/>
                   </Box>
@@ -88,7 +89,7 @@ const Navigation = ({offset}: NavProps) => {
                 aria-label="Toggle color mode"
                 icon={colorMode == "dark" ? <SunIcon/>:<MoonIcon/>}
                 ml={4}
-                _hover={{backgroundColor: "rgba(85, 51, 255, .35)"}}
+                _hover={{backgroundColor: hoverBackgroundColor}}
               />
             </Box>
           </Flex>
