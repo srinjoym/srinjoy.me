@@ -10,7 +10,7 @@ type HeroProps = {
 
 const Hero:FunctionComponent<HeroProps> = ({className}) => (
   <GradientBackground>
-    <Box pb="100px;" pt="158px;">
+    <Box pb={8} pt={28}>
       <Container >
         <Heading as="h1" size="2xl" color="white">
           Hi! I'm Srinjoy
