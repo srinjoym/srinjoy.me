@@ -82,7 +82,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
 
 
   return (
-    <Layout title="Photos">
+    <Layout title="Photos" wide>
         <Container wide>
           <Heading mt={6}>{title}</Heading>
           <Heading size="md" mt={2} mb={4} color="gray.500">

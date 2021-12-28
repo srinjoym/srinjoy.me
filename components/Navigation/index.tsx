@@ -8,10 +8,11 @@ import { FiMenu, FiX, FiUser, FiEdit2, FiCamera } from 'react-icons/fi'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 
 type NavProps = {
+  wide: boolean,
   offset?: boolean
 }
 
-const Navigation = ({offset}: NavProps) => {
+const Navigation = ({offset, wide = false}: NavProps) => {
   if (offset == null) {
     offset = true;
   }
@@ -24,7 +25,7 @@ const Navigation = ({offset}: NavProps) => {
   return (
     <div>
       <FrostedContainer backgroundColor={colorMode === "dark" ? "rgba(0, 0, 10, .7)":"rgba(255, 255, 255, .9)"}>
-        <Container>
+        <Container wide={wide}>
           <Flex
             as="nav"
             justify="space-between"
@@ -34,7 +35,7 @@ const Navigation = ({offset}: NavProps) => {
           >
             <Flex align="center" mr={5}>
               <Link href="/">
-                <Button mx={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
+                <Button variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}} ml={-4}>
                   Home
                 </Button>
               </Link>
@@ -89,6 +90,7 @@ const Navigation = ({offset}: NavProps) => {
                 aria-label="Toggle color mode"
                 icon={colorMode == "dark" ? <SunIcon/>:<MoonIcon/>}
                 ml={4}
+                mr={-2}
                 _hover={{backgroundColor: hoverBackgroundColor}}
               />
             </Box>

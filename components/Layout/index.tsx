@@ -5,7 +5,7 @@ import Footer from '../Footer'
 import Head from 'next/head'
 import { NextSeo } from 'next-seo'
 
-const Layout = ({children, title, headerOffset=true, ...rest}) => {
+const Layout = ({children, title, wide=false, headerOffset=true, ...rest}) => {
   const openGraph = {
     url: 'https://srinjoy.me',
     type: 'website',
@@ -24,7 +24,7 @@ const Layout = ({children, title, headerOffset=true, ...rest}) => {
   return (
     <Box {...rest}>
       <NextSeo title={title} noindex={false} openGraph={openGraph} />
-      <Navigation offset={headerOffset} />
+      <Navigation offset={headerOffset} wide={wide} />
         {children}
       <Footer />
     </Box>
