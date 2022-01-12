@@ -33,7 +33,7 @@ const Navigation = ({offset, wide = false}: NavProps) => {
             alignItems="center"
             py={2}
           >
-            <Flex align="center" mr={5}>
+            <Flex align="center" mx={5}>
               <Link href="/">
                 <Button variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}} ml={-4}>
                   Home
@@ -89,8 +89,7 @@ const Navigation = ({offset, wide = false}: NavProps) => {
                 variant="ghost"
                 aria-label="Toggle color mode"
                 icon={colorMode == "dark" ? <SunIcon/>:<MoonIcon/>}
-                ml={4}
-                mr={-2}
+                mx={4}
                 _hover={{backgroundColor: hoverBackgroundColor}}
               />
             </Box>
