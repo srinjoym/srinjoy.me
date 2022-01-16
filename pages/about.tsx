@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 const bio = `
-  👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft building Mixed Reality apps for the Hololens. This past year, I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
+  👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft building Mixed Reality apps for the Hololens. I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
 
   <br />
 
