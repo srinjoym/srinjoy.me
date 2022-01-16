@@ -17,7 +17,7 @@ const Hero:FunctionComponent<HeroProps> = ({className}) => (
         </Heading>
 
         <Heading size="lg" mt={2} color="white">
-        I'm a Software Engineer at Microsoft building HoloLens
+          I'm an engineer passionate about augmented reality, computer vision and education.
         </Heading>
 
         <SocialIcons my={6}/>
