@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { FrostedContainer } from './style'
 import Container from '../Container'
 import { useColorMode, Flex, Box, Text, Button, IconButton } from '@chakra-ui/react'
-import { FiMenu, FiX, FiUser, FiEdit2, FiCamera } from 'react-icons/fi'
+import { FiMenu, FiX, FiUser, FiEdit2, FiCamera, FiHome } from 'react-icons/fi'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 
 type NavProps = {
@@ -33,15 +33,18 @@ const Navigation = ({offset, wide = false}: NavProps) => {
             alignItems="center"
             py={2}
           >
-            <Flex align="center" mx={5}>
+            <Flex align="center">
               <Link href="/">
-                <Button variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}} ml={-4}>
+                <Button variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
+                  <Box mr={3}>
+                    <FiHome color= {colorMode === "dark" ? "white" : "black"}/>
+                  </Box>
                   Home
                 </Button>
               </Link>
             </Flex>
 
-            <Box display={{ base: "block", md: "none" }} onClick={handleToggle} mx={4}>
+            <Box display={{ base: "block", md: "none" }} onClick={handleToggle} mr={2}>
               {!show &&
                 <FiMenu color= {colorMode === "dark" ? "white" : "black"}/>
               }
@@ -58,8 +61,8 @@ const Navigation = ({offset, wide = false}: NavProps) => {
               flexDirection="column"
             >
               <Link href="/about">
-                <Button mx={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
-                  <Box mr={2}>
+                <Button mr={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
+                  <Box mr={3}>
                     <FiUser color= {colorMode === "dark" ? "white" : "black"}/>
                   </Box>
                   About
@@ -67,8 +70,8 @@ const Navigation = ({offset, wide = false}: NavProps) => {
               </Link>
 
               <Link href="/blog">
-                <Button mx={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
-                  <Box mr={2}>
+                <Button mr={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
+                  <Box mr={3}>
                     <FiEdit2 color= {colorMode === "dark" ? "white" : "black"}/>
                   </Box>
                   Blog
@@ -76,8 +79,8 @@ const Navigation = ({offset, wide = false}: NavProps) => {
               </Link>
 
               <Link href="/photos">
-                <Button mx={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
-                  <Box mr={2}>
+                <Button mr={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
+                  <Box mr={3}>
                     <FiCamera color= {colorMode === "dark" ? "white" : "black"}/>
                   </Box>
                   Photos
@@ -89,8 +92,8 @@ const Navigation = ({offset, wide = false}: NavProps) => {
                 variant="ghost"
                 aria-label="Toggle color mode"
                 icon={colorMode == "dark" ? <SunIcon/>:<MoonIcon/>}
-                mx={4}
                 _hover={{backgroundColor: hoverBackgroundColor}}
+                ml={1}
               />
             </Box>
           </Flex>
