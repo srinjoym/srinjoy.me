@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 const bio = `
-  👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft building Mixed Reality apps for the Hololens. I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
+  👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft in Seattle, WA. I work on the [Microsoft Hololens](https://www.microsoft.com/en-us/hololens), an Augmented Reality headset designed for enterprises. I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
 
   <br />
 
@@ -15,7 +15,7 @@ const bio = `
 
   <br />
 
-  Previously, I worked part-time as a Software Engineer at GitHub while going to school. I worked on various projects such as developing [GitHub Classroom](https://github.com/srinjoym/classroom) and other social features on GitHub.
+  Previously, I worked part-time as a Software Engineer at GitHub. I worked on projects such as [GitHub Classroom](https://github.com/srinjoym/classroom) and the GitHub Profile.
 `
 
 const Page = () => (
@@ -38,7 +38,7 @@ const Page = () => (
 
       <ReactMarkdown source={bio} renderers={{link: Link}} escapeHtml={false} />
 
-      <Image width="300px" rounded="lg" mt={6} marginLeft="auto" marginRight="auto" src={('/img/prof.jpg')} />
+      <Image width="500px" rounded="lg" mt={6} marginLeft="auto" marginRight="auto" src={('/img/prof.jpg')} />
     </Container>
   </Layout>
 )
