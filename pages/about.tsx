@@ -6,7 +6,7 @@ import Layout from '../components/Layout'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 const bio = `
-  👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft in Seattle, WA. I work on the [Microsoft Hololens](https://www.microsoft.com/en-us/hololens), an Augmented Reality headset designed for enterprises. I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
+  👋 Hi I'm Srinjoy! I'm a Software Engineer at Microsoft in Seattle, WA. I develop Computer Vision systems and Mixed Reality apps for the [Microsoft Hololens](https://www.microsoft.com/en-us/hololens). I graduated from the University of Texas at Austin with a degree in Electrical and Computer Engineering 🤘
 
   <br />
 
