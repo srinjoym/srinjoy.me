@@ -7,7 +7,7 @@ type SectionHeaderProps = {
 }
 
 const SectionHeader:FunctionComponent<SectionHeaderProps&HeadingProps> = ({title, ...rest}) => (
-    <Heading size="xl" my={4} {...rest}>
+    <Heading size="lg" my={4} {...rest}>
       {title}
     </Heading>
 )

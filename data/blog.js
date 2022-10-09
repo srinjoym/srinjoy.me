@@ -1,5 +1,12 @@
 const BlogPostIndex = [
   {
+    'title': "Things I'm building",
+    'image': '/img/huzzah32.jpg',
+    'text': "A list of projects I built over the past couple of years that I never finished",
+    'link': "blog/what-i'm-building",
+    'published': 'May 31, 2020'
+  },
+  {
     'title': 'Installing MicroPython on the ESP32 (macOS)',
     'image': '/img/huzzah32.jpg',
     'text': "I've been tinkering around with a lot of Bluetooth Low Energy (BLE) projects on my Adafruit Huzzah32 (a board with the ESP32 chip) during quarantine. This is a quick guide on installing the MicroPython firmware on macOS.",

@@ -35,12 +35,12 @@ const Navigation = ({offset, wide = false}: NavProps) => {
           >
             <Flex align="center">
               <Link href="/">
-                <Button variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
-                  <Box mr={3}>
-                    <FiHome color= {colorMode === "dark" ? "white" : "black"}/>
-                  </Box>
-                  Home
-                </Button>
+                <IconButton
+                  variant="ghost"
+                  _hover={{backgroundColor: hoverBackgroundColor}}
+                  aria-label="Home"
+                  icon={<FiHome color= {colorMode === "dark" ? "white" : "black"}/>}
+                />
               </Link>
             </Flex>
 
@@ -62,27 +62,18 @@ const Navigation = ({offset, wide = false}: NavProps) => {
             >
               <Link href="/about">
                 <Button mr={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
-                  <Box mr={3}>
-                    <FiUser color= {colorMode === "dark" ? "white" : "black"}/>
-                  </Box>
                   About
                 </Button>
               </Link>
 
               <Link href="/blog">
                 <Button mr={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
-                  <Box mr={3}>
-                    <FiEdit2 color= {colorMode === "dark" ? "white" : "black"}/>
-                  </Box>
                   Blog
                 </Button>
               </Link>
 
               <Link href="/photos">
                 <Button mr={2} variant="ghost" _hover={{backgroundColor: hoverBackgroundColor}}>
-                  <Box mr={3}>
-                    <FiCamera color= {colorMode === "dark" ? "white" : "black"}/>
-                  </Box>
                   Photos
                 </Button>
               </Link>

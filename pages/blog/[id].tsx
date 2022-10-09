@@ -9,7 +9,7 @@ import Layout from '../../components/Layout'
 import { getPageTitle } from 'notion-utils'
 
 export const getStaticProps = async (context) => {
-  const pageId = rootNotionPageId
+  const pageId = (context.params.id as string) || rootNotionPageId
   const recordMap = await notion.getPage(pageId)
 
   return {
@@ -17,6 +17,13 @@ export const getStaticProps = async (context) => {
       recordMap
     },
     revalidate: 10
+  }
+}
+
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: true
   }
 }
 

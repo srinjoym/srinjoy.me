@@ -14,14 +14,14 @@ const SocialIconLink = ({Icon, link, ...rest}:SocialIconLinkProps&StackProps) =>
     _hover={{transform: "scale(1.05)"}}
     {...rest}>
 
-    <Link href={link}>
+    <Link href={link} isExternal>
       <Icon />
     </Link>
   </Box>
 )
 
 const SocialIcons = (props: StackProps) => (
-  <Stack isInline fontSize="2.5em" color="white" {...props}>
+  <Stack isInline fontSize="2em" {...props}>
     <SocialIconLink Icon={FiTwitter} link="https://twitter.com/SrinjoyMajumdar" mr={2} />
     <SocialIconLink Icon={FiGithub} link="https://github.com/srinjoym" mx={2} />
     <SocialIconLink Icon={FiLinkedin} link="https://www.linkedin.com/in/srinjoym" mx={2}/>

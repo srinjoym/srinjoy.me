@@ -1,17 +1,17 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main, NextScript, Html } from 'next/document';
 import React from 'react';
 import { ColorModeScript } from '@chakra-ui/react';
 
 class MyDocument extends Document {
   render() {
     return (
-      <html lang="en">
+      <Html lang="en">
         <Head>
           <meta name="description" content="Srinjoy Majumdar is an engineer passionate about augmented reality, computer vision and education"/>
           <meta name="author" content="Srinjoy Majumdar"/>
           <meta name="apple-mobile-web-app-capable" content="yes"/>
           <meta name="HandheldFriendly" content="True"/>
-          <meta http-equiv="cleartype" content="on"/>
+          <meta httpEquiv="cleartype" content="on"/>
           <link rel="icon"
             type="image/png"
             href="/img/favicon.png?v=1.2"
@@ -72,7 +72,7 @@ class MyDocument extends Document {
               `,
             }}
           />
-      </html>
+      </Html>
     );
   }
 }

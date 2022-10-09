@@ -57,12 +57,12 @@ export const defaults = {
   ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
   li: (props) => <Box as="li" {...props} />,
   definition: () => null,
-  h1: (props) => formatHeading({level: 1, ...props}),
-  h2: (props) => formatHeading({level: 2, ...props}),
-  h3: (props) => formatHeading({level: 3, ...props}),
-  h4: (props) => formatHeading({level: 4, ...props}),
-  h5: (props) => formatHeading({level: 5, ...props}),
-  h6: (props) => formatHeading({level: 6, ...props}),
+  h1: formatHeading({level: 1}),
+  h2: formatHeading({level: 2}),
+  h3: formatHeading({level: 3}),
+  h4: formatHeading({level: 4}),
+  h5: formatHeading({level: 5}),
+  h6: formatHeading({level: 6}),
   inlineCode: props => {
     const { children } = props;
     return <Code rounded="md">{children}</Code>;

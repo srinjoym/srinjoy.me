@@ -43,7 +43,7 @@ const Feature:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, imag
     <Flex pb={6} {...rest}>
       <Box flexGrow={1}>
         <LinkWrapper href={link}>
-          <Heading color="blue.500" cursor="pointer" fontSize={["md", "md", "lg", "xl"]} onClick={trackEvent}>{title}</Heading>
+          <Heading cursor="pointer" fontSize={["md", "md", "lg", "lg"]} onClick={trackEvent}>{title}</Heading>
         </LinkWrapper>
         <ClampContainer mt={2} fontSize={["sm", "sm", "md", "md"]}>
           <Text>{desc}</Text>
