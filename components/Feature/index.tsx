@@ -23,7 +23,7 @@ type CardProps = {
   desc: string
   link: string
   imageLink: string
-  date: ButtonData
+  date: string
   isExternal: boolean
 }
 
