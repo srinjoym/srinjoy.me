@@ -16,6 +16,8 @@
     "@mdx-js/loader": "^2.1.4",
     "@mdx-js/react": "^2.1.4",
     "@next/mdx": "^12.3.1",
+    "@react-three/drei": "^9.34.3",
+    "@react-three/fiber": "^8.8.9",
     "add": "^2.0.6",
     "autoprefixer": "^9.7.3",
     "cssnano": "^4.1.10",
@@ -24,6 +26,7 @@
     "gray-matter": "^4.0.2",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^7.1.0",
+    "lamina": "^1.1.23",
     "next": "12",
     "next-seo": "^4.5.0",
     "notion-client": "^6.13.11",
@@ -40,6 +43,7 @@
     "react-twitter-embed": "^3.0.3",
     "react-visibility-sensor": "^5.1.1",
     "styled-components": "^4.4.1",
+    "three": "^0.145.0",
     "yarn": "^1.22.4"
   },
   "devDependencies": {
