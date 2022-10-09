@@ -1,32 +1,24 @@
-import * as React from 'react'
-
-import { ExtendedRecordMap } from 'notion-types'
-
-import { NotionPage } from '../../components/NotionPage'
-import { rootNotionPageId } from '../../lib/config'
-import notion from '../../lib/notion'
+import React from 'react'
+import Container from '../../components/Container'
+import { Heading } from '@chakra-ui/react'
+import blogPostIndex from "../../data/blog"
+import Link from 'next/link'
 import Layout from '../../components/Layout'
-import { getPageTitle } from 'notion-utils'
+import StackSection from '../../components/StackSection'
 
-export const getStaticProps = async (context) => {
-  const pageId = rootNotionPageId
-  const recordMap = await notion.getPage(pageId)
+const Page = () => (
+  <Layout title="Blog">
+    <Container>
+      <Heading mt={6}>
+        Blog
+      </Heading>
+      <Heading size="md" mt={2} mb={4} color="gray.500">
+        A work-in-progress set of articles on things I've built
+      </Heading>
+    </Container>
 
-  return {
-    props: {
-      recordMap
-    },
-    revalidate: 10
-  }
-}
-
-export default function Page({ recordMap }: { recordMap: ExtendedRecordMap }) {
-  let title = ""
-  if (recordMap) {
-    title = getPageTitle(recordMap)
-  }
-
-  return <Layout title={title}>
-    <NotionPage recordMap={recordMap} rootPageId={rootNotionPageId} />
+    <StackSection data={blogPostIndex}/>
   </Layout>
-}
+)
+
+export default Page

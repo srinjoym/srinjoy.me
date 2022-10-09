@@ -1,11 +1,14 @@
+export const PageMap = {
+  "installing-micropython-on-the-esp32": "4020fe12-c17b-43e2-b76d-86a4ea72baf7",
+  "setting-up-mrtk-on-ios": "8320a43a-ec1b-4c3b-b380-de1d2c7a6954",
+  "legoworld": "ea774205-60a6-4f02-98fb-4124bd728fd4",
+  "softrobot": "82c74506-2638-440b-9223-0327138b902a",
+  "monkeypython": "7bf40d41-6a65-435b-af61-02aaacea9fbd",
+  "junkymonkey": "8862c8ab-0d2b-4817-bef5-a0c19d39de9e",
+  "funkcannon": "e8bf5b39-67e3-405e-9dff-b6635485c157"
+}
+
 const BlogPostIndex = [
-  {
-    'title': "Things I'm building",
-    'image': '/img/huzzah32.jpg',
-    'text': "A list of projects I built over the past couple of years that I never finished",
-    'link': "blog/what-i'm-building",
-    'published': 'May 31, 2020'
-  },
   {
     'title': 'Installing MicroPython on the ESP32 (macOS)',
     'image': '/img/huzzah32.jpg',
