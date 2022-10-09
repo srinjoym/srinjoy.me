@@ -25,7 +25,7 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-, "components/Scene/index.jsx"    "**/*.tsx",
+    "**/*.tsx",
     "components/SectionHeader/index.jsx",
     "components/Utilities/MarkdownComponents.jsx"
   ]
