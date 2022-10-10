@@ -9,10 +9,10 @@ import StackSection from '../../components/StackSection'
 const Page = () => (
   <Layout title="Blog">
     <Container>
-      <Heading mt={6}>
+      <Heading size="lg" mt={6}>
         Blog
       </Heading>
-      <Heading size="md" mt={2} mb={4} color="gray.500">
+      <Heading size="sm" mt={2} mb={4} color="gray.500">
         A work-in-progress set of articles on things I've built
       </Heading>
     </Container>

@@ -84,12 +84,12 @@ const Photos = ({ title, photosets, photos, sizes }) => {
   return (
     <Layout title="Photos" wide>
         <Container wide>
-          <Heading mt={6}>{title}</Heading>
+          <Heading size="lg" mt={6}>{title}</Heading>
           <Heading size="md" mt={2} mb={4} color="gray.500">
             Shot on Sony A7III and Nikon D5100
           </Heading>
 
-          <Heading size="lg" pb={2} pt={5}>Collections</Heading>
+          <Heading size="md" pb={2} pt={5}>Collections</Heading>
           <SimpleGrid columns={{base: 2, sm:3, md: 5}} spacing={2} pb={6}>
             {photosets.map(photoset => (
               <NextLink key={photoset.id} href={`/photos/[slug]`} as={`/photos/${photoset.id}`}>
@@ -130,7 +130,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
           </SimpleGrid>
 
 
-          <Heading size="lg" pt={4} pb={2}>Recent Photos</Heading>
+          <Heading size="md" pt={4} pb={2}>Recent Photos</Heading>
           <Gallery photos={galleryLinks()} direction="row" margin={4} renderImage={imageRenderer}/>
 
           <Button onClick={loadNextPhotos} display={loadMoreEnabled ? "block":"none"} mt={8} mb={2} mx="auto">Load More</Button>

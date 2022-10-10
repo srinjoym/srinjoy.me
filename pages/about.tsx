@@ -22,7 +22,7 @@ const Page = () => (
   <Layout title="About">
     <Container>
       <Flex alignItems="center" my={6}>
-        <Heading flexGrow={1}>
+        <Heading size="lg" flexGrow={1}>
           About Me
         </Heading>
 
