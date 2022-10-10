@@ -1,7 +1,7 @@
 import React, {FunctionComponent} from 'react'
 import { GradientBackground } from "./style"
 import Container from "../Container"
-import { Heading, Box, Text, HStack } from "@chakra-ui/react"
+import { Heading, Box, Text, Stack } from "@chakra-ui/react"
 import SocialIcons from "../Utilities/SocialIcons"
 import Scene from "../Scene"
 
@@ -13,7 +13,7 @@ const Hero:FunctionComponent<HeroProps> = ({className}) => (
   <>
     <Box pb={8} pt={28}>
       <Container>
-        <HStack>
+        <Stack direction={{base: "column", md: "row"}}>
           <Box>
             <Heading as="h1" size="lg">
               Hi! I'm Srinjoy
@@ -27,7 +27,7 @@ const Hero:FunctionComponent<HeroProps> = ({className}) => (
           </Box>
 
           <Scene />
-        </HStack>
+        </Stack>
       </Container>
     </Box>
   </>
