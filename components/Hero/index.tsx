@@ -13,7 +13,7 @@ const Hero:FunctionComponent<HeroProps> = ({className}) => (
   <>
     <Box pb={8} pt={28}>
       <Container>
-        <Stack direction={{base: "column", md: "row"}}>
+        <Stack direction={{base: "row", md: "row"}}>
           <Box>
             <Heading as="h1" size="lg">
               Hi! I'm Srinjoy
