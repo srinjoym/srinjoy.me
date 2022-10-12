@@ -155,8 +155,8 @@ const Model = ({photoUrls, ...props}) => {
         material={materials.Display1}
         position={[1.2, -0.28, 0.42]}
       >
-        <Html rotation={[0, Math.PI/2, 0]} position={[0.1, 0, 0]} transform occlude>
-            <div style={{"backgroundColor": "blue", "pointerEvents": "none"}}>
+        <Html rotation={[0, Math.PI/2, 0]} position={[0.1, 0, 0]} zIndexRange={[99, 0]} transform occlude>
+            <div style={{"backgroundColor": "blue", "pointerEvents": "none", "zIndex": 0}}>
                 <Image src={photoUrls[photoIdx]} w="108px" h="52px"/>
             </div>
         </Html>
