@@ -13,7 +13,7 @@ const Hero:FunctionComponent<HeroProps> = ({className, photoUrls}) => (
   <>
     <Box pb={8} pt={28}>
       <Container maxW="container.md">
-        <Stack direction={{base: "row", md: "row"}}>
+        <Stack direction={{base: "column", md: "row"}}>
           <Box>
             <Heading as="h1" size="lg">
               Hi! I'm Srinjoy
