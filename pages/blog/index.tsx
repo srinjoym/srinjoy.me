@@ -1,6 +1,5 @@
 import React from 'react'
-import Container from '../../components/Container'
-import { Heading } from '@chakra-ui/react'
+import { Container, Heading } from '@chakra-ui/react'
 import blogPostIndex from "../../data/blog"
 import Link from 'next/link'
 import Layout from '../../components/Layout'
@@ -8,7 +7,7 @@ import StackSection from '../../components/StackSection'
 
 const Page = () => (
   <Layout title="Blog">
-    <Container>
+    <Container maxW="container.md">
       <Heading size="lg" mt={6}>
         Blog
       </Heading>

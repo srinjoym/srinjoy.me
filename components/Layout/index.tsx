@@ -26,7 +26,7 @@ const Layout = ({children, title, wide=false, headerOffset=true, ...rest}) => {
       <NextSeo title={title} noindex={false} openGraph={openGraph} />
       <Navigation offset={headerOffset} wide={wide} />
         {children}
-      <Footer />
+      <Footer wide={wide} />
     </Box>
   )
 }

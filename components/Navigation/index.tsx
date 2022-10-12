@@ -2,8 +2,7 @@ import React, {useState} from 'react'
 import Link from 'next/link'
 
 import { FrostedContainer } from './style'
-import Container from '../Container'
-import { useColorMode, Flex, Box, Text, Button, IconButton } from '@chakra-ui/react'
+import { useColorMode, Flex, Box, Text, Button, IconButton, Container } from '@chakra-ui/react'
 import { FiMenu, FiX, FiUser, FiEdit2, FiCamera, FiHome } from 'react-icons/fi'
 import { SunIcon, MoonIcon } from '@chakra-ui/icons'
 
@@ -25,7 +24,7 @@ const Navigation = ({offset, wide = false}: NavProps) => {
   return (
     <div>
       <FrostedContainer backgroundColor={colorMode === "dark" ? "rgba(0, 0, 10, .7)":"rgba(255, 255, 255, .9)"}>
-        <Container wide={wide}>
+        <Container maxW={wide ? "container.lg":"container.md"}>
           <Flex
             as="nav"
             justify="space-between"

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import SectionHeader from "../SectionHeader"
-import { SimpleGrid, Box, Image, Flex, Button, Link } from '@chakra-ui/react'
+import { SimpleGrid, Box, Image, Flex, Button, Link, Container } from '@chakra-ui/react'
 import NextLink from 'next/link'
-import Container from "../Container"
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css'
 import { ArrowForwardIcon } from '@chakra-ui/icons'
@@ -21,7 +20,7 @@ const FlickrImageSection = ({photoURLs}) => {
   }
 
   return (
-    <Container>
+    <Container maxW="container.md">
       <Flex alignItems="center">
         <SectionHeader title="Recent Photos" flexGrow={1}/>
         <NextLink href="/photos">
@@ -33,7 +32,7 @@ const FlickrImageSection = ({photoURLs}) => {
 
       <SimpleGrid columns={{base: 2, md:3}} spacing={{base: 3, md: 5}}>
         {photoURLs.map((url, index) => (
-          <Link _hover={{transition: "all .2s ease-in-out", transform: "scale(1.01)"}} onClick={() => openModal(index)}>
+          <Link key={index} _hover={{transition: "all .2s ease-in-out", transform: "scale(1.01)"}} onClick={() => openModal(index)}>
             <Box maxW="sm" borderWidth="1px" rounded="lg" overflow="hidden" borderStyle="solid" position="relative">
               <Image src={url} />
             </Box>

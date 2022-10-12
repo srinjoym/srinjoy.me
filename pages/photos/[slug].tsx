@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Image, Heading, Box, Button } from "@chakra-ui/react"
+import { Image, Heading, Box, Button, Container } from "@chakra-ui/react"
 import NextLink from 'next/link'
-import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
 import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
@@ -82,7 +81,7 @@ function Home({ title, photos, sizes }){
 
   return (
     <Layout title={`${title}`} wide>
-      <Container wide>
+      <Container size="container.md">
         <NextLink href="/photos">
           <Button mt={6} mb={2} leftIcon={<ChevronLeftIcon/>} size="sm">Back to Photos</Button>
         </NextLink>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import { Box, Image, SimpleGrid, Text, Heading, Button } from "@chakra-ui/react"
+import { Box, Image, SimpleGrid, Text, Heading, Button, Container } from "@chakra-ui/react"
 import NextLink from 'next/link'
-import Container from "../../components/Container"
 import Lightbox from 'react-image-lightbox'
 import 'react-image-lightbox/style.css' // This only needs to be imported once in your app
 import Gallery, { PhotoProps, RenderImageProps } from 'react-photo-gallery'
@@ -83,7 +82,7 @@ const Photos = ({ title, photosets, photos, sizes }) => {
 
   return (
     <Layout title="Photos" wide>
-        <Container wide>
+        <Container maxW="container.lg">
           <Heading size="lg" mt={6}>{title}</Heading>
           <Heading size="md" mt={2} mb={4} color="gray.500">
             Shot on Sony A7III and Nikon D5100
