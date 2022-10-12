@@ -10,7 +10,7 @@ const flickr = new Flickr(process.env.FLICKR_API_KEY)
 
 const Home = ({photoURLs}) => (
   <Layout title="Home" headerOffset={false}>
-    <Hero className="pt-12" />
+    <Hero className="pt-12" photoUrls={photoURLs} />
 
     <StackSection title="Blog" data={blogIndex.slice(0, 3)} seeMoreLink="/blog" />
     <StackSection title="Research" data={researchIndex} />

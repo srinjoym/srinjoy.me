@@ -1,6 +1,5 @@
 import React from 'react'
-import Container from '../components/Container'
-import { Heading, Box, Image, Link, Flex, Button } from '@chakra-ui/react'
+import { Heading, Box, Image, Link, Flex, Button, Container } from '@chakra-ui/react'
 import ReactMarkdown from 'react-markdown/with-html'
 import Layout from '../components/Layout'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
@@ -20,7 +19,7 @@ const bio = `
 
 const Page = () => (
   <Layout title="About">
-    <Container>
+    <Container maxW="container.md">
       <Flex alignItems="center" my={6}>
         <Heading size="lg" flexGrow={1}>
           About Me

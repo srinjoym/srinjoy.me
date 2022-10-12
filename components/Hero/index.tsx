@@ -1,18 +1,18 @@
 import React, {FunctionComponent} from 'react'
 import { GradientBackground } from "./style"
-import Container from "../Container"
-import { Heading, Box, Text, Stack } from "@chakra-ui/react"
+import { Heading, Box, Text, Stack, Container } from "@chakra-ui/react"
 import SocialIcons from "../Utilities/SocialIcons"
 import Scene from "../Scene"
 
 type HeroProps = {
   className?:string
+  photoUrls?:string[]
 }
 
-const Hero:FunctionComponent<HeroProps> = ({className}) => (
+const Hero:FunctionComponent<HeroProps> = ({className, photoUrls}) => (
   <>
     <Box pb={8} pt={28}>
-      <Container>
+      <Container maxW="container.md">
         <Stack direction={{base: "row", md: "row"}}>
           <Box>
             <Heading as="h1" size="lg">
@@ -26,7 +26,7 @@ const Hero:FunctionComponent<HeroProps> = ({className}) => (
             <SocialIcons my={6}/>
           </Box>
 
-          <Scene />
+          <Scene photoUrls={photoUrls} />
         </Stack>
       </Container>
     </Box>
