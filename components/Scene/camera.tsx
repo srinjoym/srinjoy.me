@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { Image } from "@chakra-ui/react"
 import { useFrame } from "@react-three/fiber";
 import { useSpring, a } from "@react-spring/three"
+import ReactGA from 'react-ga'
 
 const Model = ({photoUrls, ...props}) => {
   const { nodes, materials } = useGLTF("/camera_xyz_blend.glb");
@@ -14,6 +15,13 @@ const Model = ({photoUrls, ...props}) => {
   const ref = useRef<any>()
   const [hovered, hover] = useState(false)
   const { scale } = useSpring({ scale: hovered ? [1.1,1.1,1.1]:[1,1,1] })
+
+  const trackEvent = () => {
+    ReactGA.event({
+      category: 'Hero',
+      action: 'CameraClick',
+    })
+  }
 
   useEffect(() => {
     const switchPicture = () => {
@@ -39,7 +47,7 @@ const Model = ({photoUrls, ...props}) => {
   return (
     // @ts-ignore
     <a.group {...props} dispose={null} ref={ref} onPointerOver={(_) => hover(true)}
-    onPointerOut={(_) => hover(false)} scale={scale}>
+    onPointerOut={(_) => hover(false)} onClick={trackEvent} scale={scale}>
       <mesh
         castShadow
         receiveShadow
