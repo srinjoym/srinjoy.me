@@ -37,6 +37,7 @@ const Model = ({photoUrls, ...props}) => {
   })
 
   return (
+    // @ts-ignore
     <a.group {...props} dispose={null} ref={ref} onPointerOver={(_) => hover(true)}
     onPointerOut={(_) => hover(false)} scale={scale}>
       <mesh
@@ -166,4 +167,4 @@ const Model = ({photoUrls, ...props}) => {
 
 export default Model
 
-// useGLTF.preload("/camera_xyz_blend.glb");
+useGLTF.preload("/camera_xyz_blend.glb");
