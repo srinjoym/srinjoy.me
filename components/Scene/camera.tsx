@@ -167,7 +167,7 @@ const Model:React.FC<CameraProps> = ({photoUrls, ...props}) => {
         material={materials.Display1}
         position={[1.2, -0.28, 0.42]}
       >
-        <Image url={photoUrls[photoIdx]} scale={[2.8,1.5]} position={[0.1, 0, 0]} rotation={[0, Math.PI/2, 0]}/>
+        <Image url={photoUrls[photoIdx]} scale={[2.8,1.5]} position={[0.02, 0, 0]} rotation={[0, Math.PI/2, 0]}/>
       </mesh>
     </a.group>
   );
