@@ -8,7 +8,7 @@ export const Scene = ({photoUrls}) => {
 
   return (
   <Canvas dpr={[1, 2]} camera={{ fov: 35 }} shadows>
-      <Stage controls={ref} preset="rembrandt" intensity={1}>
+      <Stage controls={ref} preset="rembrandt" intensity={0.3}>
         {/* <Suspense> */}
           <Camera photoUrls={photoUrls} />
         {/* </Suspense> */}

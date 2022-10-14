@@ -23,7 +23,7 @@ const Navigation = ({offset, wide = false}: NavProps) => {
 
   return (
     <div>
-      <FrostedContainer backgroundColor={colorMode === "dark" ? "rgba(0, 0, 10, .7)":"rgba(255, 255, 255, .9)"}>
+      <FrostedContainer backgroundColor={colorMode === "dark" ? "rgba(26, 32, 44, .7)":"rgba(255, 255, 255, .9)"}>
         <Container maxW={wide ? "container.lg":"container.md"}>
           <Flex
             as="nav"
