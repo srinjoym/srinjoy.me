@@ -26,7 +26,9 @@ const Hero:FunctionComponent<HeroProps> = ({className, photoUrls}) => (
             <SocialIcons my={6}/>
           </Box>
 
-          <Scene photoUrls={photoUrls} />
+          <Box height="200px">
+            <Scene photoUrls={photoUrls} />
+          </Box>
         </Stack>
       </Container>
     </Box>

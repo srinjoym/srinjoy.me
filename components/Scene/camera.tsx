@@ -14,12 +14,12 @@ interface CameraProps {
   photoUrls: string[]
 }
 
-const Model:React.FC<CameraProps> = ({photoUrls, ...props}) => {
+const Camera:React.FC<CameraProps> = ({photoUrls, ...props}) => {
   const { nodes, materials } = useGLTF("/camera_xyz_blend.glb");
   const [photoIdx, setPhotoIdx] = useState(0)
   const ref = useRef<any>()
   const [hovered, hover] = useState(false)
-  const { scale } = useSpring({ scale: hovered ? [1.1,1.1,1.1]:[1,1,1] })
+  const { rotY } = useSpring({ rotY: hovered ? 3.3*Math.PI/2:3.4*Math.PI/2 })
 
   const trackEvent = () => {
     ReactGA.event({
@@ -34,6 +34,12 @@ const Model:React.FC<CameraProps> = ({photoUrls, ...props}) => {
     }
     const interval = setInterval(switchPicture, 5000)
 
+    if (ref.current) {
+      ref.current.rotation.x = 0
+      ref.current.rotation.y = 0
+      ref.current.rotation.z = 0
+    }
+
     return () => {
       clearInterval(interval)
     }
@@ -42,16 +48,13 @@ const Model:React.FC<CameraProps> = ({photoUrls, ...props}) => {
   useFrame((state) => {
     if (ref.current) {
       const t = state.clock.getElapsedTime()
-      ref.current.rotation.x = Math.cos(t / 4) / 8
-      ref.current.rotation.y = Math.PI/6 + Math.sin(t / 4) / 8
+      ref.current.rotation.y = rotY.get() + Math.sin(t / 4) / 8
       ref.current.rotation.z = (1 + Math.sin(t / 1.5)) / 20
-      // ref.current.position.y = (1 + Math.sin(t / 1.5)) / 10
     }
   })
 
   return (
-    <a.group {...props} dispose={null} ref={ref} onPointerOver={(_) => hover(true)}
-    onPointerOut={(_) => hover(false)} onClick={trackEvent} scale={scale}>
+    <a.group {...props} dispose={null} ref={ref} onClick={trackEvent} onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}>
       <mesh
         castShadow
         receiveShadow
@@ -165,7 +168,7 @@ const Model:React.FC<CameraProps> = ({photoUrls, ...props}) => {
         receiveShadow
         geometry={nodes.Screen.geometry}
         material={materials.Display1}
-        position={[1.2, -0.28, 0.42]}
+        position={[1.27, -0.29, 0.42]}
       >
         <Image url={photoUrls[photoIdx]} scale={[2.8,1.5]} position={[0.02, 0, 0]} rotation={[0, Math.PI/2, 0]}/>
       </mesh>
@@ -173,6 +176,6 @@ const Model:React.FC<CameraProps> = ({photoUrls, ...props}) => {
   );
 }
 
-export default Model
+export default Camera
 
 useGLTF.preload("/camera_xyz_blend.glb");
