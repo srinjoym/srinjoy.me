@@ -81,7 +81,7 @@ function Home({ title, photos, sizes }){
 
   return (
     <Layout title={`${title}`} wide>
-      <Container size="container.md">
+      <Container maxW="container.lg">
         <NextLink href="/photos">
           <Button mt={6} mb={2} leftIcon={<ChevronLeftIcon/>} size="sm">Back to Photos</Button>
         </NextLink>
