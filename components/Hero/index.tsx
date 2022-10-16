@@ -14,7 +14,7 @@ const Hero:FunctionComponent<HeroProps> = ({className, photoUrls}) => (
     <Box pb={8} pt={28}>
       <Container maxW="container.md">
         <Stack direction={{base: "column", md: "row"}}>
-          <Box>
+          <Box width={{base: "100%", md: "50%"}}>
             <Heading as="h1" size="lg">
               Hi! I'm Srinjoy
             </Heading>
@@ -26,7 +26,7 @@ const Hero:FunctionComponent<HeroProps> = ({className, photoUrls}) => (
             <SocialIcons my={6}/>
           </Box>
 
-          <Box height="200px">
+          <Box width={{base: "100%", md: "50%"}} height="200px">
             <Scene photoUrls={photoUrls} />
           </Box>
         </Stack>
