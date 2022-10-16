@@ -43,12 +43,12 @@ const Feature:FunctionComponent<CardProps&FlexProps> = ({title, desc, link, imag
     <Flex pb={6} {...rest}>
       <Box flexGrow={1}>
         <LinkWrapper href={link}>
-          <Heading cursor="pointer" fontSize={["md", "md", "lg", "lg"]} onClick={trackEvent}>{title}</Heading>
+          <Heading cursor="pointer" fontSize={["md", "md", "md", "md"]} onClick={trackEvent}>{title}</Heading>
         </LinkWrapper>
-        <ClampContainer mt={2} fontSize={["sm", "sm", "md", "md"]}>
+        <ClampContainer mt={2} fontSize={["sm", "sm", "sm", "sm"]}>
           <Text>{desc}</Text>
         </ClampContainer>
-        <Text mt={2} fontSize={["xs", "xs", "sm", "sm"]} color="gray.500">{date}</Text>
+        <Text mt={2} fontSize={["xs", "xs", "xs", "xs"]} color="gray.500">{date}</Text>
       </Box>
 
       <Image src={imageLink} rounded="lg" maxH={["70px", "70px", "70px", "100px"]} maxW={["70px", "70px", "70px", "100px"]} ml={2}/>

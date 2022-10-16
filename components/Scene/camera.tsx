@@ -9,17 +9,18 @@ import { Image, useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import ReactGA from 'react-ga';
+import { useColorMode } from '@chakra-ui/react'
 
 interface CameraProps {
   photoUrls: string[]
 }
 
 const Camera:React.FC<CameraProps> = ({photoUrls, ...props}) => {
-  const { nodes, materials } = useGLTF("/camera_xyz_blend.glb");
+  const { nodes, materials } = useGLTF("/LowPolyCamera_Light.glb");
   const [photoIdx, setPhotoIdx] = useState(0)
   const ref = useRef<any>()
   const [hovered, hover] = useState(false)
-  const { rotY } = useSpring({ rotY: hovered ? 3.3*Math.PI/2:3.4*Math.PI/2 })
+  const { rotY } = useSpring({ rotY: hovered ? 1.3*Math.PI/2:1.4*Math.PI/2 })
 
   const trackEvent = () => {
     ReactGA.event({
@@ -53,129 +54,110 @@ const Camera:React.FC<CameraProps> = ({photoUrls, ...props}) => {
     }
   })
 
+  const {colorMode, toggleColorMode} = useColorMode()
+  console.log(materials)
+
   return (
-    <a.group {...props} dispose={null} ref={ref} onClick={trackEvent} onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}>
+    <a.group dispose={null} ref={ref} onClick={trackEvent} onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}>
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.wBox008.geometry}
-        material={materials.Skin}
+        geometry={nodes.Cube.geometry}
+        material={colorMode === "dark" ? materials.DarkBody:materials.LightBody}
       />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_1.geometry}
-        material={materials.Metal}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_2.geometry}
-        material={materials.MetalShadow}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_3.geometry}
-        material={materials.Display}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_4.geometry}
-        material={materials.Display1}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_5.geometry}
-        material={materials.Glass}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_6.geometry}
-        material={materials.Wheel}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_7.geometry}
-        material={materials.Metal3}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_8.geometry}
-        material={materials["2"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_9.geometry}
-        material={materials.Bolt1}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_10.geometry}
-        material={materials.Metal6}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_11.geometry}
-        material={materials.Wheel2}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_12.geometry}
-        material={materials.Metal4}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_13.geometry}
-        material={materials["3"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_14.geometry}
-        material={materials.Metal5}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_15.geometry}
-        material={materials.Bolt}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_16.geometry}
-        material={materials.Red}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.wBox008_17.geometry}
-        material={materials["1"]}
-      />
+      <group position={[0.02, 0.09, 0]}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube001_1.geometry}
+          material={colorMode === "dark" ? materials.DarkBody:materials.LightBody}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube001_2.geometry}
+          material={materials["Material.002"]}
+        />
+      </group>
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Screen.geometry}
-        material={materials.Display1}
-        position={[1.27, -0.29, 0.42]}
+        material={materials["Material.001"]}
+        position={[-0.04, 0, -0.02]}
+        scale={[0.01, 0.75, 1.11]}
       >
-        <Image url={photoUrls[photoIdx]} scale={[2.8,1.5]} position={[0.02, 0, 0]} rotation={[0, Math.PI/2, 0]}/>
+        <Image url={photoUrls[photoIdx]} scale={[0.15,0.15]} position={[-0.1, 0, 0]} rotation={[0, -Math.PI/2, 0]}/>
       </mesh>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cylinder003.geometry}
+        material={materials.DarkBody}
+        position={[0, 0.08, 0.08]}
+        scale={0.92}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cylinder005.geometry}
+        material={materials.Controls}
+        position={[-0.04, -0.02, 0.09]}
+        rotation={[0, 0, -Math.PI / 2]}
+        scale={[0.73, 0.26, 0.73]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cylinder006.geometry}
+        material={materials.Controls}
+        position={[-0.04, -0.05, 0.08]}
+        rotation={[0, 0, -Math.PI / 2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cylinder007.geometry}
+        material={materials.Metal}
+        position={[-0.04, -0.05, 0.1]}
+        rotation={[0, 0, -Math.PI / 2]}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cylinder008.geometry}
+        material={materials.Controls}
+        position={[-0.04, 0.02, 0.08]}
+        rotation={[0, 0, -Math.PI / 2]}
+        scale={1.2}
+      />
+      <group position={[0.08, 0, 0]} rotation={[0, 0, -Math.PI / 2]}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder009.geometry}
+          material={materials.Metal}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cylinder009_1.geometry}
+          material={materials["Material.002"]}
+        />
+      </group>
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Cylinder.geometry}
+        material={materials.Material}
+        position={[0.04, 0, 0]}
+        rotation={[0, 0, -Math.PI / 2]}
+        scale={[1.02, 0.02, 1.02]}
+      />
     </a.group>
   );
 }
 
 export default Camera
 
-useGLTF.preload("/camera_xyz_blend.glb");
+useGLTF.preload("/LowPolyCamera_Light.glb");

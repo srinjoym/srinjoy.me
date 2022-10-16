@@ -7,13 +7,14 @@ export const Scene = ({photoUrls}) => {
   const ref = useRef()
 
   return (
-  <Canvas dpr={[1, 2]} camera={{ fov: 35 }} shadows>
-      <Stage controls={ref} preset="rembrandt" intensity={0.3}>
-        {/* <Suspense> */}
-          <Camera photoUrls={photoUrls} />
-        {/* </Suspense> */}
-      </Stage>
-    <OrbitControls ref={ref} enableZoom={false} />
+  <Canvas dpr={[1, 2]} camera={{ fov: 50, zoom: 20 }} shadows>
+    <ambientLight intensity={1} />
+    <spotLight intensity={2} position={[0.2, 0.4, 0.2]} />
+    <pointLight intensity={1} position={[-0.4, -0.1, -0.4]} />
+    <Suspense>
+      <Camera photoUrls={photoUrls} />
+    </Suspense>
+    <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={1} ref={ref} />
   </Canvas>
   )
 }

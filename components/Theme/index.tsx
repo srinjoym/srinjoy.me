@@ -9,4 +9,11 @@ export const theme = extendTheme({
   config: {
     useSystemColorMode: true,
   },
+  styles: {
+    global: (props) => ({
+      body: {
+        bg: mode('#fff9f4', '#080019')(props)
+      },
+    }),
+  },
 })
