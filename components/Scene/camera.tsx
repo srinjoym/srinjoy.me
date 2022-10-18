@@ -55,7 +55,6 @@ const Camera:React.FC<CameraProps> = ({photoUrls, ...props}) => {
   })
 
   const {colorMode, toggleColorMode} = useColorMode()
-  console.log(materials)
 
   return (
     <a.group dispose={null} ref={ref} onClick={trackEvent} onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}>
