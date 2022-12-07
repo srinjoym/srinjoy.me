@@ -26,7 +26,7 @@ const Page = () => (
         </Heading>
 
         <Link
-          href="https://drive.google.com/file/d/0B3RGMraz9IZlNi1WZ0ZJU01fdTA/view?usp=sharing"
+          href="https://drive.google.com/file/d/0B3RGMraz9IZlNi1WZ0ZJU01fdTA/view?usp=sharing&resourcekey=0-e5ashghc6RtbW8gGlZ4Vaw"
           _hover={{textDecoration: "none"}}
         >
           <Button rightIcon={<ExternalLinkIcon />}>
