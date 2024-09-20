@@ -20,7 +20,7 @@ const Hero:FunctionComponent<HeroProps> = ({className, photoUrls}) => (
             </Heading>
 
             <Text size="lg" mt={2}>
-              I'm an engineer working on mixed-reality at Microsoft. In my free time, I like to tinker with side projects and take photos
+              I'm the founder of <a href="https://shasta.health">Shasta Health</a> - we build software to help physical therapists go independent. In my free time, I like to tinker with side projects and take photos
             </Text>
 
             <SocialIcons my={6}/>
